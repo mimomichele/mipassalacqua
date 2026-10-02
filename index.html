@@ -185,6 +185,23 @@
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
+<!-- Google Ads: misurazione conversioni (Consent Mode, consenso negato di default) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11099505711"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+try{if(localStorage.getItem('mp_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
+gtag('js',new Date());gtag('config','AW-11099505711');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="mailto:"],a[href*="wa.me/"]');if(a){gtag('event','conversion',{send_to:'AW-11099505711/4AsQCLz2jo4dEK-I1Kwp',transport_type:'beacon'});}},true);
+</script>
+<style>
+#mp-consent{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);color:var(--ink);border-top:1px solid var(--line);padding:14px 20px;display:none;font-family:'Archivo',system-ui,-apple-system,sans-serif;font-size:14px}
+#mp-consent .in{max-width:1080px;margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#mp-consent p{color:var(--muted);max-width:68ch;line-height:1.45}
+#mp-consent .b{display:flex;gap:10px}
+#mp-consent button{font:inherit;cursor:pointer;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink)}
+#mp-consent button.ok{background:var(--btn);color:var(--btn-text);border-color:var(--btn)}
+</style>
 </head>
 <body>
 
@@ -331,5 +348,15 @@
   </div>
 </footer>
 
+<div id="mp-consent" role="dialog" aria-label="Preferenze cookie"><div class="in"><p>Uso cookie di misurazione per capire quali campagne pubblicitarie portano contatti. Puoi accettarli o rifiutarli: il sito funziona allo stesso modo.</p><div class="b"><button type="button" id="mp-no">Rifiuta</button><button type="button" id="mp-yes" class="ok">Accetta</button></div></div></div>
+<script>
+(function(){var el=document.getElementById('mp-consent');if(!el)return;var s=null;try{s=localStorage.getItem('mp_consent');}catch(e){}
+if(!s){el.style.display='block';}
+function set(v){try{localStorage.setItem('mp_consent',v);}catch(e){}
+if(v==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}
+el.style.display='none';}
+document.getElementById('mp-yes').addEventListener('click',function(){set('granted');});
+document.getElementById('mp-no').addEventListener('click',function(){set('denied');});})();
+</script>
 </body>
 </html>
