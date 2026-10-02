@@ -303,18 +303,20 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   <div class="wrap">
     <span>Michele Passalacqua — mipassalacqua.it</span>
     <span>Hospitality · Temporary management · AI</span>
+    <span><a href="privacy.html">Informativa privacy</a> · <a href="#" data-mp-prefs>Preferenze cookie</a></span>
   </div>
 </footer>
 
-<div id="mp-consent" role="dialog" aria-label="Preferenze cookie"><div class="in"><p>Uso cookie di misurazione per capire quali campagne pubblicitarie portano contatti. Puoi accettarli o rifiutarli: il sito funziona allo stesso modo.</p><div class="b"><button type="button" id="mp-no">Rifiuta</button><button type="button" id="mp-yes" class="ok">Accetta</button></div></div></div>
+<div id="mp-consent" role="dialog" aria-label="Preferenze cookie"><div class="in"><p>Uso cookie di misurazione per capire quali campagne pubblicitarie portano contatti. Puoi accettarli o rifiutarli: il sito funziona allo stesso modo. <a href="privacy.html">Informativa</a></p><div class="b"><button type="button" id="mp-no">Rifiuta</button><button type="button" id="mp-yes" class="ok">Accetta</button></div></div></div>
 <script>
 (function(){var el=document.getElementById('mp-consent');if(!el)return;var s=null;try{s=localStorage.getItem('mp_consent');}catch(e){}
 if(!s){el.style.display='block';}
 function set(v){try{localStorage.setItem('mp_consent',v);}catch(e){}
-if(v==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}
+gtag('consent','update',v==='granted'?{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'}:{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
 el.style.display='none';}
 document.getElementById('mp-yes').addEventListener('click',function(){set('granted');});
-document.getElementById('mp-no').addEventListener('click',function(){set('denied');});})();
+document.getElementById('mp-no').addEventListener('click',function(){set('denied');});
+document.querySelectorAll('[data-mp-prefs]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();el.style.display='block';});});})();
 </script>
 </body>
 </html>
