@@ -215,9 +215,10 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   .riga p{font-size:14.5px;color:var(--muted);margin-top:6px}
   .riga .dl{display:inline-block;background:var(--btn);color:var(--btn-text);text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:2px;white-space:nowrap}
   .riga .dl:hover{opacity:.85}
-  .riga .dl small{font-weight:500;opacity:.75;margin-left:6px}
+  .riga .azioni{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .riga .dl.sec{background:transparent;color:var(--ink);border:1px solid var(--line)}
   .riga .wait{font-size:13px;color:var(--faint);white-space:nowrap}
-  @media(max-width:560px){.riga{grid-template-columns:1fr}.riga .dl,.riga .wait{justify-self:start}}
+  @media(max-width:560px){.riga{grid-template-columns:1fr}.riga .dl,.riga .wait,.riga .azioni{justify-self:start;justify-content:flex-start}}
   .nota{margin-top:40px;font-size:14px;color:var(--muted);max-width:60ch}
 </style>
 </head>
@@ -234,45 +235,60 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 
 <header style="padding:56px 0 40px">
   <div class="wrap">
-    <div class="kicker">Area corsisti</div>
+    <div class="kicker">Corso AI · Strutture ricettive · Confcommercio Arezzo</div>
     <h1 style="font-size:clamp(32px,5vw,52px);max-width:22ch">Le dispense <em>del corso.</em></h1>
-    <p class="lede">Qui trovi il materiale delle lezioni in PDF. La pagina non è pubblica: è raggiungibile solo da chi ha il link, quindi tienilo per te e per i compagni di corso.</p>
+    <p class="lede">Qui trovi il materiale di ogni incontro: il bignami, un riassunto in prosa di quello che ci siamo detti, e le slide da rivedere. La pagina non è pubblica: è raggiungibile solo da chi ha il link, quindi tienilo per te e per i compagni di corso.</p>
   </div>
 </header>
 
 <section style="padding:0 0 72px">
   <div class="wrap">
-    <div class="kicker">Materiale</div>
+    <div class="kicker">Gli incontri</div>
     <div class="lista">
       <div class="riga">
         <div>
-          <div class="lez">Lezione 1</div>
-          <h3>Scrivere con l'AI: brand, tono di voce e contenuti</h3>
-          <p>Prompt usati in aula, esempi e checklist per riscrivere i testi della propria attività.</p>
+          <div class="lez">Incontro 1 · 6 ottobre · Zoom</div>
+          <h3>Il viaggiatore che sceglie con l'AI</h3>
+          <p>Come è cambiato l'ospite, la richiesta chiara in quattro elementi, l'AI Act in pratica e le sei regole.</p>
         </div>
-        <a class="dl" href="dispense/lezione-1.pdf" download>Scarica il PDF</a>
+        <div class="azioni">
+          <a class="dl" href="dispense/bignami-1.html">Leggi il bignami</a>
+          <a class="dl sec" href="dispense/incontro-1.html" target="_blank" rel="noopener">Rivedi le slide</a>
+        </div>
       </div>
       <div class="riga">
         <div>
-          <div class="lez">Lezione 2</div>
-          <h3>Farsi trovare: AEO e visibilità nelle risposte dell'AI</h3>
-          <p>Come i motori di risposta scelgono le fonti e cosa sistemare nel proprio sito e nelle schede online.</p>
+          <div class="lez">Incontro 2 · 20 ottobre · Zoom</div>
+          <h3>La struttura che comunica da sola</h3>
+          <p>La scheda della struttura scritta da Claude, il Progetto che se la ricorda e il primo strumento: il Risponditore.</p>
+        </div>
+        <span class="wait">Disponibile dopo la lezione</span>
+        <!-- Dopo il 20 ottobre: caricare incontro-2.html e bignami-2.html in corso/dispense/ e sostituire la riga qui sopra con
+        <div class="azioni">
+          <a class="dl" href="dispense/bignami-2.html">Leggi il bignami</a>
+          <a class="dl sec" href="dispense/incontro-2.html" target="_blank" rel="noopener">Rivedi le slide</a>
+        </div>
+        -->
+      </div>
+      <div class="riga">
+        <div>
+          <div class="lez">Incontri 3 e 4 · 27 ottobre · In presenza, via XXV Aprile, 9–13</div>
+          <h3>Farsi trovare dall'AI, foto, social e reel</h3>
+          <p>Portate il telefono con cinque foto della struttura e il portatile: si lavora insieme.</p>
         </div>
         <span class="wait">Disponibile dopo la lezione</span>
       </div>
       <div class="riga">
         <div>
-          <div class="lez">Lezione 3</div>
-          <h3>Analisi dei dati e revenue con l'AI</h3>
-          <p>Dal foglio di calcolo alle decisioni: i modelli usati in aula e come replicarli sui propri numeri.</p>
+          <div class="lez">Incontro 5 · 3 novembre · Zoom</div>
+          <h3>L'ospite che torna</h3>
         </div>
         <span class="wait">Disponibile dopo la lezione</span>
       </div>
       <div class="riga">
         <div>
-          <div class="lez">Lezione 4</div>
-          <h3>Agenti AI e automazioni da usare da lunedì mattina</h3>
-          <p>Gli strumenti mostrati dal vivo, con i passaggi per configurarli nella propria attività.</p>
+          <div class="lez">Incontro 6 · 10 novembre · Zoom</div>
+          <h3>Numeri, revenue e assistenti su misura</h3>
         </div>
         <span class="wait">Disponibile dopo la lezione</span>
       </div>

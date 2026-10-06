@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Corso AI · Incontro 1 — Il viaggiatore che sceglie con l'AI</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, system-ui, sans-serif; background: #FFFFFF; color: #1D1D1F; -webkit-font-smoothing: antialiased; }
+
+/* ============================================================
+   HOME (selettore vista)
+============================================================ */
+.home { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px; }
+.home-card { max-width: 720px; width: 100%; text-align: center; }
+.home-kicker { font-size: 12px; color: #86868B; letter-spacing: 2.5px; font-weight: 500; margin-bottom: 18px; }
+.home h1 { font-size: 44px; font-weight: 600; letter-spacing: -1.2px; line-height: 1.1; margin-bottom: 14px; }
+.home h1 .accent { color: #2C5F2D; }
+.home .lead { font-size: 17px; color: #6E6E73; max-width: 540px; margin: 0 auto 44px; line-height: 1.5; }
+.home .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 560px; margin: 0 auto 40px; }
+.home .btn { display: block; padding: 24px 20px; border: 1px solid #E5E5EA; border-radius: 14px; text-decoration: none; color: #1D1D1F; transition: all 0.15s ease; background: white; cursor: pointer; font-family: inherit; text-align: left; }
+.home .btn:hover { border-color: #2C5F2D; transform: translateY(-1px); }
+.home .btn .ico { font-size: 22px; margin-bottom: 8px; display: block; }
+.home .btn .lbl { font-size: 13px; color: #86868B; letter-spacing: 1.5px; font-weight: 500; margin-bottom: 4px; }
+.home .btn .ttl { font-size: 19px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.3px; }
+.home .btn .dsc { font-size: 13px; color: #6E6E73; line-height: 1.4; }
+.home .istruzioni { font-size: 13px; color: #86868B; line-height: 1.6; max-width: 540px; margin: 0 auto; padding: 20px; background: #F5F5F7; border-radius: 12px; text-align: left; }
+.home .istruzioni strong { color: #1D1D1F; font-weight: 600; }
+
+/* ============================================================
+   VISTA PUBBLICO (slide a tutto schermo)
+============================================================ */
+.pubblico { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; background: #FFFFFF; overflow: hidden; cursor: none; }
+.pubblico:hover { cursor: default; }
+.slide { width: 100%; height: 100%; max-width: 1600px; aspect-ratio: 16/9; background: #FFFFFF; padding: 5vmin 6vmin; position: relative; display: flex; align-items: center; justify-content: center; }
+.slide.tema-scuro { background: #1D1D1F; color: #FFFFFF; }
+
+.kicker { position: absolute; top: 4vmin; left: 6vmin; font-size: 1.3vmin; color: #86868B; letter-spacing: 0.3em; font-weight: 500; }
+.brand { position: absolute; bottom: 3.5vmin; right: 6vmin; font-size: 1.3vmin; color: #B8B8BD; letter-spacing: 0.15em; }
+.tema-scuro .kicker { color: rgba(255,255,255,0.4); }
+.tema-scuro .brand { color: rgba(255,255,255,0.35); }
+
+/* layout: title */
+.l-title { text-align: center; }
+.l-title h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 2.5vmin; }
+.l-title h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-title h1 .accent { color: #30D158; }
+.l-title .sub { font-size: 2.1vmin; color: #6E6E73; font-weight: 400; }
+.tema-scuro .l-title .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: question */
+.l-question h1 { font-size: 5.5vmin; font-weight: 500; line-height: 1.15; letter-spacing: -0.025em; max-width: 75vw; }
+.l-question h1 em { font-style: normal; color: #2C5F2D; }
+.tema-scuro .l-question h1 em { color: #30D158; }
+
+/* layout: big-word */
+.l-big-word { text-align: center; }
+.l-big-word .label { font-size: 1.7vmin; color: #86868B; letter-spacing: 0.3em; margin-bottom: 3vmin; font-weight: 500; }
+.l-big-word .word { font-size: 12vmin; font-weight: 700; letter-spacing: -0.06em; line-height: 1; }
+.l-big-word .word .strike { color: #D2D2D7; text-decoration: line-through; text-decoration-thickness: 0.4vmin; }
+
+/* layout: three-points */
+.l-three { width: 100%; max-width: 90vw; }
+.l-three .h { font-size: 2.8vmin; font-weight: 500; color: #6E6E73; margin-bottom: 4vmin; letter-spacing: -0.015em; }
+.l-three .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4vmin; }
+.l-three .n { font-size: 1.7vmin; color: #2C5F2D; font-weight: 500; letter-spacing: 0.15em; margin-bottom: 1.2vmin; }
+.l-three .t { font-size: 2.4vmin; font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; }
+
+/* layout: metafora-intro (apertura due-personaggi) */
+.l-metafora-intro { text-align: center; }
+.l-metafora-intro .occhiello { font-size: 2.2vmin; color: #6E6E73; font-weight: 400; margin-bottom: 3vmin; letter-spacing: -0.01em; }
+.l-metafora-intro h1 { font-size: 7vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; }
+.l-metafora-intro h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-metafora-intro h1 .accent { color: #30D158; }
+
+/* layout: figura (icona grande + titolo + sub) */
+.l-figura { text-align: center; max-width: 80vw; }
+.l-figura .icona { font-size: 14vmin; line-height: 1; margin-bottom: 3vmin; filter: grayscale(0.15); }
+.l-figura h1 { font-size: 6vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 2.5vmin; }
+.l-figura .sub { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.5; max-width: 70vw; margin: 0 auto; }
+.tema-scuro .l-figura .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: frase (citazione grande, accent verde) */
+.l-frase { text-align: center; max-width: 90vw; }
+.l-frase .frase { font-size: 7.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 4vmin; }
+.l-frase .frase .accent { color: #2C5F2D; }
+.tema-scuro .l-frase .frase .accent { color: #30D158; }
+.l-frase .sotto { font-size: 4vmin; font-weight: 400; color: #1D1D1F; line-height: 1.2; letter-spacing: -0.025em; }
+.l-frase .sotto strong { font-weight: 600; }
+.tema-scuro .l-frase .sotto { color: #FFFFFF; }
+
+/* layout: ponte (transizione tra segmenti) */
+.l-ponte { text-align: center; max-width: 85vw; }
+.l-ponte .occhiello { font-size: 2.2vmin; color: #6E6E73; font-style: italic; margin-bottom: 2.8vmin; letter-spacing: -0.01em; }
+.l-ponte h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 3vmin; }
+.l-ponte .sub { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.4; }
+.tema-scuro .l-ponte .occhiello, .tema-scuro .l-ponte .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: mappa-centro (sistema PMS + satelliti) */
+.l-mappa { width: 100%; max-width: 95vw; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4vmin; align-items: center; }
+.l-mappa .testo h1 { font-size: 5.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; }
+.l-mappa .testo h1 .accent { color: #2C5F2D; }
+.l-mappa .mappa-svg { width: 100%; height: auto; max-height: 70vmin; }
+/* PMS centrale */
+.mappa-svg .pms-circle { fill: #1D1D1F; }
+.mappa-svg .pms-label { fill: #FFFFFF; font-size: 22px; font-weight: 600; letter-spacing: 1px; }
+.mappa-svg .pms-sub { fill: rgba(255,255,255,0.6); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; }
+/* Satelliti spenti */
+.mappa-svg .sat-circle { fill: #F5F5F7; stroke: #E5E5EA; stroke-width: 1.5; transition: all 0.5s ease; }
+.mappa-svg .sat-label { fill: #C7C7CC; font-size: 15px; font-weight: 500; transition: fill 0.5s ease; }
+.mappa-svg .sat-sub { fill: #D2D2D7; font-size: 11px; font-weight: 400; transition: fill 0.5s ease; }
+.mappa-svg .sat-link { stroke: #E5E5EA; stroke-width: 1.5; stroke-dasharray: 4,4; opacity: 0.5; transition: all 0.5s ease; }
+/* Satelliti attivi */
+.mappa-svg .sat-on .sat-circle { fill: #FFFFFF; stroke: #2C5F2D; stroke-width: 2; }
+.mappa-svg .sat-on .sat-label { fill: #1D1D1F; }
+.mappa-svg .sat-on .sat-sub { fill: #6E6E73; }
+.mappa-svg .link-on { stroke: #2C5F2D; stroke-width: 2; stroke-dasharray: none; opacity: 1; }
+/* Stato "completa" — accentuazione finale */
+.mappa-svg.completa .pms-circle { fill: #1D1D1F; }
+.mappa-svg.completa .sat-on .sat-circle { fill: #F0F7F0; stroke: #2C5F2D; stroke-width: 2; }
+
+/* layout: confronto (due colonne prima/dopo) */
+.l-confronto { width: 100%; max-width: 92vw; }
+.l-confronto .titolo-c { font-size: 5vmin; font-weight: 600; text-align: center; letter-spacing: -0.035em; margin-bottom: 5vmin; }
+.l-confronto .titolo-c .accent { color: #2C5F2D; }
+.l-confronto .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4vmin; }
+.l-confronto .col { padding: 4vmin; border-radius: 2vmin; }
+.l-confronto .col.no { background: #FBF3F2; border: 1.5px solid #F0D5D2; }
+.l-confronto .col.si { background: #F0F7F0; border: 1.5px solid #C9E3C9; }
+.l-confronto .col.neutro { background: #F5F5F7; border: 1.5px solid #E5E5EA; }
+.l-confronto .col-label { font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 2vmin; display: flex; align-items: center; gap: 1vmin; }
+.l-confronto .col.no .col-label { color: #C0392B; }
+.l-confronto .col.si .col-label { color: #2C5F2D; }
+.l-confronto .col.neutro .col-label { color: #6E6E73; }
+.l-confronto .col-segno { font-size: 2.4vmin; line-height: 1; }
+.l-confronto .col-testo { font-size: 2.5vmin; line-height: 1.4; color: #1D1D1F; letter-spacing: -0.01em; }
+
+/* layout: caso (struttura partecipante) */
+.l-caso { width: 100%; max-width: 80vw; }
+.l-caso .nome { font-size: 6vmin; font-weight: 600; letter-spacing: -0.04em; margin-bottom: 1.5vmin; }
+.l-caso .tratto { font-size: 3vmin; font-weight: 500; color: #1D1D1F; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 4vmin; padding-bottom: 4vmin; border-bottom: 1.5px solid #E5E5EA; }
+.l-caso .ai-label { font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; color: #2C5F2D; margin-bottom: 1.5vmin; }
+.l-caso .ai-testo { font-size: 2.6vmin; line-height: 1.45; color: #6E6E73; letter-spacing: -0.01em; }
+
+/* ============================================================
+   NUOVI LAYOUT PRATICI (demo / coinvolgimento / checkpoint)
+   Tutte queste slide lasciano LIBERO l'angolo basso-destra
+   per la webcam: contenuto allineato a sinistra/alto.
+============================================================ */
+
+/* badge tipo-slide (in alto a sinistra, sotto il kicker) */
+.tipo-badge { position: absolute; top: 8.5vmin; left: 6vmin; display: inline-flex; align-items: center; gap: 1vmin; font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; padding: 0.9vmin 1.8vmin; border-radius: 100px; }
+.tipo-badge .pallino { width: 1.1vmin; height: 1.1vmin; border-radius: 50%; }
+.tipo-badge.demo { background: #EAF3FB; color: #1B5E9B; }
+.tipo-badge.demo .pallino { background: #1B5E9B; animation: pulsa 1.6s ease-in-out infinite; }
+.tipo-badge.coinvolgimento { background: #F0F7F0; color: #2C5F2D; }
+.tipo-badge.coinvolgimento .pallino { background: #2C5F2D; }
+.tipo-badge.checkpoint { background: #FFF4E0; color: #B26B00; }
+.tipo-badge.checkpoint .pallino { background: #E89A1C; }
+@keyframes pulsa { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+
+/* zona webcam riservata (riferimento visivo solo in relatore) */
+.zona-webcam { position: absolute; bottom: 3vmin; right: 4vmin; width: 22vmin; height: 16vmin; border: 1.5px dashed #D2D2D7; border-radius: 1.5vmin; display: none; align-items: center; justify-content: center; color: #C7C7CC; font-size: 1.3vmin; letter-spacing: 0.1em; }
+.rel-current .zona-webcam, .rel-next .zona-webcam { display: flex; }
+.tema-scuro .zona-webcam { border-color: rgba(255,255,255,0.18); color: rgba(255,255,255,0.3); }
+
+/* layout: demo ("ora guardate") */
+.l-demo { width: 100%; max-width: 70vw; align-self: center; text-align: left; padding-bottom: 4vmin; }
+.l-demo h1 { font-size: 5.5vmin; font-weight: 600; line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 3vmin; }
+.l-demo h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-demo h1 .accent { color: #30D158; }
+.l-demo .guardate { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.45; max-width: 60vw; }
+.tema-scuro .l-demo .guardate { color: rgba(255,255,255,0.6); }
+.l-demo .schermo-hint { margin-top: 4vmin; display: inline-flex; align-items: center; gap: 1.4vmin; font-size: 1.7vmin; color: #1B5E9B; font-weight: 500; }
+.l-demo .schermo-hint .freccia { font-size: 2.2vmin; }
+
+/* layout: coinvolgimento ("provate voi / ditemi voi") */
+.l-coinvolgi { width: 100%; max-width: 72vw; text-align: left; }
+.l-coinvolgi .occhiello { font-size: 2vmin; color: #2C5F2D; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 2.5vmin; }
+.l-coinvolgi h1 { font-size: 6vmin; font-weight: 600; line-height: 1.06; letter-spacing: -0.038em; margin-bottom: 3.5vmin; }
+.l-coinvolgi h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-coinvolgi h1 .accent { color: #30D158; }
+.l-coinvolgi .compito { font-size: 2.6vmin; color: #1D1D1F; font-weight: 400; line-height: 1.4; max-width: 60vw; padding: 3vmin 3.5vmin; background: #F0F7F0; border-left: 0.6vmin solid #2C5F2D; border-radius: 1.2vmin; }
+.tema-scuro .l-coinvolgi .compito { background: rgba(48,209,88,0.08); color: #FFFFFF; }
+
+/* layout: checkpoint ("ci siete? domande?") */
+.l-checkpoint { text-align: center; max-width: 80vw; }
+.l-checkpoint .icona { font-size: 9vmin; line-height: 1; margin-bottom: 2.5vmin; }
+.l-checkpoint h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 2.5vmin; }
+.l-checkpoint h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-checkpoint h1 .accent { color: #30D158; }
+.l-checkpoint .sub { font-size: 2.3vmin; color: #6E6E73; font-weight: 400; line-height: 1.45; max-width: 60vw; margin: 0 auto; }
+.tema-scuro .l-checkpoint .sub { color: rgba(255,255,255,0.55); }
+
+/* badge "cuscinetto" (slide opzionale di riserva) */
+.cuscinetto-tag { position: absolute; top: 4vmin; right: 6vmin; font-size: 1.2vmin; font-weight: 600; letter-spacing: 0.14em; color: #C7C7CC; border: 1px solid #E5E5EA; padding: 0.6vmin 1.4vmin; border-radius: 100px; }
+
+/* pubblico waiting */
+.pubblico-attesa { text-align: center; color: #86868B; font-size: 16px; }
+.pubblico-attesa h2 { font-size: 28px; color: #1D1D1F; font-weight: 500; margin-bottom: 10px; letter-spacing: -0.5px; }
+
+/* ============================================================
+   VISTA RELATORE
+============================================================ */
+.relatore { width: 100vw; min-height: 100vh; background: #F5F5F7; padding: 16px; display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto 1fr auto auto; gap: 14px; }
+
+.rel-header { grid-column: 1 / -1; background: white; border-radius: 12px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #E5E5EA; }
+.rel-header .titolo { font-size: 14px; font-weight: 600; }
+.rel-header .titolo .sub { color: #86868B; font-weight: 400; margin-left: 10px; }
+.rel-header .stato { display: flex; gap: 18px; align-items: center; font-size: 13px; color: #6E6E73; }
+.rel-header .stato .live { display: inline-flex; align-items: center; gap: 6px; }
+.rel-header .stato .live .dot { width: 7px; height: 7px; background: #34C759; border-radius: 50%; }
+.rel-header .stato .live.off .dot { background: #FF3B30; }
+.rel-header .timer { font-variant-numeric: tabular-nums; font-weight: 500; color: #1D1D1F; font-size: 14px; }
+
+.rel-current { grid-row: 3; background: white; border-radius: 12px; padding: 14px; border: 1px solid #E5E5EA; display: flex; flex-direction: column; }
+.rel-current .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; margin-bottom: 8px; }
+.rel-current .frame { aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid #E5E5EA; }
+.rel-current .frame .slide { padding: 2.8vmin 3.4vmin; }
+.rel-current .frame .slide h1 { font-size: 3.5vmin !important; }
+.rel-current .frame .slide .word { font-size: 6vmin !important; }
+.rel-current .frame .slide .sub, .rel-current .frame .slide .h, .rel-current .frame .slide .t, .rel-current .frame .slide .label, .rel-current .frame .slide .occhiello, .rel-current .frame .slide .sotto { font-size: 1.3vmin !important; }
+.rel-current .frame .slide .frase { font-size: 4vmin !important; }
+.rel-current .frame .slide .titolo-c { font-size: 2.6vmin !important; margin-bottom: 2vmin !important; }
+.rel-current .frame .slide .col { padding: 2vmin !important; }
+.rel-current .frame .slide .col-testo { font-size: 1.5vmin !important; }
+.rel-current .frame .slide .col-label { font-size: 1vmin !important; }
+.rel-current .frame .slide .col-segno { font-size: 1.4vmin !important; }
+.rel-current .frame .slide .nome { font-size: 3.2vmin !important; }
+.rel-current .frame .slide .tratto { font-size: 1.7vmin !important; margin-bottom: 2vmin !important; padding-bottom: 2vmin !important; }
+.rel-current .frame .slide .ai-testo { font-size: 1.4vmin !important; }
+.rel-current .frame .slide .ai-label { font-size: 0.9vmin !important; }
+.rel-current .frame .slide .icona { font-size: 7vmin !important; margin-bottom: 1.5vmin !important; }
+.rel-current .frame .slide .n { font-size: 1vmin !important; }
+.rel-current .frame .kicker { font-size: 0.85vmin !important; }
+.rel-current .frame .brand { font-size: 0.85vmin !important; }
+
+.rel-next { grid-row: 3; background: white; border-radius: 12px; padding: 14px; border: 1px solid #E5E5EA; display: flex; flex-direction: column; }
+.rel-next .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; margin-bottom: 8px; display: flex; justify-content: space-between; }
+.rel-next .lbl .conta { color: #1D1D1F; }
+.rel-next .frame { aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid #E5E5EA; opacity: 0.6; }
+.rel-next .frame .slide { padding: 2.8vmin 3.4vmin; }
+.rel-next .frame .slide h1 { font-size: 3.5vmin !important; }
+.rel-next .frame .slide .word { font-size: 6vmin !important; }
+.rel-next .frame .slide .sub, .rel-next .frame .slide .h, .rel-next .frame .slide .t, .rel-next .frame .slide .label, .rel-next .frame .slide .occhiello, .rel-next .frame .slide .sotto { font-size: 1.3vmin !important; }
+.rel-next .frame .slide .frase { font-size: 4vmin !important; }
+.rel-next .frame .slide .titolo-c { font-size: 2.6vmin !important; margin-bottom: 2vmin !important; }
+.rel-next .frame .slide .col { padding: 2vmin !important; }
+.rel-next .frame .slide .col-testo { font-size: 1.5vmin !important; }
+.rel-next .frame .slide .col-label { font-size: 1vmin !important; }
+.rel-next .frame .slide .col-segno { font-size: 1.4vmin !important; }
+.rel-next .frame .slide .nome { font-size: 3.2vmin !important; }
+.rel-next .frame .slide .tratto { font-size: 1.7vmin !important; margin-bottom: 2vmin !important; padding-bottom: 2vmin !important; }
+.rel-next .frame .slide .ai-testo { font-size: 1.4vmin !important; }
+.rel-next .frame .slide .ai-label { font-size: 0.9vmin !important; }
+.rel-next .frame .slide .icona { font-size: 7vmin !important; margin-bottom: 1.5vmin !important; }
+.rel-next .frame .slide .n { font-size: 1vmin !important; }
+.rel-next .frame .kicker { font-size: 0.85vmin !important; }
+.rel-next .frame .brand { font-size: 0.85vmin !important; }
+
+.rel-note { grid-column: 1 / -1; grid-row: 2; overflow-y: auto; background: white; border-radius: 12px; padding: 18px 22px; border: 1px solid #E5E5EA; }
+.rel-note .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.rel-note .head .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; }
+.rel-note .head .segm { font-size: 13px; color: #2C5F2D; font-weight: 500; }
+.rel-note h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.3px; }
+.rel-note p { font-size: 15px; color: #1D1D1F; line-height: 1.55; margin-bottom: 10px; }
+.rel-note p:last-child { margin-bottom: 0; }
+/* Testo DA DIRE ad alta voce (era tra virgolette) */
+.rel-note .dire { color: #1D1D1F; font-weight: 500; font-size: 16px; background: linear-gradient(transparent 60%, #DDF0DD 60%); padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+/* Istruzioni di REGIA (tono, tempi, cosa fare) */
+.rel-note .regia { color: #86868B; font-size: 13.5px; font-style: italic; }
+.rel-note .promemoria { display: inline-block; background: #FFF4E0; color: #8A5A00; border-left: 3px solid #E0A030; padding: 2px 10px; border-radius: 0 6px 6px 0; font-size: 13.5px; font-weight: 500; margin: 2px 0; }
+.rel-note .quote { padding: 10px 14px; background: #F5F5F7; border-left: 3px solid #2C5F2D; font-style: italic; color: #1D1D1F; border-radius: 0 8px 8px 0; }
+/* Legenda in cima alle note */
+.rel-note .legenda { display: flex; gap: 16px; margin-bottom: 12px; font-size: 11px; color: #86868B; flex-wrap: wrap; }
+.rel-note .legenda span { display: inline-flex; align-items: center; gap: 5px; }
+.rel-note .legenda .campione { width: 14px; height: 10px; border-radius: 2px; display: inline-block; }
+.rel-note .legenda .c-dire { background: #DDF0DD; }
+.rel-note .legenda .c-regia { background: #E5E5EA; }
+.rel-note .legenda .c-prom { background: #FFE0A0; }
+
+.rel-controls { grid-column: 1 / -1; grid-row: 4; display: flex; justify-content: space-between; align-items: center; background: white; border-radius: 12px; padding: 12px 18px; border: 1px solid #E5E5EA; }
+.rel-controls .conta { font-size: 13px; color: #6E6E73; font-variant-numeric: tabular-nums; }
+.rel-controls .btns { display: flex; gap: 10px; }
+.rel-controls button { padding: 10px 22px; font-size: 14px; font-weight: 500; border: 1px solid #D2D2D7; background: white; border-radius: 8px; cursor: pointer; font-family: inherit; transition: all 0.1s ease; }
+.rel-controls button:hover { background: #F5F5F7; }
+.rel-controls button:active { transform: scale(0.97); }
+.rel-controls button.primary { background: #2C5F2D; color: white; border-color: #2C5F2D; }
+.rel-controls button.primary:hover { background: #24501E; }
+.rel-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
+.rel-controls .timer-ctrl { display: flex; gap: 8px; align-items: center; }
+.rel-controls .timer-ctrl button { padding: 6px 12px; font-size: 12px; }
+
+/* shortcut hints */
+.shortcut { font-size: 11px; color: #86868B; margin-left: 6px; padding: 2px 6px; background: #F5F5F7; border-radius: 4px; }
+
+/* ===== Incontro 1: nuovi layout ===== */
+.pubblico { position: relative; }
+.pubblico.anim .slide { animation: dissolvenza 0.25s ease-out; }
+@keyframes dissolvenza { from { opacity: 0; } to { opacity: 1; } }
+.barra { position: absolute; top: 0; left: 0; right: 0; height: 0.7vmin; display: flex; gap: 2px; z-index: 5; }
+.barra .seg { height: 100%; }
+.barra .seg.passato { background: #86868B; }
+.barra .seg.futuro { background: rgba(128,128,128,0.28); }
+.l-numero { text-align: center; max-width: 80vw; }
+.l-numero .cifra { font-size: 22vmin; font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: #2C5F2D; }
+.tema-scuro .l-numero .cifra { color: #30D158; }
+.l-numero .riga { font-size: 3.6vmin; font-weight: 500; margin-top: 3vmin; line-height: 1.3; letter-spacing: -0.02em; }
+.l-numero .fonte { font-size: 2vmin; color: #86868B; margin-top: 5vmin; }
+.l-prompt { width: 100%; max-width: 72vw; }
+.l-prompt h1 { font-size: 5vmin; font-weight: 600; letter-spacing: -0.035em; margin-bottom: 4vmin; }
+.l-prompt .chat { background: #F5F5F7; border: 1px solid #D2D2D7; border-radius: 2.2vmin; padding: 3vmin 3.5vmin; margin-bottom: 2.5vmin; }
+.tema-scuro .l-prompt .chat { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.l-prompt .chat-label { font-size: 2.2vmin; letter-spacing: 0.2em; color: #2C5F2D; font-weight: 600; margin-bottom: 1.4vmin; }
+.l-prompt .chat-testo { font-size: 3.2vmin; line-height: 1.4; color: #1D1D1F; }
+.tema-scuro .l-prompt .chat-testo { color: #fff; }
+.l-pianob { text-align: center; width: 100%; max-width: 80vw; }
+.l-pianob .pb-tag { font-size: 2.2vmin; letter-spacing: 0.25em; color: #B26B00; font-weight: 600; margin-bottom: 2vmin; }
+.l-pianob h1 { font-size: 4.5vmin; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 3vmin; }
+.l-pianob img { max-width: 100%; max-height: 62vh; border: 1px solid #D2D2D7; border-radius: 1.5vmin; }
+.l-pianob .pb-vuoto { font-size: 2.6vmin; color: #86868B; border: 0.3vmin dashed #D2D2D7; border-radius: 2vmin; padding: 8vmin 4vmin; }
+.countdown { position: absolute; left: 6vmin; bottom: 5vmin; font-size: 10vmin; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; color: #1D1D1F; }
+.tema-scuro .countdown { color: #fff; }
+.countdown.urgente { color: #D70015; }
+.rel-note .ritardo { background: #FFF4E0; border-left: 4px solid #E89A1C; border-radius: 6px; padding: 8px 12px; font-size: 13px; color: #6B4400; margin: 4px 0 10px; }
+.rel-note .copia-box { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 12px; }
+.rel-note .copia-box button { font-family: inherit; font-size: 13px; font-weight: 600; background: #2C5F2D; color: #fff; border: 0; border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+.rel-note .copia-box button:hover { background: #1F4720; }
+.segm .verde { color: #2C5F2D; font-weight: 600; }
+.segm .arancio { color: #B26B00; font-weight: 600; }
+.segm .rosso { color: #D70015; font-weight: 700; }
+.l-demo .schermo-hint { font-size: 2.2vmin; }
+
+/* navigazione per i corsisti */
+.dnav { position: fixed; right: 18px; bottom: 18px; z-index: 20; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.92); border: 1px solid #E5E5EA; border-radius: 999px; padding: 6px 8px; font-size: 13px; color: #6E6E73; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.dnav button { font: inherit; font-size: 17px; line-height: 1; width: 34px; height: 34px; border-radius: 50%; border: 0; background: #1D1D1F; color: #fff; cursor: pointer; }
+.dnav button:disabled { opacity: .25; cursor: default; }
+.dnav span { min-width: 56px; text-align: center; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+/* SLIDES · Incontro 1 */
+const SLIDES = [
+{ layout:'title', tema:'chiaro', kicker:`INCONTRO 01 · 2 ORE`, brand:`CONFCOMMERCIO AREZZO`,
+  contenuto:{ titolo:`Il viaggiatore che<br>sceglie con l'<span class="accent">AI</span>.`, sub:`Oggi si parte da zero: capiamo come l'ospite è cambiato, scriviamo le prime richieste e mettiamo in chiaro le regole dell'AI Act.` },
+  segmento:`Benvenuto` },
+
+{ layout:'three', tema:'chiaro', kicker:`IL PERCORSO`, brand:`01`,
+  contenuto:{ h:`Sei incontri, cinque date.`, punti:[
+   {n:`6 · 20 ott`, t:`<strong>Zoom</strong><br><span style="font-size:2.2vmin;color:#6E6E73">L'ospite e i primi passi · comunicare da soli</span>`},
+   {n:`27 ott`, t:`<strong>In presenza, 9–13</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Via XXV Aprile · farsi trovare dall'AI, foto, social, reel</span>`},
+   {n:`3 · 10 nov`, t:`<strong>Zoom</strong><br><span style="font-size:2.2vmin;color:#6E6E73">L'ospite che torna · numeri, revenue e assistenti</span>`} ] },
+  segmento:`Benvenuto` },
+
+{ layout:'three', tema:'chiaro', kicker:`A FINE CORSO`, brand:`02`,
+  contenuto:{ h:`Cinque strumenti pronti, non teoria.`, punti:[
+   {n:`01`, t:`<strong>Recensioni</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Risposte e richieste agli ospiti</span>`},
+   {n:`02`, t:`<strong>Social · Manutenzione</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Testi e calendario · segnalazioni per urgenza</span>`},
+   {n:`03`, t:`<strong>Prezzi · Report</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Un agente che confronta e suggerisce · i numeri del mese</span>`} ] },
+  segmento:`Benvenuto` },
+
+{ layout:'confronto', tema:'chiaro', kicker:`GRATIS O A PAGAMENTO`, brand:`02b`,
+  contenuto:{ titolo:`Per seguire il corso basta il gratuito.`,
+   sinistra:{ tipo:'si', label:`Voi · piano gratuito`, testo:`Si segue tutto il corso.<br>Ci sono limiti di messaggi: se vi blocca, è normale.` },
+   destra:{ tipo:'si', label:`Io · piano a pagamento`, testo:`Più messaggi e più strumenti.<br>Nessuna demo dipende da questo.` } },
+  segmento:`Benvenuto` },
+
+{ layout:'question', tema:'chiaro', kicker:`PER COMINCIARE`, brand:`03`,
+  contenuto:{ titolo:`Hai già usato<br>un <em>assistente AI</em>?` },
+  segmento:`Livello di partenza` },
+
+{ layout:'frase', tema:'scuro', kicker:`PARTE 1 · 10:45 · 20 MIN`, brand:`04`,
+  contenuto:{ frase:`L'ospite<br>è <span class="accent">cambiato.</span>`, sotto:`Come si sceglie dove dormire oggi.` },
+  segmento:`L'ospite è cambiato` },
+
+{ layout:'confronto', tema:'chiaro', kicker:`PRIMA E ORA`, brand:`05`,
+  contenuto:{ titolo:`Come si sceglie dove dormire.`,
+   sinistra:{ tipo:'no', label:`Prima`, testo:`Cercavo sui portali.<br>Confrontavo le liste.<br>Filtravo io, una pagina dopo l'altra.` },
+   destra:{ tipo:'si', label:`Ora`, testo:`Chiedo a un assistente.<br>Ricevo due o tre proposte già scelte.<br>Prenoto, o faccio un'altra domanda.` } },
+  segmento:`L'ospite è cambiato` },
+
+{ layout:'numero', tema:'scuro', kicker:`UN NUMERO`, brand:``,
+  contenuto:{ cifra:`+64%`, riga:`in un anno: l'uso dell'AI per organizzare i viaggi.`, fonte:`Amadeus · 9.500 viaggiatori in 7 paesi · ricerca del 2025` },
+  segmento:`L'ospite è cambiato` },
+
+{ layout:'numero', tema:'scuro', kicker:`UN FATTO`, brand:``,
+  contenuto:{ cifra:`2023`, riga:`l'anno in cui Expedia e Booking hanno messo ChatGPT nelle loro app.`, fonte:`Expedia aprile 2023 · Booking giugno 2023, in prova · Business Traveller` },
+  segmento:`L'ospite è cambiato` },
+
+{ layout:'demo', tema:'chiaro', kicker:`DEMO 1 · DAL VIVO`, brand:`06`,
+  contenuto:{ titolo:`Dove dormire<br>con il <span class="accent">cane</span>?`,
+   guardate:`Chiedo a Claude: «Dove dormire per un weekend con il cane nella zona di Arezzo e Cortona?». Poi aggiungo un vincolo: sport, coppia, budget. Guardate quali strutture cita, e quali no.`,
+   schermo:`Claude, chat nuova, schermo condiviso.` },
+  pb:'pb1',
+  segmento:`L'ospite è cambiato` },
+
+{ layout:'prompt', tema:'chiaro', kicker:`DEMO 1 · LA RICHIESTA`, brand:``, pb:'pb1',
+  contenuto:{ titolo:`Cosa scrivo a Claude.`, prompts:[{ label:`LA RICHIESTA`, testo:`Dove dormire per un weekend con il cane nella zona di Arezzo e Cortona?` }] },
+  segmento:`L'ospite è cambiato` },
+
+{ layout:'frase', tema:'scuro', kicker:`IL PUNTO`, brand:`07`,
+  contenuto:{ frase:`L'ospite arriva con le<br>idee già <span class="accent">filtrate.</span>`, sotto:`Non basta essere trovati: bisogna essere descritti bene.` },
+  segmento:`L'ospite è cambiato` },
+
+{ layout:'frase', tema:'chiaro', kicker:`PARTE 2 · 11:05 · 20 MIN`, brand:`08`,
+  contenuto:{ frase:`Primi passi<br><span class="accent">pratici.</span>`, sotto:`Scrivere una richiesta chiara.` },
+  segmento:`Primi passi` },
+
+{ layout:'three', tema:'chiaro', kicker:`LA RICHIESTA CHIARA`, brand:`09`,
+  contenuto:{ h:`Quattro elementi: chi sei, cosa vuoi, per chi, che tono.`, punti:[
+   {n:`01 · 02`, t:`<strong>Chi sei · Cosa vuoi</strong><br><span style="font-size:2.2vmin;color:#6E6E73">«Sono la titolare di una casa vacanza vicino a Cortona. Scrivi una descrizione di 80 parole per il sito.»</span>`},
+   {n:`03`, t:`<strong>Per chi</strong><br><span style="font-size:2.2vmin;color:#6E6E73">«Per ospiti stranieri in cerca di tranquillità.»</span>`},
+   {n:`04`, t:`<strong>Che tono</strong><br><span style="font-size:2.2vmin;color:#6E6E73">«Caldo e semplice, senza frasi fatte.»</span>`} ] },
+  segmento:`Primi passi` },
+
+{ layout:'confronto', tema:'chiaro', kicker:`DEMO 2 · STESSA RICHIESTA`, brand:`10`,
+  contenuto:{ titolo:`Due richieste, due risultati.`,
+   sinistra:{ tipo:'no', label:`Richiesta debole`, testo:`«Scrivi una descrizione della mia struttura.»` },
+   destra:{ tipo:'si', label:`Richiesta chiara`, testo:`«Sono il titolare di una casa vacanza vicino a Cortona. Scrivi una descrizione di 80 parole per ospiti stranieri in cerca di tranquillità, con un tono caldo e semplice.»` } },
+  pb:'pb2', copia:[{"label": "Richiesta debole", "testo": "Scrivi una descrizione della mia struttura."}, {"label": "Richiesta chiara", "testo": "Sono il titolare di una casa vacanza vicino a Cortona. Scrivi una descrizione di 80 parole per ospiti stranieri in cerca di tranquillità, con un tono caldo e semplice."}, {"label": "Correzione", "testo": "Accorcia a 40 parole."}],
+  segmento:`Primi passi` },
+
+{ layout:'coinvolgimento', tema:'chiaro', kicker:`ESERCIZIO · 8 MIN`, brand:`11`,
+  contenuto:{ occhiello:`Tocca a voi.`, titolo:`La vostra struttura<br>vista da un <span class="accent">ospite</span>.`,
+   compito:`1 · Aprite claude.ai. 2 · Scrivete: «Descrivi [nome struttura] come farebbe un ospite entusiasta.» 3 · Aggiungete chi siete e il tono che volete. 4 · Due volontari condividono lo schermo.` },
+  cd:480, copia:[{"label": "Esercizio", "testo": "Descrivi [nome della struttura] come farebbe un ospite entusiasta. Chi sono: [titolare di ...]. Tono: [caldo e semplice]."}],
+  segmento:`Primi passi` },
+
+{ layout:'frase', tema:'scuro', kicker:`PAUSA · 11:25`, brand:`12`,
+  contenuto:{ frase:`Pausa.`, sotto:`Ripartiamo alle 11:30 con l'AI Act.` },
+  cd:300,
+  segmento:`Pausa` },
+
+{ layout:'frase', tema:'chiaro', kicker:`PARTE 3 · 11:30 · 30 MIN`, brand:`13`,
+  contenuto:{ frase:`L'AI Act<br>in <span class="accent">pratica.</span>`, sotto:`Cinque punti e sei regole.` },
+  segmento:`AI Act` },
+
+{ layout:'numero', tema:'scuro', kicker:`UN NUMERO`, brand:``,
+  contenuto:{ cifra:`1 su 4`, riga:`ha ricevuto dall'AI informazioni vecchie o sbagliate.`, fonte:`Amadeus · 9.500 viaggiatori in 7 paesi · ricerca del 2025` },
+  segmento:`AI Act` },
+
+{ layout:'frase', tema:'chiaro', kicker:`AI ACT · PUNTO 1`, brand:`14`,
+  contenuto:{ frase:`Voi non sviluppate AI:<br>la <span class="accent">usate.</span>`, sotto:`Regolamento UE 2024/1689, applicato a tappe fino al 2028.<br>Contano soprattutto due obblighi: formare chi la usa, dichiarare quando l'AI parla o genera.` },
+  segmento:`AI Act` },
+
+{ layout:'three', tema:'chiaro', kicker:`AI ACT · LE DATE`, brand:`15`,
+  contenuto:{ h:`Le date che contano.`, punti:[
+   {n:`2 feb 2025`, t:`<strong>Formazione</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Già in vigore. Vale per voi.</span>`},
+   {n:`Agosto 2026`, t:`<strong>Trasparenza e controlli</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Vale per voi. Le autorità diventano operative.</span>`},
+   {n:`Dopo`, t:`<strong>Non vi riguarda</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Dic. 2026: marcatura per i fornitori. Dic. 2027: alto rischio, solo se selezionate personale con l'AI.</span>`} ] },
+  segmento:`AI Act` },
+
+{ layout:'three', tema:'chiaro', kicker:`AI ACT · PUNTO 2 · DAL 2 FEBBRAIO 2025`, brand:`16`,
+  contenuto:{ h:`Chi usa l'AI sul lavoro va formato.`, punti:[
+   {n:`01`, t:`<strong>Cosa fa lo strumento</strong>`},
+   {n:`02`, t:`<strong>Quali limiti ha</strong>`},
+   {n:`03`, t:`<strong>Come si riconosce un errore</strong>`} ] },
+  segmento:`AI Act` },
+
+{ layout:'three', tema:'chiaro', kicker:`AI ACT · PUNTO 3 · DA AGOSTO 2026`, brand:`17`,
+  contenuto:{ h:`Trasparenza: dichiarate cosa è AI.`, punti:[
+   {n:`01`, t:`<strong>Chatbot</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Dichiara che è un'AI, con un avviso visibile.</span>`},
+   {n:`02`, t:`<strong>Immagini, video, voci</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Se sono generati, dichiaralo. Mai spacciarli per foto reali.</span>`},
+   {n:`03`, t:`<strong>Testi</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Rileggi e firma tu prima di pubblicare.</span>`} ] },
+  segmento:`AI Act` },
+
+{ layout:'frase', tema:'chiaro', kicker:`AI ACT · PUNTO 4 · TAGLIABILE`, brand:`18`,
+  contenuto:{ frase:`Legge italiana<br><span class="accent">132/2025.</span>`, sotto:`In vigore dal 10 ottobre 2025. Non aggiunge obblighi al regolamento europeo.<br>Se usate l'AI per turni, compiti o selezione del personale, informate i lavoratori.` },
+  segmento:`AI Act` },
+
+{ layout:'confronto', tema:'chiaro', kicker:`AI ACT · PUNTO 5 · I DATI`, brand:`19`,
+  contenuto:{ titolo:`I dati degli ospiti.`,
+   sinistra:{ tipo:'no', label:`Non incollare`, testo:`Nomi e cognomi<br>Documenti e carte<br>Contatti<br>Allergie o salute di una persona` },
+   destra:{ tipo:'si', label:`Scrivi così`, testo:`«Una coppia straniera, 3 notti, arrivo tardi.»` } },
+  segmento:`AI Act` },
+
+{ layout:'frase', tema:'scuro', kicker:`SEI REGOLE DA PORTARE A CASA · 1–3`, brand:`20`,
+  contenuto:{ frase:`Dichiara.<br>Proteggi.<br><span class="accent">Rileggi.</span>`, sotto:`1 · Se un assistente parla con gli ospiti, dillo.<br>2 · Dichiara immagini, video e voci generati.<br>3 · Non incollare dati personali degli ospiti.` },
+  segmento:`AI Act` },
+
+{ layout:'frase', tema:'scuro', kicker:`SEI REGOLE DA PORTARE A CASA · 4–6`, brand:`21`,
+  contenuto:{ frase:`Una persona<br>decide.`, sotto:`4 · Una persona rilegge prima di pubblicare.<br>5 · Tieni un registro di chi usa l'AI e di chi si è formato.<br>6 · Nessuna decisione sulle persone senza controllo umano.` },
+  segmento:`AI Act` },
+
+{ layout:'question', tema:'chiaro', kicker:`PARTE 4 · 12:00 · 15 MIN · SACRIFICABILE`, brand:`22`, 
+  contenuto:{ titolo:`Cosa sa l'AI<br>della <em>vostra</em> struttura?` },
+  pb:'pb4',
+  segmento:`Cosa sa l'AI` },
+
+{ layout:'prompt', tema:'chiaro', kicker:`LA PROVA`, brand:``, pb:'pb4',
+  contenuto:{ titolo:`Cosa chiedo all'AI di voi.`, prompts:[{ label:`LA RICHIESTA`, testo:`Cosa sai di [nome della struttura] a [città]? Dimmi anche da dove hai preso le informazioni.` }] },
+  segmento:`Cosa sa l'AI` },
+
+{ layout:'three', tema:'chiaro', kicker:`OGGI IN TRE FRASI`, brand:`23`,
+  contenuto:{ h:`Cosa portate a casa.`, punti:[
+   {n:`01`, t:`<strong>L'ospite</strong><br><span style="font-size:2.2vmin;color:#6E6E73">arriva con le idee già filtrate.</span>`},
+   {n:`02`, t:`<strong>La richiesta</strong><br><span style="font-size:2.2vmin;color:#6E6E73">chiara ha quattro elementi: chi sei, cosa vuoi, per chi, che tono.</span>`},
+   {n:`03`, t:`<strong>Le regole</strong><br><span style="font-size:2.2vmin;color:#6E6E73">Dichiara, proteggi i dati, rileggi.</span>`} ] },
+  segmento:`Chiusura` },
+
+{ layout:'coinvolgimento', tema:'chiaro', kicker:`COMPITI PER IL 20 OTTOBRE`, brand:`24`,
+  contenuto:{ occhiello:`Quindici minuti nella settimana.`, titolo:`Una cosa <span class="accent">vera</span><br>fatta con Claude.`,
+   compito:`1 · Usate Claude per una cosa vera della settimana: una risposta, un testo, un riassunto. 2 · Portate la richiesta e il risultato, senza dati degli ospiti. 3 · Iniziate un registro di chi usa l'AI in struttura.` },
+  segmento:`Chiusura` },
+
+{ layout:'frase', tema:'scuro', kicker:`12:20 · DOMANDE`, brand:`25`,
+  contenuto:{ frase:`Domande?`, sotto:`Michele Passalacqua<br>Associazione Albergatori Confcommercio Firenze-Arezzo<br>me@mipassalacqua.it` },
+  segmento:`Chiusura` },
+
+{ layout:'coinvolgimento', tema:'chiaro', cuscinetto:true, kicker:`RISERVA A · 10 MIN`, brand:`R1`,
+  contenuto:{ occhiello:`Se avanza tempo dopo l'esercizio.`, titolo:`La richiesta<br>di un <span class="accent">ospite</span>.`,
+   compito:`1 · Inventate una richiesta d'ospite: un preventivo, una domanda sul parcheggio. 2 · Chiedete a Claude una risposta nel tono della vostra struttura. 3 · Niente dati reali.` },
+  copia:[{"label": "Riserva A", "testo": "Scrivi la risposta a questa richiesta di un ospite, nel tono della mia struttura: [richiesta inventata, senza dati reali]"}],
+  segmento:`Riserva` },
+
+{ layout:'demo', tema:'chiaro', cuscinetto:true, kicker:`RISERVA B · 10 MIN`, brand:`R2`,
+  contenuto:{ titolo:`L'AI <span class="accent">sbaglia</span>.`,
+   guardate:`Chiedo un dato che non può sapere: gli orari della piscina di una struttura del gruppo. Se lo inventa, lo vediamo insieme.`,
+   schermo:`Claude, chat nuova.` },
+  pb:'pb3', copia:[{"label": "Riserva B", "testo": "Quali sono gli orari della piscina di [nome struttura del gruppo]?"}],
+  segmento:`Riserva` },
+
+{ layout:'demo', tema:'chiaro', cuscinetto:true, kicker:`RISERVA C · 15 MIN`, brand:`R3`,
+  contenuto:{ titolo:`Una recensione,<br>una <span class="accent">risposta</span>.`,
+   guardate:`Prendo una recensione negativa, senza nomi. Claude prepara la risposta nella lingua dell'ospite e nel tono della struttura.`,
+   schermo:`Claude: incollo la recensione anonimizzata.` },
+  copia:[{"label": "Riserva C", "testo": "Sono il titolare di un [tipo struttura] a [città]. Scrivi una risposta a questa recensione negativa, nella lingua dell'ospite, con un tono cortese e professionale, senza scuse eccessive: [incolla la recensione, senza nomi]"}],
+  segmento:`Riserva` },
+
+{ id:'pb1', pianoB:true, layout:'pianob', tema:'chiaro', kicker:`PIANO B`, brand:``,
+  contenuto:{ titolo:`Piano B · demo del cane`, attesa:`Qui va lo screenshot della risposta ottenuta nella prova del 5 ottobre.`, immagine:`` },
+  segmento:`Piano B` },
+
+{ id:'pb2', pianoB:true, layout:'pianob', tema:'chiaro', kicker:`PIANO B`, brand:``,
+  contenuto:{ titolo:`Piano B · richiesta debole e chiara`, attesa:`Qui va lo screenshot della risposta ottenuta nella prova del 5 ottobre.`, immagine:`` },
+  segmento:`Piano B` },
+
+{ id:'pb3', pianoB:true, layout:'pianob', tema:'chiaro', kicker:`PIANO B`, brand:``,
+  contenuto:{ titolo:`Piano B · l'AI sbaglia`, attesa:`Qui va lo screenshot della risposta ottenuta nella prova del 5 ottobre.`, immagine:`` },
+  segmento:`Piano B` },
+
+{ id:'pb4', pianoB:true, layout:'pianob', tema:'chiaro', kicker:`PIANO B`, brand:``,
+  contenuto:{ titolo:`Piano B · cosa sa l'AI`, attesa:`Qui va lo screenshot della risposta ottenuta nella prova del 5 ottobre.`, immagine:`` },
+  segmento:`Piano B` }
+];
+
+/* ============================================================
+   SEGMENTI (tempi previsti) e flusso
+============================================================ */
+const SEGMENTI = [
+  { id:'ben', nome:'Benvenuto e livello', chiavi:['Benvenuto','Livello di partenza'], ora:630, min:15, ritardo:'ridurre le quattro domande a due e andare avanti.' },
+  { id:'osp', nome:"L'ospite è cambiato", chiavi:["L'ospite è cambiato"], ora:645, min:20, ritardo:'saltare la slide Prima e ora, tenere solo la demo del cane.' },
+  { id:'pri', nome:'Primi passi', chiavi:['Primi passi'], ora:665, min:20, ritardo:"esercizio a 5 minuti, un solo volontario." },
+  { id:'pau', nome:'Pausa', chiavi:['Pausa'], ora:685, min:5, ritardo:'pausa a 3 minuti.' },
+  { id:'act', nome:'AI Act', chiavi:['AI Act'], ora:690, min:30, ritardo:'saltare la slide sulla legge italiana: blocco a 20 minuti.' },
+  { id:'sa',  nome:"Cosa sa l'AI", chiavi:["Cosa sa l'AI"], ora:720, min:15, ritardo:"saltare tutto: diventa l'apertura del 27 ottobre." },
+  { id:'chi', nome:'Chiusura', chiavi:['Chiusura'], ora:735, min:15, ritardo:'compiti in un minuto, domande a chi resta.' }
+];
+function gruppoDi(slide) {
+  if (!slide || slide.cuscinetto || slide.pianoB) return null;
+  return SEGMENTI.find(g => g.chiavi.includes(slide.segmento)) || null;
+}
+const FLUSSO = SLIDES.map((s,i)=>i).filter(i => !SLIDES[i].pianoB);
+(function numera(){
+  let n = 0, r = 0;
+  SLIDES.forEach(s => {
+    if (s.pianoB) { s.brand = 'B'; return; }
+    if (s.cuscinetto) { r++; s.brand = 'R' + r; return; }
+    n++;
+    if (!s.brand || /^\d+$/.test(s.brand)) s.brand = String(n).padStart(2,'0');
+  });
+})();
+function prossimoIndice(da) {
+  const base = SLIDES[da].pianoB ? (stato.ritorno != null ? stato.ritorno : da) : da;
+  for (let i = base + 1; i < SLIDES.length; i++) if (!SLIDES[i].pianoB) return i;
+  return null;
+}
+function precedenteIndice(da) {
+  if (SLIDES[da].pianoB) return stato.ritorno != null ? stato.ritorno : null;
+  for (let i = da - 1; i >= 0; i--) if (!SLIDES[i].pianoB) return i;
+  return null;
+}
+/* ============================================================
+   STATO E SINCRONIA
+============================================================ */
+const VIEW = 'pubblico';
+const channel = { postMessage(){} };
+let stato = { indice: 0, timerStart: null, timerRunning: false, timerSeconds: 0, cdFine: null, cdIndice: -1, ritorno: null, entrate: {} };
+
+function leggiStato() {
+  try {
+    const s = localStorage.getItem('corso-ai-stato-1');
+    if (s) stato = { ...stato, ...JSON.parse(s) };
+  } catch(e) {}
+}
+function salvaStato() {
+  try { localStorage.setItem('corso-ai-stato-1', JSON.stringify(stato)); } catch(e) {}
+}
+function broadcasta() {
+  channel.postMessage(stato);
+  salvaStato();
+}
+
+
+/* ============================================================
+   RENDER MAPPA SVG (sistema PMS + satelliti)
+============================================================ */
+function renderMappa(c) {
+  // BUG-FIX: i dati dei satelliti sono in c.mappa, non in c
+  const m = c.mappa || {};
+  // 4 satelliti in croce: alto, destra, basso, sinistra
+  const satelliti = [
+    { key: 'canali',      x: 350, y: 75,  label: 'CANALI DI VENDITA', sub: 'Booking, Expedia, sito', lx: 350, ly: 75, attivo: m.canali },
+    { key: 'marketing',   x: 605, y: 240, label: 'MARKETING',         sub: 'Sito, social, Google, AI', lx: 605, ly: 240, attivo: m.marketing },
+    { key: 'ospite',      x: 350, y: 405, label: 'OSPITE',            sub: 'WhatsApp, bot, app', lx: 350, ly: 405, attivo: m.ospite },
+    { key: 'gestionali',  x: 95,  y: 240, label: 'GESTIONALI',        sub: 'Fatture, ISTAT, Alloggiati', lx: 95, ly: 240, attivo: m.gestionali }
+  ];
+
+  const completa = m.completa ? 'completa' : '';
+
+  const links = satelliti.map(s => {
+    const onClass = s.attivo ? 'link-on' : '';
+    // linee dal centro (350, 240) al centro del satellite, accorciate per non sovrapporsi ai cerchi
+    const dx = s.x - 350, dy = s.y - 240;
+    const len = Math.sqrt(dx*dx + dy*dy);
+    const ux = dx/len, uy = dy/len;
+    // partenza dal bordo del PMS (raggio 75), arrivo prima del bordo del satellite (raggio 65)
+    const x1 = 350 + ux * 75;
+    const y1 = 240 + uy * 75;
+    const x2 = s.x - ux * 65;
+    const y2 = s.y - uy * 65;
+    return `<line class="sat-link ${onClass}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" />`;
+  }).join('');
+
+  const sats = satelliti.map(s => {
+    const onClass = s.attivo ? 'sat-on' : '';
+    return `<g class="${onClass}">
+      <circle class="sat-circle" cx="${s.x}" cy="${s.y}" r="65" />
+      <text class="sat-label" x="${s.x}" y="${s.y - 4}" text-anchor="middle">${s.label}</text>
+      <text class="sat-sub" x="${s.x}" y="${s.y + 14}" text-anchor="middle">${s.sub}</text>
+    </g>`;
+  }).join('');
+
+  return `<div class="l-mappa">
+    <div class="testo">
+      <h1>${c.titolo}</h1>
+    </div>
+    <div>
+      <svg class="mappa-svg ${completa}" viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg">
+        ${links}
+        ${sats}
+        <circle class="pms-circle" cx="350" cy="240" r="75" />
+        <text class="pms-label" x="350" y="236" text-anchor="middle">PMS</text>
+        <text class="pms-sub" x="350" y="258" text-anchor="middle">IL CUORE</text>
+      </svg>
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   RENDER SLIDE (riusabile in entrambe le viste)
+============================================================ */
+function renderSlide(slide, live) {
+  if (!slide) return '<div class="slide"></div>';
+  const temaClass = slide.tema === 'scuro' ? 'tema-scuro' : '';
+  let inner = '';
+  if (slide.layout === 'title') {
+    inner = `<div class="l-title">
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'question') {
+    inner = `<div class="l-question"><h1>${slide.contenuto.titolo}</h1></div>`;
+  } else if (slide.layout === 'big-word') {
+    inner = `<div class="l-big-word">
+      <div class="label">${slide.contenuto.label}</div>
+      <div class="word">${slide.contenuto.word}</div>
+    </div>`;
+  } else if (slide.layout === 'three') {
+    const cols = slide.contenuto.punti.map(p =>
+      `<div class="col"><div class="n">${p.n}</div><div class="t">${p.t}</div></div>`
+    ).join('');
+    inner = `<div class="l-three">
+      <p class="h">${slide.contenuto.h}</p>
+      <div class="row">${cols}</div>
+    </div>`;
+  } else if (slide.layout === 'metafora-intro') {
+    inner = `<div class="l-metafora-intro">
+      <div class="occhiello">${slide.contenuto.occhiello}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+    </div>`;
+  } else if (slide.layout === 'figura') {
+    inner = `<div class="l-figura">
+      <div class="icona">${slide.contenuto.icona}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'frase') {
+    inner = `<div class="l-frase">
+      <div class="frase">${slide.contenuto.frase}</div>
+      <div class="sotto">${slide.contenuto.sotto}</div>
+    </div>`;
+  } else if (slide.layout === 'ponte') {
+    inner = `<div class="l-ponte">
+      <div class="occhiello">${slide.contenuto.occhiello}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'mappa-centro') {
+    inner = renderMappa(slide.contenuto);
+  } else if (slide.layout === 'confronto') {
+    const c = slide.contenuto;
+    const segno = (tipo) => tipo === 'no' ? '✕' : (tipo === 'si' ? '✓' : '—');
+    inner = `<div class="l-confronto">
+      ${c.titolo ? `<div class="titolo-c">${c.titolo}</div>` : ''}
+      <div class="cols">
+        <div class="col ${c.sinistra.tipo}">
+          <div class="col-label"><span class="col-segno">${segno(c.sinistra.tipo)}</span> ${c.sinistra.label}</div>
+          <div class="col-testo">${c.sinistra.testo}</div>
+        </div>
+        <div class="col ${c.destra.tipo}">
+          <div class="col-label"><span class="col-segno">${segno(c.destra.tipo)}</span> ${c.destra.label}</div>
+          <div class="col-testo">${c.destra.testo}</div>
+        </div>
+      </div>
+    </div>`;
+  } else if (slide.layout === 'caso') {
+    const c = slide.contenuto;
+    inner = `<div class="l-caso">
+      <div class="nome">${c.nome}</div>
+      <div class="tratto">${c.tratto}</div>
+      <div class="ai-label">DOVE L'AI AMPLIFICA</div>
+      <div class="ai-testo">${c.ai}</div>
+    </div>`;
+  } else if (slide.layout === 'demo') {
+    const c = slide.contenuto;
+    inner = `<div class="l-demo">
+      <h1>${c.titolo}</h1>
+      <div class="guardate">${c.guardate}</div>
+      ${c.schermo ? `<div class="schermo-hint"><span class="freccia">→</span> ${c.schermo}</div>` : ''}
+    </div>`;
+  } else if (slide.layout === 'coinvolgimento') {
+    const c = slide.contenuto;
+    inner = `<div class="l-coinvolgi">
+      ${c.occhiello ? `<div class="occhiello">${c.occhiello}</div>` : ''}
+      <h1>${c.titolo}</h1>
+      ${c.compito ? `<div class="compito">${c.compito}</div>` : ''}
+    </div>`;
+  } else if (slide.layout === 'numero') {
+    const c = slide.contenuto;
+    inner = `<div class="l-numero"><div class="cifra">${c.cifra}</div><div class="riga">${c.riga}</div><div class="fonte">${c.fonte}</div></div>`;
+  } else if (slide.layout === 'prompt') {
+    const c = slide.contenuto;
+    inner = `<div class="l-prompt"><h1>${c.titolo}</h1>${c.prompts.map(p => `<div class="chat"><div class="chat-label">${p.label}</div><div class="chat-testo">${p.testo}</div></div>`).join('')}</div>`;
+  } else if (slide.layout === 'pianob') {
+    const c = slide.contenuto;
+    inner = `<div class="l-pianob"><div class="pb-tag">PIANO B · RISPOSTA DELLA PROVA</div><h1>${c.titolo}</h1>${c.immagine ? `<img src="${c.immagine}" alt="">` : `<div class="pb-vuoto">${c.attesa}</div>`}</div>`;
+  } else if (slide.layout === 'checkpoint') {
+    const c = slide.contenuto;
+    inner = `<div class="l-checkpoint">
+      <div class="icona">${c.icona || '✋'}</div>
+      <h1>${c.titolo}</h1>
+      ${c.sub ? `<div class="sub">${c.sub}</div>` : ''}
+    </div>`;
+  }
+  // badge tipo-slide pratico
+  const badge = {
+    demo:           '<div class="tipo-badge demo"><span class="pallino"></span> ORA GUARDATE</div>',
+    coinvolgimento: '<div class="tipo-badge coinvolgimento"><span class="pallino"></span> TOCCA A VOI</div>',
+    checkpoint:     '<div class="tipo-badge checkpoint"><span class="pallino"></span> CHECKPOINT</div>'
+  }[slide.layout] || '';
+  return `<div class="slide ${temaClass}">
+    ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+    ${badge}
+    ${slide.cuscinetto ? '<div class="cuscinetto-tag">RISERVA · SE SEI CORTO</div>' : ''}
+    ${slide.brand ? `<div class="brand">${slide.brand}</div>` : ''}
+    ${inner}
+    ${(live && cdRestante(slide) !== null) ? `<div class="countdown ${cdRestante(slide) <= 60 ? 'urgente' : ''}">${formatTime(cdRestante(slide))}</div>` : ''}
+    <div class="zona-webcam">WEBCAM</div>
+  </div>`;
+}
+function cdRestante(slide) {
+  if (stato.cdFine && SLIDES[stato.indice] === slide) return Math.max(0, Math.ceil((stato.cdFine - Date.now()) / 1000));
+  return null;
+}
+function getCopia(slide) {
+  if (!slide) return [];
+  if (slide.copia) return slide.copia;
+  if (slide.contenuto && slide.contenuto.prompts) return slide.contenuto.prompts.map(p => ({ label: p.label, testo: p.testo }));
+  return [];
+}
+
+/* ============================================================
+   VISTA: HOME (selettore)
+============================================================ */
+/* ============================================================
+   VISTA: PUBBLICO
+============================================================ */
+let ultimoIndiceRender = -1;
+function barraAvanzamento(slide) {
+  const g = gruppoDi(slide);
+  if (!g) return '';
+  const celle = SEGMENTI.map(s => {
+    const idx = FLUSSO.filter(i => !SLIDES[i].cuscinetto && SLIDES[i].segmento && s.chiavi.includes(SLIDES[i].segmento));
+    let cls = 'futuro', style = '';
+    const gi = SEGMENTI.indexOf(g), si = SEGMENTI.indexOf(s);
+    if (si < gi) cls = 'passato';
+    else if (si === gi) {
+      const pos = idx.indexOf(stato.indice) + 1;
+      const r = idx.length ? Math.round(100 * pos / idx.length) : 100;
+      cls = 'corrente'; style = `background:linear-gradient(to right,#34C759 ${r}%,rgba(128,128,128,0.35) ${r}%)`;
+    }
+    return `<div class="seg ${cls}" style="flex:${s.min};${style}"></div>`;
+  }).join('');
+  return `<div class="barra">${celle}</div>`;
+}
+function renderPubblico() {
+  const slide = SLIDES[stato.indice];
+  if (!slide) {
+    return `<div class="pubblico"><div class="pubblico-attesa">
+      <h2>In attesa</h2>
+      <div>La presentazione inizierà tra poco.</div>
+    </div></div>`;
+  }
+  const anim = (ultimoIndiceRender !== stato.indice) ? 'anim' : '';
+  ultimoIndiceRender = stato.indice;
+  return `<div class="pubblico ${anim}">${barraAvanzamento(slide)}${renderSlide(slide, true)}</div>`;
+}
+
+/* ============================================================
+   VISTA: RELATORE
+============================================================ */
+function minutiOra() {
+  if (stato.timerSeconds > 0) return 630 + stato.timerSeconds / 60;
+  const d = new Date();
+  return d.getHours() * 60 + d.getMinutes() + d.getSeconds() / 60;
+}
+function hhmm(m) {
+  m = Math.round(m);
+  return String(Math.floor(m / 60)).padStart(2,'0') + ':' + String(m % 60).padStart(2,'0');
+}
+function registraEntrata() {
+  const g = gruppoDi(SLIDES[stato.indice]);
+  if (g && stato.entrate[g.id] == null) stato.entrate[g.id] = minutiOra();
+}
+function segInfo(slide) {
+  const g = gruppoDi(slide);
+  if (!g) return { html: `Segmento: ${slide ? slide.segmento : '—'}`, ritardo: '' };
+  const now = minutiOra(), fine = g.ora + g.min, rest = Math.round(fine - now);
+  const ent = stato.entrate[g.id];
+  const sc = ent != null ? Math.round(ent - g.ora) : null;
+  const cls = rest < 0 ? 'rosso' : (rest <= 3 ? 'arancio' : 'verde');
+  const html = `${g.nome} · previsto ${hhmm(g.ora)}–${hhmm(fine)}` + (sc != null ? ` · entrato ${sc > 0 ? '+' : ''}${sc} min` : '') +
+    ` · <span class="${cls}">${rest >= 0 ? 'restano ' + rest + ' min' : 'oltre di ' + (-rest) + ' min'}</span>`;
+  return { html, ritardo: g.ritardo };
+}
+function posLabel() {
+  const i = FLUSSO.indexOf(stato.indice);
+  if (i < 0) return 'PIANO B';
+  if (SLIDES[stato.indice].cuscinetto) return 'RISERVA · ' + (i + 1) + ' di ' + FLUSSO.length;
+  return (i + 1) + ' di ' + FLUSSO.length;
+}
+function cdTxt() {
+  if (stato.cdFine && stato.cdIndice === stato.indice) return ' · ⏲ ' + formatTime(Math.max(0, Math.ceil((stato.cdFine - Date.now()) / 1000)));
+  return '';
+}
+function copia(i) {
+  const c = getCopia(SLIDES[stato.indice])[i];
+  if (!c) return;
+  const ok = () => { const b = document.getElementById('cb' + i); if (b) b.textContent = 'Copiato ✓'; };
+  const fallback = () => {
+    const t = document.createElement('textarea'); t.value = c.testo; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); ok(); } catch (e) {} document.body.removeChild(t);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(c.testo).then(ok).catch(fallback);
+  else fallback();
+}
+function formatTime(s) {
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+}
+
+function vai(n) {
+  if (n === null || n === undefined) return;
+  stato.indice = n;
+  stato.cdFine = null;
+  registraEntrata();
+  broadcasta();
+  render();
+}
+function next() { vai(prossimoIndice(stato.indice)); }
+function prev() { vai(precedenteIndice(stato.indice)); }
+function toggleCd() {
+  const s = SLIDES[stato.indice];
+  if (!s || !s.cd) return;
+  if (stato.cdFine && stato.cdIndice === stato.indice) stato.cdFine = null;
+  else { stato.cdFine = Date.now() + s.cd * 1000; stato.cdIndice = stato.indice; }
+  broadcasta();
+  render();
+}
+function togglePB() {
+  const s = SLIDES[stato.indice];
+  if (!s) return;
+  if (s.pianoB) { if (stato.ritorno != null) { const r = stato.ritorno; stato.ritorno = null; vai(r); } return; }
+  if (!s.pb) return;
+  const idx = SLIDES.findIndex(x => x.id === s.pb);
+  if (idx < 0) return;
+  stato.ritorno = stato.indice;
+  vai(idx);
+}
+function toggleTimer() {
+  stato.timerRunning = !stato.timerRunning;
+  if (stato.timerRunning) { if (stato.timerSeconds === 0) stato.entrate = {}; registraEntrata(); }
+  broadcasta();
+  render();
+}
+function resetTimer() {
+  stato.timerSeconds = 0;
+  stato.timerRunning = false;
+  stato.entrate = {};
+  stato.cdFine = null;
+  broadcasta();
+  render();
+}
+
+setInterval(() => {
+  if (stato.timerRunning) {
+    stato.timerSeconds++;
+    if (VIEW === 'relatore') render();
+    broadcasta();
+  } else if (stato.cdFine && VIEW) {
+    render();
+  }
+}, 1000);
+
+/* tastiera (solo relatore) */
+{
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 't' || e.key === 'T') { e.preventDefault(); toggleCd(); }
+    if (e.key === 'b' || e.key === 'B') { e.preventDefault(); togglePB(); }
+  });
+}
+
+/* ============================================================
+   RENDER
+============================================================ */
+function render() {
+  const app = document.getElementById('app');
+  const pos = FLUSSO.indexOf(stato.indice);
+  app.innerHTML = renderPubblico() + `<div class="dnav">
+    <button type="button" onclick="prev()" ${pos <= 0 ? 'disabled' : ''} aria-label="Slide precedente">&larr;</button>
+    <span>${pos + 1} / ${FLUSSO.length}</span>
+    <button type="button" onclick="next()" ${pos >= FLUSSO.length - 1 ? 'disabled' : ''} aria-label="Slide successiva">&rarr;</button>
+  </div>`;
+}
+let tx = null;
+document.addEventListener('touchstart', (e) => { tx = e.changedTouches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', (e) => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 60) { dx < 0 ? next() : prev(); }
+}, { passive: true });
+render();
+</script>
+</body>
+</html>

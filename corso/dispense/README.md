@@ -1,2 +1,1 @@
-Cartella dei PDF delle dispense. Caricare qui i file e collegarli in `corso/dispense.html`
-(es. `dispense/lezione-1.pdf`). La pagina non è linkata né nel sito né nella sitemap.
+Materiale dei corsisti: `incontro-N.html` sono le slide (versione senza note da relatore, generata dai file originali sul Desktop), `bignami-N.html` i riassunti in prosa. Le righe degli incontri si attivano in `corso/dispense.html`.
