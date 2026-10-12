@@ -226,3 +226,15 @@ footer a{display:inline-block;padding:12px 0}
 #mp-consent .b{display:flex;gap:10px}
 #mp-consent button{font:inherit;cursor:pointer;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink)}
 #mp-consent button.ok{background:var(--btn);color:var(--btn-text);border-color:var(--btn)}
+
+/* ---------- formati (consulenza) ---------- */
+.formato{border-top:1px solid var(--ink);padding:28px 0 8px;margin-top:28px}
+.formato h3{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(24px,3vw,30px);line-height:1.2;margin-bottom:18px}
+.formato dl div{display:grid;grid-template-columns:minmax(120px,160px) 1fr;gap:6px 28px;padding:14px 0;border-top:1px solid var(--line)}
+.formato dt{font-size:14px;font-weight:600;letter-spacing:.01em}
+.formato dd{font-size:15.5px;color:var(--muted);max-width:66ch;text-wrap:pretty}
+.formato dl div:last-child dd{color:var(--ink)}
+@media(max-width:600px){.formato dl div{grid-template-columns:1fr;gap:2px}}
+.dove{list-style:none;border-top:1px solid var(--ink)}
+.dove li{padding:16px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--muted);max-width:70ch;text-wrap:pretty}
+.dove li a{color:var(--ink)}
