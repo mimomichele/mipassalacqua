@@ -273,19 +273,17 @@
 <!-- Google Ads: misurazione conversioni (Consent Mode, consenso negato di default) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11099505711"></script>
 <script>
-/* Etichetta della conversione "Consulenza - contatto (email/WhatsApp)" (id 7814232892):
-   sostituire [ETICHETTA] con l'etichetta di Google Ads. Finché resta il segnaposto,
-   la conversione non viene inviata (l'evento contatto_hospitality sì). */
-var HD_CONVERSIONE = 'AW-11099505711/[ETICHETTA]';
+/* Conversione "Consulenza - contatto (email/WhatsApp)": stessa etichetta delle altre pagine del sito. */
+var HD_CONVERSIONE = 'AW-11099505711/4AsQCLz2jo4dEK-I1Kwp';
 
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
-try{if(localStorage.getItem('mp_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
-gtag('js',new Date());gtag('config','AW-11099505711',{send_page_view:false});gtag('config','G-G75X352FRE',{send_page_view:false});
+try{if(localStorage.getItem('mp_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}}catch(e){}
+gtag('js',new Date());gtag('config','AW-11099505711',{send_page_view:false});gtag('config','G-G75X352FRE');
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[data-canale]');if(!a)return;
   var canale=a.getAttribute('data-canale');
-  gtag('event','contatto_hospitality',{canale:canale,transport_type:'beacon'});
+  gtag('event','contatto',{canale:canale,transport_type:'beacon'});
   if(HD_CONVERSIONE.indexOf('[')<0){gtag('event','conversion',{send_to:HD_CONVERSIONE,transport_type:'beacon'});}
 },true);
 </script>
@@ -453,12 +451,12 @@ document.addEventListener('click',function(e){
 })();
 </script>
 
-<div id="mp-consent" role="dialog" aria-label="Preferenze cookie"><div class="in"><p>Uso cookie di misurazione per capire quali campagne pubblicitarie portano contatti. Puoi accettarli o rifiutarli: il sito funziona allo stesso modo. <a href="/privacy.html">Informativa</a></p><div class="b"><button type="button" id="mp-no">Rifiuta</button><button type="button" id="mp-yes" class="ok">Accetta</button></div></div></div>
+<div id="mp-consent" role="dialog" aria-label="Preferenze cookie"><div class="in"><p>Uso cookie di misurazione per contare le visite e capire quali campagne pubblicitarie portano contatti. Puoi accettarli o rifiutarli: il sito funziona allo stesso modo. <a href="/privacy.html">Informativa</a></p><div class="b"><button type="button" id="mp-no">Rifiuta</button><button type="button" id="mp-yes" class="ok">Accetta</button></div></div></div>
 <script>
 (function(){var el=document.getElementById('mp-consent');if(!el)return;var s=null;try{s=localStorage.getItem('mp_consent');}catch(e){}
 if(!s){el.style.display='block';}
 function set(v){try{localStorage.setItem('mp_consent',v);}catch(e){}
-gtag('consent','update',v==='granted'?{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'}:{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+gtag('consent','update',v==='granted'?{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'}:{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
 el.style.display='none';}
 document.getElementById('mp-yes').addEventListener('click',function(){set('granted');});
 document.getElementById('mp-no').addEventListener('click',function(){set('denied');});
