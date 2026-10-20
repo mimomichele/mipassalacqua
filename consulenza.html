@@ -772,6 +772,15 @@ window.mpSend(fd,function(){ok.innerHTML='<b>La richiesta non e\u0300 partita.</
 window.mpSend=function(fd,onFail){var done=false;var t=setTimeout(function(){if(!done){done=true;onFail();}},20000);
 var o={};fd.forEach(function(v,k){if(k.charAt(0)!=='_')o[k.toLowerCase()]=String(v);});o.pagina=location.pathname+location.hash;
 fetch('https://hook.eu1.make.com/q9dl1iju6bjrioxci7et45afzagtl6c8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o),keepalive:true}).then(function(r){if(done)return;done=true;clearTimeout(t);if(!r.ok)onFail();}).catch(function(){if(done)return;done=true;clearTimeout(t);onFail();});};
+
+(function(){var f=document.getElementById('mp-tut'),ok=document.getElementById('mp-tut-ok');if(!f)return;
+f.addEventListener('submit',function(e){e.preventDefault();
+var miss=null;f.querySelectorAll('[required]').forEach(function(i){if(miss)return;if(i.type==='checkbox'?!i.checked:!i.value.trim())miss=i;});
+if(miss){miss.focus();if(miss.type!=='checkbox')miss.style.borderColor='#b91c1c';return;}
+var em=f.email.value.trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){f.email.focus();f.email.style.borderColor='#b91c1c';return;}
+var fd=new FormData(f);
+f.style.display='none';ok.style.display='block';if(window.mpContact)mpContact('tutorial');
+window.mpSend(fd,function(){var p=document.createElement('p');p.style.cssText='margin-top:14px;font-size:14px;color:#6b7280';p.innerHTML='La registrazione della richiesta non \u00e8 andata a buon fine, ma il PDF qui sopra si scarica lo stesso. Se vuoi che ti ricontatti, scrivimi a <a href="mailto:me@mipassalacqua.it?subject=Tutorial%20app%20manutenzioni">me@mipassalacqua.it</a>.';ok.appendChild(p);});});})();
 </script>
 </body>
 </html>
