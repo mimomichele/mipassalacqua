@@ -510,12 +510,9 @@ document.addEventListener('click',function(e){
       </div>
       <div class="formbox" id="richiedi-tutorial">
         <h3>Ricevi il tutorial</h3>
-        <p class="sub">Versione ottobre 2026. Arriva per email in un minuto.</p>
-        <form id="mp-tut" action="https://formsubmit.co/ajax/me@mipassalacqua.it" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Richiesta tutorial app manutenzioni">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_autoresponse" value="Ciao, grazie per la richiesta. Il tutorial per costruire l'app delle manutenzioni si scarica qui: https://mipassalacqua.it/dl/m7k2x9q/tutorial-app-manutenzioni.pdf  -  Dentro trovi i dodici prompt nell'ordine in cui li ho dati io, con una riga per ciascuno su cosa deve succedere e cosa fare se non funziona. Se ti blocchi, o se l'app delle manutenzioni e' solo la prima delle cose che nella tua struttura si fanno ancora a mano, scrivimi su WhatsApp al 340 068 6228 o rispondi a questa email. Michele Passalacqua - mipassalacqua.it">
+        <p class="sub">Versione ottobre 2026. Lo scarichi subito dopo l'invio.</p>
+        <form id="mp-tut" action="#" method="POST" novalidate>
+          <input type="hidden" name="tipo" value="Tutorial manutenzioni">
           <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
           <label for="t-nome">Nome e cognome</label>
           <input id="t-nome" name="Nome" type="text" required autocomplete="name">
@@ -537,7 +534,7 @@ document.addEventListener('click',function(e){
           <button class="btn" type="submit">Inviami il tutorial</button>
           <p class="form-note">Niente spam: ricevi il tutorial e, solo se lo chiedi, qualche email all'anno.</p>
         </form>
-        <div class="form-ok" id="mp-tut-ok"><b>Fatto.</b> Ti ho mandato il link per email; se non lo vedi tra qualche minuto, controlla la posta indesiderata. Intanto puoi scaricarlo da qui.<a class="btn" href="dl/m7k2x9q/tutorial-app-manutenzioni.pdf">Scarica il tutorial (PDF)</a></div>
+        <div class="form-ok" id="mp-tut-ok"><b>Fatto.</b> Il tutorial è tuo: scaricalo da qui e, se vuoi, tienilo a portata di mano nel telefono. Ti scrivo io nei prossimi giorni per sapere come va.<a class="btn" href="dl/m7k2x9q/tutorial-app-manutenzioni.pdf">Scarica il tutorial (PDF)</a></div>
       </div>
     </div>
   </div>
@@ -703,17 +700,15 @@ document.addEventListener('click',function(e){
     <h2>Cosa fate ancora a mano? Raccontamelo.</h2>
     <div class="contact-grid">
       <div>
-        <form id="mp-form" action="https://formsubmit.co/ajax/me@mipassalacqua.it" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Richiesta dal sito: consulenza">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
+        <form id="mp-form" action="#" method="POST" novalidate>
+          <input type="hidden" name="tipo" value="Richiesta di contatto">
           <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
           <label for="f-nome">Nome</label>
           <input id="f-nome" name="Nome" type="text" required autocomplete="name">
           <label for="f-struttura">Struttura e città</label>
           <input id="f-struttura" name="Struttura" type="text" required placeholder="Es. Hotel Belvedere, Siena">
           <label for="f-contatto">Telefono o email per risponderti</label>
-          <input id="f-contatto" name="Contatto" type="text" required autocomplete="tel">
+          <input id="f-contatto" name="telefono" type="text" required autocomplete="tel">
           <label for="f-msg">Cosa vorresti sistemare</label>
           <textarea id="f-msg" name="Messaggio" required placeholder="Una riga basta."></textarea>
           <button class="btn" type="submit">Invia la richiesta</button>
@@ -774,17 +769,9 @@ var fd=new FormData(f);var w='https://wa.me/393400686228?text='+encodeURICompone
 f.style.display='none';ok.style.display='block';if(window.mpContact)mpContact('form');
 window.mpSend(fd,function(){ok.innerHTML='<b>La richiesta non e\u0300 partita.</b> Puoi <a href="'+w+'">mandarmi lo stesso messaggio su WhatsApp</a> o scrivermi a <a href="mailto:me@mipassalacqua.it">me@mipassalacqua.it</a>.';});});})();
 /* Invio in background: la pagina conferma subito, il servizio risponde con calma; onFail scatta se il servizio rifiuta o non risponde. */
-window.mpSend=function(fd,onFail){var done=false;var t=setTimeout(function(){if(!done){done=true;onFail();}},45000);
-fetch('https://formsubmit.co/ajax/me@mipassalacqua.it',{method:'POST',headers:{'Accept':'application/json'},body:fd,keepalive:true}).then(function(r){return r.json();}).then(function(j){if(done)return;done=true;clearTimeout(t);if(!j||String(j.success)!=='true')onFail();}).catch(function(){if(done)return;done=true;clearTimeout(t);onFail();});};
-
-(function(){var f=document.getElementById('mp-tut'),ok=document.getElementById('mp-tut-ok');if(!f)return;
-f.addEventListener('submit',function(e){e.preventDefault();
-var miss=null;f.querySelectorAll('[required]').forEach(function(i){if(miss)return;if(i.type==='checkbox'?!i.checked:!i.value.trim())miss=i;});
-if(miss){miss.focus();if(miss.type!=='checkbox')miss.style.borderColor='#b91c1c';return;}
-var em=f.email.value.trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){f.email.focus();f.email.style.borderColor='#b91c1c';return;}
-var fd=new FormData(f);
-f.style.display='none';ok.style.display='block';if(window.mpContact)mpContact('tutorial');
-window.mpSend(fd,function(){var p=document.createElement('p');p.style.cssText='margin-top:14px;font-size:14px;color:#6b7280';p.innerHTML='Se il link non ti arriva per email, scrivimi a <a href="mailto:me@mipassalacqua.it?subject=Tutorial%20app%20manutenzioni">me@mipassalacqua.it</a> e te lo mando io.';ok.appendChild(p);});});})();
+window.mpSend=function(fd,onFail){var done=false;var t=setTimeout(function(){if(!done){done=true;onFail();}},20000);
+var o={};fd.forEach(function(v,k){if(k.charAt(0)!=='_')o[k.toLowerCase()]=String(v);});o.pagina=location.pathname+location.hash;
+fetch('https://hook.eu1.make.com/q9dl1iju6bjrioxci7et45afzagtl6c8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o),keepalive:true}).then(function(r){if(done)return;done=true;clearTimeout(t);if(!r.ok)onFail();}).catch(function(){if(done)return;done=true;clearTimeout(t);onFail();});};
 </script>
 </body>
 </html>
