@@ -770,23 +770,21 @@ document.querySelectorAll('[data-mp-prefs]').forEach(function(a){a.addEventListe
 f.addEventListener('submit',function(e){e.preventDefault();
 var req=f.querySelectorAll('[required]'),miss=null;req.forEach(function(i){if(!miss&&!i.value.trim())miss=i;});
 if(miss){miss.focus();miss.style.borderColor='#b91c1c';return;}
-var b=f.querySelector('button');b.disabled=true;b.textContent='Invio in corso';
-fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){return r.ok?r.json():Promise.reject(r);}).then(function(){
+var fd=new FormData(f);var w='https://wa.me/393400686228?text='+encodeURIComponent('Ciao Michele, sono '+f.Nome.value+' ('+f.Struttura.value+'). '+f.Messaggio.value);
 f.style.display='none';ok.style.display='block';if(window.mpContact)mpContact('form');
-}).catch(function(){b.disabled=false;b.textContent='Invia la richiesta';
-var w='https://wa.me/393400686228?text='+encodeURIComponent('Ciao Michele, sono '+f.Nome.value+' ('+f.Struttura.value+'). '+f.Messaggio.value);
-ok.innerHTML='<b>Non sono riuscito a inviare.</b> Puoi <a href="'+w+'">mandarmi lo stesso messaggio su WhatsApp</a> o scrivermi a me@mipassalacqua.it.';ok.style.display='block';});});})();
+window.mpSend(fd,function(){ok.innerHTML='<b>La richiesta non e\u0300 partita.</b> Puoi <a href="'+w+'">mandarmi lo stesso messaggio su WhatsApp</a> o scrivermi a <a href="mailto:me@mipassalacqua.it">me@mipassalacqua.it</a>.';});});})();
+/* Invio in background: la pagina conferma subito, il servizio risponde con calma; onFail scatta se il servizio rifiuta o non risponde. */
+window.mpSend=function(fd,onFail){var done=false;var t=setTimeout(function(){if(!done){done=true;onFail();}},45000);
+fetch('https://formsubmit.co/ajax/me@mipassalacqua.it',{method:'POST',headers:{'Accept':'application/json'},body:fd,keepalive:true}).then(function(r){return r.json();}).then(function(j){if(done)return;done=true;clearTimeout(t);if(!j||String(j.success)!=='true')onFail();}).catch(function(){if(done)return;done=true;clearTimeout(t);onFail();});};
 
 (function(){var f=document.getElementById('mp-tut'),ok=document.getElementById('mp-tut-ok');if(!f)return;
 f.addEventListener('submit',function(e){e.preventDefault();
 var miss=null;f.querySelectorAll('[required]').forEach(function(i){if(miss)return;if(i.type==='checkbox'?!i.checked:!i.value.trim())miss=i;});
 if(miss){miss.focus();if(miss.type!=='checkbox')miss.style.borderColor='#b91c1c';return;}
 var em=f.email.value.trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){f.email.focus();f.email.style.borderColor='#b91c1c';return;}
-var b=f.querySelector('button');b.disabled=true;b.textContent='Invio in corso';
-fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){return r.ok?r.json():Promise.reject(r);}).then(function(){
+var fd=new FormData(f);
 f.style.display='none';ok.style.display='block';if(window.mpContact)mpContact('tutorial');
-}).catch(function(){b.disabled=false;b.textContent='Inviami il tutorial';
-ok.innerHTML='<b>Non sono riuscito a registrare la richiesta.</b> Scrivimi a <a href="mailto:me@mipassalacqua.it?subject=Tutorial%20app%20manutenzioni">me@mipassalacqua.it</a> con il nome della tua struttura e te lo mando io.';ok.style.display='block';});});})();
+window.mpSend(fd,function(){var p=document.createElement('p');p.style.cssText='margin-top:14px;font-size:14px;color:#6b7280';p.innerHTML='Se il link non ti arriva per email, scrivimi a <a href="mailto:me@mipassalacqua.it?subject=Tutorial%20app%20manutenzioni">me@mipassalacqua.it</a> e te lo mando io.';ok.appendChild(p);});});})();
 </script>
 </body>
 </html>
