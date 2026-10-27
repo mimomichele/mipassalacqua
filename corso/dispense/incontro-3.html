@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corso AI · Incontri 3 e 4 — Farsi trovare dall'AI, foto e social</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, system-ui, sans-serif; background: #FFFFFF; color: #1D1D1F; -webkit-font-smoothing: antialiased; }
+
+/* ============================================================
+   HOME (selettore vista)
+============================================================ */
+.home { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px; }
+.home-card { max-width: 720px; width: 100%; text-align: center; }
+.home-kicker { font-size: 12px; color: #86868B; letter-spacing: 2.5px; font-weight: 500; margin-bottom: 18px; }
+.home h1 { font-size: 44px; font-weight: 600; letter-spacing: -1.2px; line-height: 1.1; margin-bottom: 14px; }
+.home h1 .accent { color: #2C5F2D; }
+.home .lead { font-size: 17px; color: #6E6E73; max-width: 540px; margin: 0 auto 44px; line-height: 1.5; }
+.home .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 560px; margin: 0 auto 40px; }
+.home .btn { display: block; padding: 24px 20px; border: 1px solid #E5E5EA; border-radius: 14px; text-decoration: none; color: #1D1D1F; transition: all 0.15s ease; background: white; cursor: pointer; font-family: inherit; text-align: left; }
+.home .btn:hover { border-color: #2C5F2D; transform: translateY(-1px); }
+.home .btn .ico { font-size: 22px; margin-bottom: 8px; display: block; }
+.home .btn .lbl { font-size: 13px; color: #86868B; letter-spacing: 1.5px; font-weight: 500; margin-bottom: 4px; }
+.home .btn .ttl { font-size: 19px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.3px; }
+.home .btn .dsc { font-size: 13px; color: #6E6E73; line-height: 1.4; }
+.home .istruzioni { font-size: 13px; color: #86868B; line-height: 1.6; max-width: 540px; margin: 0 auto; padding: 20px; background: #F5F5F7; border-radius: 12px; text-align: left; }
+.home .istruzioni strong { color: #1D1D1F; font-weight: 600; }
+
+/* ============================================================
+   VISTA PUBBLICO (slide a tutto schermo)
+============================================================ */
+.pubblico { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; background: #FFFFFF; overflow: hidden; cursor: none; }
+.pubblico:hover { cursor: default; }
+.slide { width: 100%; height: 100%; max-width: 1600px; aspect-ratio: 16/9; background: #FFFFFF; padding: 5vmin 6vmin; position: relative; display: flex; align-items: center; justify-content: center; }
+.slide.tema-scuro { background: #1D1D1F; color: #FFFFFF; }
+
+.kicker { position: absolute; top: 4vmin; left: 6vmin; font-size: 1.3vmin; color: #86868B; letter-spacing: 0.3em; font-weight: 500; }
+.brand { position: absolute; bottom: 3.5vmin; right: 6vmin; font-size: 1.3vmin; color: #B8B8BD; letter-spacing: 0.15em; }
+.tema-scuro .kicker { color: rgba(255,255,255,0.4); }
+.tema-scuro .brand { color: rgba(255,255,255,0.35); }
+
+/* layout: title */
+.l-title { text-align: center; }
+.l-title h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 2.5vmin; }
+.l-title h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-title h1 .accent { color: #30D158; }
+.l-title .sub { font-size: 2.1vmin; color: #6E6E73; font-weight: 400; }
+.tema-scuro .l-title .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: question */
+.l-question h1 { font-size: 5.5vmin; font-weight: 500; line-height: 1.15; letter-spacing: -0.025em; max-width: 75vw; }
+.l-question h1 em { font-style: normal; color: #2C5F2D; }
+.tema-scuro .l-question h1 em { color: #30D158; }
+
+/* layout: big-word */
+.l-big-word { text-align: center; }
+.l-big-word .label { font-size: 1.7vmin; color: #86868B; letter-spacing: 0.3em; margin-bottom: 3vmin; font-weight: 500; }
+.l-big-word .word { font-size: 12vmin; font-weight: 700; letter-spacing: -0.06em; line-height: 1; }
+.l-big-word .word .strike { color: #D2D2D7; text-decoration: line-through; text-decoration-thickness: 0.4vmin; }
+
+/* layout: three-points */
+.l-three { width: 100%; max-width: 90vw; }
+.l-three .h { font-size: 2.8vmin; font-weight: 500; color: #6E6E73; margin-bottom: 4vmin; letter-spacing: -0.015em; }
+.l-three .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4vmin; }
+.l-three .n { font-size: 1.7vmin; color: #2C5F2D; font-weight: 500; letter-spacing: 0.15em; margin-bottom: 1.2vmin; }
+.l-three .t { font-size: 2.4vmin; font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; }
+
+/* layout: metafora-intro (apertura due-personaggi) */
+.l-metafora-intro { text-align: center; }
+.l-metafora-intro .occhiello { font-size: 2.2vmin; color: #6E6E73; font-weight: 400; margin-bottom: 3vmin; letter-spacing: -0.01em; }
+.l-metafora-intro h1 { font-size: 7vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; }
+.l-metafora-intro h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-metafora-intro h1 .accent { color: #30D158; }
+
+/* layout: figura (icona grande + titolo + sub) */
+.l-figura { text-align: center; max-width: 80vw; }
+.l-figura .icona { font-size: 14vmin; line-height: 1; margin-bottom: 3vmin; filter: grayscale(0.15); }
+.l-figura h1 { font-size: 6vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 2.5vmin; }
+.l-figura .sub { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.5; max-width: 70vw; margin: 0 auto; }
+.tema-scuro .l-figura .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: frase (citazione grande, accent verde) */
+.l-frase { text-align: center; max-width: 90vw; }
+.l-frase .frase { font-size: 7.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 4vmin; }
+.l-frase .frase .accent { color: #2C5F2D; }
+.tema-scuro .l-frase .frase .accent { color: #30D158; }
+.l-frase .sotto { font-size: 4vmin; font-weight: 400; color: #1D1D1F; line-height: 1.2; letter-spacing: -0.025em; }
+.l-frase .sotto strong { font-weight: 600; }
+.tema-scuro .l-frase .sotto { color: #FFFFFF; }
+
+/* layout: ponte (transizione tra segmenti) */
+.l-ponte { text-align: center; max-width: 85vw; }
+.l-ponte .occhiello { font-size: 2.2vmin; color: #6E6E73; font-style: italic; margin-bottom: 2.8vmin; letter-spacing: -0.01em; }
+.l-ponte h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 3vmin; }
+.l-ponte .sub { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.4; }
+.tema-scuro .l-ponte .occhiello, .tema-scuro .l-ponte .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: mappa-centro (sistema PMS + satelliti) */
+.l-mappa { width: 100%; max-width: 95vw; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4vmin; align-items: center; }
+.l-mappa .testo h1 { font-size: 5.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; }
+.l-mappa .testo h1 .accent { color: #2C5F2D; }
+.l-mappa .mappa-svg { width: 100%; height: auto; max-height: 70vmin; }
+/* PMS centrale */
+.mappa-svg .pms-circle { fill: #1D1D1F; }
+.mappa-svg .pms-label { fill: #FFFFFF; font-size: 22px; font-weight: 600; letter-spacing: 1px; }
+.mappa-svg .pms-sub { fill: rgba(255,255,255,0.6); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; }
+/* Satelliti spenti */
+.mappa-svg .sat-circle { fill: #F5F5F7; stroke: #E5E5EA; stroke-width: 1.5; transition: all 0.5s ease; }
+.mappa-svg .sat-label { fill: #C7C7CC; font-size: 15px; font-weight: 500; transition: fill 0.5s ease; }
+.mappa-svg .sat-sub { fill: #D2D2D7; font-size: 11px; font-weight: 400; transition: fill 0.5s ease; }
+.mappa-svg .sat-link { stroke: #E5E5EA; stroke-width: 1.5; stroke-dasharray: 4,4; opacity: 0.5; transition: all 0.5s ease; }
+/* Satelliti attivi */
+.mappa-svg .sat-on .sat-circle { fill: #FFFFFF; stroke: #2C5F2D; stroke-width: 2; }
+.mappa-svg .sat-on .sat-label { fill: #1D1D1F; }
+.mappa-svg .sat-on .sat-sub { fill: #6E6E73; }
+.mappa-svg .link-on { stroke: #2C5F2D; stroke-width: 2; stroke-dasharray: none; opacity: 1; }
+/* Stato "completa" — accentuazione finale */
+.mappa-svg.completa .pms-circle { fill: #1D1D1F; }
+.mappa-svg.completa .sat-on .sat-circle { fill: #F0F7F0; stroke: #2C5F2D; stroke-width: 2; }
+
+/* layout: confronto (due colonne prima/dopo) */
+.l-confronto { width: 100%; max-width: 92vw; }
+.l-confronto .titolo-c { font-size: 5vmin; font-weight: 600; text-align: center; letter-spacing: -0.035em; margin-bottom: 5vmin; }
+.l-confronto .titolo-c .accent { color: #2C5F2D; }
+.l-confronto .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4vmin; }
+.l-confronto .col { padding: 4vmin; border-radius: 2vmin; }
+.l-confronto .col.no { background: #FBF3F2; border: 1.5px solid #F0D5D2; }
+.l-confronto .col.si { background: #F0F7F0; border: 1.5px solid #C9E3C9; }
+.l-confronto .col.neutro { background: #F5F5F7; border: 1.5px solid #E5E5EA; }
+.l-confronto .col-label { font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 2vmin; display: flex; align-items: center; gap: 1vmin; }
+.l-confronto .col.no .col-label { color: #C0392B; }
+.l-confronto .col.si .col-label { color: #2C5F2D; }
+.l-confronto .col.neutro .col-label { color: #6E6E73; }
+.l-confronto .col-segno { font-size: 2.4vmin; line-height: 1; }
+.l-confronto .col-testo { font-size: 2.5vmin; line-height: 1.4; color: #1D1D1F; letter-spacing: -0.01em; }
+
+/* layout: caso (struttura partecipante) */
+.l-caso { width: 100%; max-width: 80vw; }
+.l-caso .nome { font-size: 6vmin; font-weight: 600; letter-spacing: -0.04em; margin-bottom: 1.5vmin; }
+.l-caso .tratto { font-size: 3vmin; font-weight: 500; color: #1D1D1F; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 4vmin; padding-bottom: 4vmin; border-bottom: 1.5px solid #E5E5EA; }
+.l-caso .ai-label { font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; color: #2C5F2D; margin-bottom: 1.5vmin; }
+.l-caso .ai-testo { font-size: 2.6vmin; line-height: 1.45; color: #6E6E73; letter-spacing: -0.01em; }
+
+/* ============================================================
+   NUOVI LAYOUT PRATICI (demo / coinvolgimento / checkpoint)
+   Tutte queste slide lasciano LIBERO l'angolo basso-destra
+   per la webcam: contenuto allineato a sinistra/alto.
+============================================================ */
+
+/* badge tipo-slide (in alto a sinistra, sotto il kicker) */
+.tipo-badge { position: absolute; top: 8.5vmin; left: 6vmin; display: inline-flex; align-items: center; gap: 1vmin; font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; padding: 0.9vmin 1.8vmin; border-radius: 100px; }
+.tipo-badge .pallino { width: 1.1vmin; height: 1.1vmin; border-radius: 50%; }
+.tipo-badge.demo { background: #EAF3FB; color: #1B5E9B; }
+.tipo-badge.demo .pallino { background: #1B5E9B; animation: pulsa 1.6s ease-in-out infinite; }
+.tipo-badge.coinvolgimento { background: #F0F7F0; color: #2C5F2D; }
+.tipo-badge.coinvolgimento .pallino { background: #2C5F2D; }
+.tipo-badge.checkpoint { background: #FFF4E0; color: #B26B00; }
+.tipo-badge.checkpoint .pallino { background: #E89A1C; }
+@keyframes pulsa { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+
+/* zona webcam riservata (riferimento visivo solo in relatore) */
+.zona-webcam { position: absolute; bottom: 3vmin; right: 4vmin; width: 22vmin; height: 16vmin; border: 1.5px dashed #D2D2D7; border-radius: 1.5vmin; display: none; align-items: center; justify-content: center; color: #C7C7CC; font-size: 1.3vmin; letter-spacing: 0.1em; }
+.rel-current .zona-webcam, .rel-next .zona-webcam { display: flex; }
+.tema-scuro .zona-webcam { border-color: rgba(255,255,255,0.18); color: rgba(255,255,255,0.3); }
+
+/* layout: demo ("ora guardate") */
+.l-demo { width: 100%; max-width: 70vw; align-self: center; text-align: left; padding-bottom: 4vmin; }
+.l-demo h1 { font-size: 5.5vmin; font-weight: 600; line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 3vmin; }
+.l-demo h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-demo h1 .accent { color: #30D158; }
+.l-demo .guardate { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.45; max-width: 60vw; }
+.tema-scuro .l-demo .guardate { color: rgba(255,255,255,0.6); }
+.l-demo .schermo-hint { margin-top: 4vmin; display: inline-flex; align-items: center; gap: 1.4vmin; font-size: 1.7vmin; color: #1B5E9B; font-weight: 500; }
+.l-demo .schermo-hint .freccia { font-size: 2.2vmin; }
+
+/* layout: coinvolgimento ("provate voi / ditemi voi") */
+.l-coinvolgi { width: 100%; max-width: 72vw; text-align: left; }
+.l-coinvolgi .occhiello { font-size: 2vmin; color: #2C5F2D; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 2.5vmin; }
+.l-coinvolgi h1 { font-size: 6vmin; font-weight: 600; line-height: 1.06; letter-spacing: -0.038em; margin-bottom: 3.5vmin; }
+.l-coinvolgi h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-coinvolgi h1 .accent { color: #30D158; }
+.l-coinvolgi .compito { font-size: 2.6vmin; color: #1D1D1F; font-weight: 400; line-height: 1.4; max-width: 60vw; padding: 3vmin 3.5vmin; background: #F0F7F0; border-left: 0.6vmin solid #2C5F2D; border-radius: 1.2vmin; }
+.tema-scuro .l-coinvolgi .compito { background: rgba(48,209,88,0.08); color: #FFFFFF; }
+
+/* layout: checkpoint ("ci siete? domande?") */
+.l-checkpoint { text-align: center; max-width: 80vw; }
+.l-checkpoint .icona { font-size: 9vmin; line-height: 1; margin-bottom: 2.5vmin; }
+.l-checkpoint h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 2.5vmin; }
+.l-checkpoint h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-checkpoint h1 .accent { color: #30D158; }
+.l-checkpoint .sub { font-size: 2.3vmin; color: #6E6E73; font-weight: 400; line-height: 1.45; max-width: 60vw; margin: 0 auto; }
+.tema-scuro .l-checkpoint .sub { color: rgba(255,255,255,0.55); }
+
+/* badge "cuscinetto" (slide opzionale di riserva) */
+.cuscinetto-tag { position: absolute; top: 4vmin; right: 6vmin; font-size: 1.2vmin; font-weight: 600; letter-spacing: 0.14em; color: #C7C7CC; border: 1px solid #E5E5EA; padding: 0.6vmin 1.4vmin; border-radius: 100px; }
+
+/* pubblico waiting */
+.pubblico-attesa { text-align: center; color: #86868B; font-size: 16px; }
+.pubblico-attesa h2 { font-size: 28px; color: #1D1D1F; font-weight: 500; margin-bottom: 10px; letter-spacing: -0.5px; }
+
+/* ============================================================
+   VISTA RELATORE
+============================================================ */
+.relatore { width: 100vw; min-height: 100vh; background: #F5F5F7; padding: 16px; display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto 1fr auto auto; gap: 14px; }
+
+.rel-header { grid-column: 1 / -1; background: white; border-radius: 12px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #E5E5EA; }
+.rel-header .titolo { font-size: 14px; font-weight: 600; }
+.rel-header .titolo .sub { color: #86868B; font-weight: 400; margin-left: 10px; }
+.rel-header .stato { display: flex; gap: 18px; align-items: center; font-size: 13px; color: #6E6E73; }
+.rel-header .stato .live { display: inline-flex; align-items: center; gap: 6px; }
+.rel-header .stato .live .dot { width: 7px; height: 7px; background: #34C759; border-radius: 50%; }
+.rel-header .stato .live.off .dot { background: #FF3B30; }
+.rel-header .timer { font-variant-numeric: tabular-nums; font-weight: 500; color: #1D1D1F; font-size: 14px; }
+
+.rel-current { grid-row: 3; background: white; border-radius: 12px; padding: 14px; border: 1px solid #E5E5EA; display: flex; flex-direction: column; }
+.rel-current .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; margin-bottom: 8px; }
+.rel-current .frame { aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid #E5E5EA; }
+.rel-current .frame .slide { padding: 2.8vmin 3.4vmin; }
+.rel-current .frame .slide h1 { font-size: 3.5vmin !important; }
+.rel-current .frame .slide .word { font-size: 6vmin !important; }
+.rel-current .frame .slide .sub, .rel-current .frame .slide .h, .rel-current .frame .slide .t, .rel-current .frame .slide .label, .rel-current .frame .slide .occhiello, .rel-current .frame .slide .sotto { font-size: 1.3vmin !important; }
+.rel-current .frame .slide .frase { font-size: 4vmin !important; }
+.rel-current .frame .slide .titolo-c { font-size: 2.6vmin !important; margin-bottom: 2vmin !important; }
+.rel-current .frame .slide .col { padding: 2vmin !important; }
+.rel-current .frame .slide .col-testo { font-size: 1.5vmin !important; }
+.rel-current .frame .slide .col-label { font-size: 1vmin !important; }
+.rel-current .frame .slide .col-segno { font-size: 1.4vmin !important; }
+.rel-current .frame .slide .nome { font-size: 3.2vmin !important; }
+.rel-current .frame .slide .tratto { font-size: 1.7vmin !important; margin-bottom: 2vmin !important; padding-bottom: 2vmin !important; }
+.rel-current .frame .slide .ai-testo { font-size: 1.4vmin !important; }
+.rel-current .frame .slide .ai-label { font-size: 0.9vmin !important; }
+.rel-current .frame .slide .icona { font-size: 7vmin !important; margin-bottom: 1.5vmin !important; }
+.rel-current .frame .slide .n { font-size: 1vmin !important; }
+.rel-current .frame .kicker { font-size: 0.85vmin !important; }
+.rel-current .frame .brand { font-size: 0.85vmin !important; }
+
+.rel-next { grid-row: 3; background: white; border-radius: 12px; padding: 14px; border: 1px solid #E5E5EA; display: flex; flex-direction: column; }
+.rel-next .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; margin-bottom: 8px; display: flex; justify-content: space-between; }
+.rel-next .lbl .conta { color: #1D1D1F; }
+.rel-next .frame { aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid #E5E5EA; opacity: 0.6; }
+.rel-next .frame .slide { padding: 2.8vmin 3.4vmin; }
+.rel-next .frame .slide h1 { font-size: 3.5vmin !important; }
+.rel-next .frame .slide .word { font-size: 6vmin !important; }
+.rel-next .frame .slide .sub, .rel-next .frame .slide .h, .rel-next .frame .slide .t, .rel-next .frame .slide .label, .rel-next .frame .slide .occhiello, .rel-next .frame .slide .sotto { font-size: 1.3vmin !important; }
+.rel-next .frame .slide .frase { font-size: 4vmin !important; }
+.rel-next .frame .slide .titolo-c { font-size: 2.6vmin !important; margin-bottom: 2vmin !important; }
+.rel-next .frame .slide .col { padding: 2vmin !important; }
+.rel-next .frame .slide .col-testo { font-size: 1.5vmin !important; }
+.rel-next .frame .slide .col-label { font-size: 1vmin !important; }
+.rel-next .frame .slide .col-segno { font-size: 1.4vmin !important; }
+.rel-next .frame .slide .nome { font-size: 3.2vmin !important; }
+.rel-next .frame .slide .tratto { font-size: 1.7vmin !important; margin-bottom: 2vmin !important; padding-bottom: 2vmin !important; }
+.rel-next .frame .slide .ai-testo { font-size: 1.4vmin !important; }
+.rel-next .frame .slide .ai-label { font-size: 0.9vmin !important; }
+.rel-next .frame .slide .icona { font-size: 7vmin !important; margin-bottom: 1.5vmin !important; }
+.rel-next .frame .slide .n { font-size: 1vmin !important; }
+.rel-next .frame .kicker { font-size: 0.85vmin !important; }
+.rel-next .frame .brand { font-size: 0.85vmin !important; }
+
+.rel-note { grid-column: 1 / -1; grid-row: 2; overflow-y: auto; background: white; border-radius: 12px; padding: 18px 22px; border: 1px solid #E5E5EA; }
+.rel-note .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.rel-note .head .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; }
+.rel-note .head .segm { font-size: 13px; color: #2C5F2D; font-weight: 500; }
+.rel-note h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.3px; }
+.rel-note p { font-size: 15px; color: #1D1D1F; line-height: 1.55; margin-bottom: 10px; }
+.rel-note p:last-child { margin-bottom: 0; }
+/* Testo DA DIRE ad alta voce (era tra virgolette) */
+.rel-note .dire { color: #1D1D1F; font-weight: 500; font-size: 16px; background: linear-gradient(transparent 60%, #DDF0DD 60%); padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+/* Istruzioni di REGIA (tono, tempi, cosa fare) */
+.rel-note .regia { color: #86868B; font-size: 13.5px; font-style: italic; }
+/* PROMEMORIA personali tra [ ] */
+.rel-note .promemoria { display: inline-block; background: #FFF4E0; color: #8A5A00; border-left: 3px solid #E0A030; padding: 2px 10px; border-radius: 0 6px 6px 0; font-size: 13.5px; font-weight: 500; margin: 2px 0; }
+.rel-note .quote { padding: 10px 14px; background: #F5F5F7; border-left: 3px solid #2C5F2D; font-style: italic; color: #1D1D1F; border-radius: 0 8px 8px 0; }
+/* Legenda in cima alle note */
+.rel-note .legenda { display: flex; gap: 16px; margin-bottom: 12px; font-size: 11px; color: #86868B; flex-wrap: wrap; }
+.rel-note .legenda span { display: inline-flex; align-items: center; gap: 5px; }
+.rel-note .legenda .campione { width: 14px; height: 10px; border-radius: 2px; display: inline-block; }
+.rel-note .legenda .c-dire { background: #DDF0DD; }
+.rel-note .legenda .c-regia { background: #E5E5EA; }
+.rel-note .legenda .c-prom { background: #FFE0A0; }
+
+.rel-controls { grid-column: 1 / -1; grid-row: 4; display: flex; justify-content: space-between; align-items: center; background: white; border-radius: 12px; padding: 12px 18px; border: 1px solid #E5E5EA; }
+.rel-controls .conta { font-size: 13px; color: #6E6E73; font-variant-numeric: tabular-nums; }
+.rel-controls .btns { display: flex; gap: 10px; }
+.rel-controls button { padding: 10px 22px; font-size: 14px; font-weight: 500; border: 1px solid #D2D2D7; background: white; border-radius: 8px; cursor: pointer; font-family: inherit; transition: all 0.1s ease; }
+.rel-controls button:hover { background: #F5F5F7; }
+.rel-controls button:active { transform: scale(0.97); }
+.rel-controls button.primary { background: #2C5F2D; color: white; border-color: #2C5F2D; }
+.rel-controls button.primary:hover { background: #24501E; }
+.rel-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
+.rel-controls .timer-ctrl { display: flex; gap: 8px; align-items: center; }
+.rel-controls .timer-ctrl button { padding: 6px 12px; font-size: 12px; }
+
+/* shortcut hints */
+.shortcut { font-size: 11px; color: #86868B; margin-left: 6px; padding: 2px 6px; background: #F5F5F7; border-radius: 4px; }
+
+/* ===== Incontro 1: nuovi layout ===== */
+.pubblico { position: relative; }
+.pubblico.anim .slide { animation: dissolvenza 0.25s ease-out; }
+@keyframes dissolvenza { from { opacity: 0; } to { opacity: 1; } }
+.barra { position: absolute; top: 0; left: 0; right: 0; height: 0.7vmin; display: flex; gap: 2px; z-index: 5; }
+.barra .seg { height: 100%; }
+.barra .seg.passato { background: #86868B; }
+.barra .seg.futuro { background: rgba(128,128,128,0.28); }
+.l-numero { text-align: center; max-width: 80vw; }
+.l-numero .cifra { font-size: 22vmin; font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: #2C5F2D; }
+.tema-scuro .l-numero .cifra { color: #30D158; }
+.l-numero .riga { font-size: 3.6vmin; font-weight: 500; margin-top: 3vmin; line-height: 1.3; letter-spacing: -0.02em; }
+.l-numero .fonte { font-size: 2vmin; color: #86868B; margin-top: 5vmin; }
+.l-prompt { width: 100%; max-width: 72vw; }
+.l-prompt h1 { font-size: 5vmin; font-weight: 600; letter-spacing: -0.035em; margin-bottom: 4vmin; }
+.l-prompt .chat { background: #F5F5F7; border: 1px solid #D2D2D7; border-radius: 2.2vmin; padding: 3vmin 3.5vmin; margin-bottom: 2.5vmin; }
+.tema-scuro .l-prompt .chat { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.l-prompt .chat-label { font-size: 2.2vmin; letter-spacing: 0.2em; color: #2C5F2D; font-weight: 600; margin-bottom: 1.4vmin; }
+.l-prompt .chat-testo { font-size: 3.2vmin; line-height: 1.4; color: #1D1D1F; }
+.tema-scuro .l-prompt .chat-testo { color: #fff; }
+.l-pianob { text-align: center; width: 100%; max-width: 80vw; }
+.l-pianob .pb-tag { font-size: 2.2vmin; letter-spacing: 0.25em; color: #B26B00; font-weight: 600; margin-bottom: 2vmin; }
+.l-pianob h1 { font-size: 4.5vmin; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 3vmin; }
+.l-pianob img { max-width: 100%; max-height: 62vh; border: 1px solid #D2D2D7; border-radius: 1.5vmin; }
+.l-pianob .pb-vuoto { font-size: 2.6vmin; color: #86868B; border: 0.3vmin dashed #D2D2D7; border-radius: 2vmin; padding: 8vmin 4vmin; }
+.countdown { position: absolute; left: 6vmin; bottom: 5vmin; font-size: 10vmin; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; color: #1D1D1F; }
+.tema-scuro .countdown { color: #fff; }
+.countdown.urgente { color: #D70015; }
+.rel-note .ritardo { background: #FFF4E0; border-left: 4px solid #E89A1C; border-radius: 6px; padding: 8px 12px; font-size: 13px; color: #6B4400; margin: 4px 0 10px; }
+.rel-note .copia-box { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 12px; }
+.rel-note .copia-box button { font-family: inherit; font-size: 13px; font-weight: 600; background: #2C5F2D; color: #fff; border: 0; border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+.rel-note .copia-box button:hover { background: #1F4720; }
+.segm .verde { color: #2C5F2D; font-weight: 600; }
+.segm .arancio { color: #B26B00; font-weight: 600; }
+.segm .rosso { color: #D70015; font-weight: 700; }
+.l-demo .schermo-hint { font-size: 2.2vmin; }
+
+/* anteprime relatore: nuovi layout in scala */
+.rel-current .frame .slide .chat-testo, .rel-next .frame .slide .chat-testo { font-size: 1.5vmin !important; }
+.rel-current .frame .slide .chat-label, .rel-next .frame .slide .chat-label { font-size: 1vmin !important; margin-bottom: 0.6vmin !important; }
+.rel-current .frame .slide .chat, .rel-next .frame .slide .chat { padding: 1.4vmin 1.8vmin !important; margin-bottom: 1vmin !important; }
+.rel-current .frame .slide .l-prompt h1, .rel-next .frame .slide .l-prompt h1 { margin-bottom: 1.5vmin !important; }
+.rel-current .frame .slide .cifra, .rel-next .frame .slide .cifra { font-size: 10vmin !important; }
+.rel-current .frame .slide .riga, .rel-next .frame .slide .riga { font-size: 1.7vmin !important; margin-top: 1vmin !important; }
+.rel-current .frame .slide .fonte, .rel-next .frame .slide .fonte { font-size: 1vmin !important; margin-top: 2vmin !important; }
+.rel-current .frame .slide .compito, .rel-next .frame .slide .compito { font-size: 1.3vmin !important; padding: 1.4vmin !important; }
+.rel-current .frame .slide .guardate, .rel-next .frame .slide .guardate { font-size: 1.3vmin !important; }
+.rel-current .frame .slide .pb-vuoto, .rel-next .frame .slide .pb-vuoto { font-size: 1.3vmin !important; padding: 3vmin 2vmin !important; }
+.rel-current .frame .slide .pb-tag, .rel-next .frame .slide .pb-tag { font-size: 1vmin !important; }
+.rel-current .frame .countdown, .rel-next .frame .countdown { font-size: 4vmin !important; }
+
+/* navigazione per i corsisti */
+.dnav { position: fixed; right: 18px; bottom: 18px; z-index: 20; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.92); border: 1px solid #E5E5EA; border-radius: 999px; padding: 6px 8px; font-size: 13px; color: #6E6E73; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.dnav button { font: inherit; font-size: 17px; line-height: 1; width: 34px; height: 34px; border-radius: 50%; border: 0; background: #1D1D1F; color: #fff; cursor: pointer; }
+.dnav button:disabled { opacity: .25; cursor: default; }
+.dnav span { min-width: 56px; text-align: center; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+/* SLIDES · Incontri 3 e 4 · 27 ottobre · in presenza */
+const SLIDES = [
+ {
+  "layout": "title",
+  "tema": "chiaro",
+  "kicker": "INCONTRI 03 · 04 · IN PRESENZA · 4 ORE",
+  "brand": "CONFCOMMERCIO AREZZO",
+  "contenuto": {
+   "titolo": "Farsi trovare<br>dall'<span class=\"accent\">AI</span>. E farsi vedere.",
+   "sub": "Stamattina: come l'AI parla di voi e come correggerla. Poi: foto, grafiche e il calendario dei post. Due strumenti a casa: Recensioni e Social."
+  },
+  "segmento": "Ripresa"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "RIPRESA · 12 MIN",
+  "brand": "01",
+  "contenuto": {
+   "occhiello": "Una settimana dopo.",
+   "titolo": "La scheda c'è?<br>La mail <span class=\"accent\">vera</span> è partita?",
+   "compito": "1 · Alzata di mano: chi ha la scheda nel Progetto. 2 · Due di voi leggono la mail a cui hanno risposto con il risponditore, senza nomi. 3 · Cosa avete corretto a mano prima di inviare."
+  },
+  "cd": 720,
+  "segmento": "Ripresa"
+ },
+ {
+  "layout": "numero",
+  "tema": "scuro",
+  "kicker": "UN NUMERO",
+  "brand": "02",
+  "contenuto": {
+   "cifra": "1 su 6",
+   "riga": "strutture compare in modo coerente quando si chiede a ChatGPT, Google AI e Perplexity. Le altre cinque, oggi, non ci sono.",
+   "fonte": "SiteMinder · 131.000 strutture in 30 paesi · settembre 2026"
+  },
+  "segmento": "I numeri"
+ },
+ {
+  "layout": "numero",
+  "tema": "scuro",
+  "kicker": "UN ALTRO NUMERO",
+  "brand": "03",
+  "contenuto": {
+   "cifra": "6% → 45%",
+   "riga": "in un anno: chi usa l'AI per cercare un'attività locale. Google è passato dall'83% al 71%.",
+   "fonte": "BrightLocal · Local Consumer Review Survey 2026"
+  },
+  "segmento": "I numeri"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "DEMO 1 · LA PROVA DEL VIAGGIATORE · 20 MIN",
+  "brand": "04",
+  "pb": "pb1",
+  "contenuto": {
+   "titolo": "Chiedo come un <span class=\"accent\">ospite</span>.<br>Chi di voi compare?",
+   "guardate": "Tre domande vere, con la ricerca web accesa. Guardiamo chi della sala viene consigliato e chi no. Poi chiediamo a Claude perché.",
+   "schermo": "Claude, chat nuova, ricerca web attiva, schermo sul proiettore."
+  },
+  "segmento": "La prova del viaggiatore"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "DEMO 1 · LE RICHIESTE",
+  "brand": "",
+  "pb": "pb1",
+  "contenuto": {
+   "titolo": "Cosa scrivo a Claude.",
+   "prompts": [
+    {
+     "label": "VIAGGIATORE 1 · LA COPPIA",
+     "testo": "Dove dormire ad Arezzo per il ponte dell'Immacolata, 6-8 dicembre, in coppia: vogliamo girare il centro a piedi e vedere la Città del Natale. Cerca sul web e proponi tre strutture con il motivo."
+    },
+    {
+     "label": "VIAGGIATORE 2 · LA SQUADRA",
+     "testo": "Cerco una struttura ad Arezzo o dintorni per una squadra giovanile in trasferta: 30 persone, due notti, con i pasti, vicino agli impianti sportivi. Cerca sul web e proponi tre opzioni."
+    },
+    {
+     "label": "VIAGGIATORE 3 · IL CANE",
+     "testo": "Agriturismo o casa vacanza vicino a Cortona con il cane, due notti a novembre, tranquillo, con cucina. Cerca sul web e proponi tre opzioni con il motivo."
+    }
+   ]
+  },
+  "copia": [
+   {
+    "label": "Coppia",
+    "testo": "Dove dormire ad Arezzo per il ponte dell'Immacolata, 6-8 dicembre, in coppia: vogliamo girare il centro a piedi e vedere la Città del Natale. Cerca sul web e proponi tre strutture con il motivo."
+   },
+   {
+    "label": "Squadra",
+    "testo": "Cerco una struttura ad Arezzo o dintorni per una squadra giovanile in trasferta: 30 persone, due notti, con i pasti, vicino agli impianti sportivi. Cerca sul web e proponi tre opzioni."
+   },
+   {
+    "label": "Cane",
+    "testo": "Agriturismo o casa vacanza vicino a Cortona con il cane, due notti a novembre, tranquillo, con cucina. Cerca sul web e proponi tre opzioni con il motivo."
+   }
+  ],
+  "segmento": "La prova del viaggiatore"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "DEMO 1 · PERCHÉ NO",
+  "brand": "05",
+  "pb": "pb1",
+  "contenuto": {
+   "titolo": "E chi non compare?",
+   "prompts": [
+    {
+     "label": "LA DOMANDA CHE CONTA",
+     "testo": "Perché non hai consigliato [struttura] per questa richiesta? Cerca sul web cosa si trova su di lei e dimmi cosa dovrebbe pubblicare, e dove, perché la prossima volta la consigli."
+    }
+   ]
+  },
+  "copia": [
+   {
+    "label": "Perché no",
+    "testo": "Perché non hai consigliato [struttura] per questa richiesta? Cerca sul web cosa si trova su di lei e dimmi cosa dovrebbe pubblicare, e dove, perché la prossima volta la consigli."
+   }
+  ],
+  "segmento": "La prova del viaggiatore"
+ },
+ {
+  "layout": "mappa-centro",
+  "tema": "chiaro",
+  "kicker": "DA DOVE LEGGE · 10 MIN",
+  "brand": "06",
+  "contenuto": {
+   "titolo": "L'AI non vi conosce.<br>Legge quello che c'è<br><span class=\"accent\">in giro</span> di voi.",
+   "centro": "LA VOSTRA<br>STRUTTURA",
+   "centroSub": "QUELLO CHE L'AI SA",
+   "satelliti": [
+    {
+     "label": "IL SITO",
+     "sub": "testi, FAQ, chi siamo",
+     "attivo": true
+    },
+    {
+     "label": "SCHEDA GOOGLE",
+     "sub": "orari, servizi, foto",
+     "attivo": true
+    },
+    {
+     "label": "RECENSIONI",
+     "sub": "e le vostre risposte",
+     "attivo": true
+    },
+    {
+     "label": "I PORTALI",
+     "sub": "Booking, Airbnb",
+     "attivo": true
+    },
+    {
+     "label": "ARTICOLI E SOCIAL",
+     "sub": "giornali, post",
+     "attivo": true
+    }
+   ]
+  },
+  "segmento": "Da dove legge"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "I 10 PUNTI · 1-7 · LI FATE VOI",
+  "brand": "07",
+  "contenuto": {
+   "h": "Dieci cose da sistemare. Le prime sette le fate voi.",
+   "punti": [
+    {
+     "n": "01 · 02",
+     "t": "<strong>Scheda Google completa</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">Orari, servizi, foto, categoria giusta.</span><br><br><strong>Stessi dati ovunque</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">Nome, indirizzo, telefono, orari: identici su sito, Google e portali.</span>"
+    },
+    {
+     "n": "03 · 04",
+     "t": "<strong>FAQ scritte come domande vere</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">\"Accettate cani?\", non \"Pet policy\".</span><br><br><strong>Chi siamo con cose specifiche</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">Non \"a conduzione familiare\": cosa, per chi, da quando.</span>"
+    },
+    {
+     "n": "05 · 06 · 07",
+     "t": "<strong>Recensioni con risposta</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">Tutte, anche le buone.</span><br><br><strong>Foto con didascalie</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">\"Camera con vista sulle mura\", non IMG_2041.</span><br><br><strong>Orari e politiche chiare</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">Check-in, cani, bambini, cancellazione.</span>"
+    }
+   ]
+  },
+  "segmento": "I 10 punti"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "I 10 PUNTI · 8-10",
+  "brand": "",
+  "contenuto": {
+   "h": "Due da chiedere a chi fa il sito. Una abitudine.",
+   "punti": [
+    {
+     "n": "08",
+     "t": "<strong>Dati strutturati</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">\"Schema markup\" per hotel: tipo, indirizzo, servizi, orari leggibili dalle macchine. Lo sa fare chi fa siti.</span>"
+    },
+    {
+     "n": "09",
+     "t": "<strong>Il file llms.txt</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">Una pagina di testo semplice sul sito che spiega agli assistenti AI chi siete. Si chiede, non si fa.</span>"
+    },
+    {
+     "n": "10",
+     "t": "<strong>Ricontrollo ogni tre mesi</strong><br><span style=\"font-size:2.1vmin;color:#6E6E73\">La prova del viaggiatore, rifatta. Cosa è cambiato, cosa è ancora vecchio.</span>"
+    }
+   ]
+  },
+  "segmento": "I 10 punti"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "DEMO BREVE · LE FAQ",
+  "brand": "08",
+  "contenuto": {
+   "titolo": "Il punto 3 lo fa Claude.",
+   "prompts": [
+    {
+     "label": "LE FAQ DALLA SCHEDA",
+     "testo": "Dalla scheda della struttura scrivi dieci domande frequenti con la risposta, come le farebbe un ospite prima di prenotare: cane, parcheggio, orari, colazione, come arrivare, bambini, pagamenti. Risposte di massimo tre righe. Dove manca un dato lascia le parentesi quadre."
+    }
+   ]
+  },
+  "copia": [
+   {
+    "label": "FAQ",
+    "testo": "Dalla scheda della struttura scrivi dieci domande frequenti con la risposta, come le farebbe un ospite prima di prenotare: cane, parcheggio, orari, colazione, come arrivare, bambini, pagamenti. Risposte di massimo tre righe. Dove manca un dato lascia le parentesi quadre."
+   }
+  ],
+  "segmento": "I 10 punti"
+ },
+ {
+  "layout": "numero",
+  "tema": "scuro",
+  "kicker": "RECENSIONI · UN NUMERO",
+  "brand": "09",
+  "contenuto": {
+   "cifra": "63% → 77%",
+   "riga": "prenota più volentieri se il proprietario risponde alle recensioni. Sale al 77% se le risposte sono personalizzate.",
+   "fonte": "Ipsos per TripAdvisor · 23.000 viaggiatori, 4.572 italiani"
+  },
+  "segmento": "Recensioni"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "DEMO 2 · STRUMENTO RECENSIONI · 17 MIN",
+  "brand": "10",
+  "pb": "pb2",
+  "contenuto": {
+   "titolo": "Tre recensioni,<br>nel tono della <span class=\"accent\">scheda</span>.",
+   "guardate": "Una buona, una negativa, una in inglese: Claude risponde con la vostra voce, ringrazia per una cosa precisa, non si scusa dieci volte. Poi scrive il messaggio per chiedere la recensione.",
+   "schermo": "Claude, Progetto «Recensioni», chat nuova."
+  },
+  "segmento": "Recensioni"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "DEMO 2 · LE RICHIESTE",
+  "brand": "",
+  "pb": "pb2",
+  "contenuto": {
+   "titolo": "Cosa scrivo a Claude.",
+   "prompts": [
+    {
+     "label": "RISPOSTA A UNA RECENSIONE",
+     "testo": "Rispondi a questa recensione nel tono della scheda, nella lingua dell'ospite, massimo 80 parole. Ringrazia per una cosa specifica che ha scritto, non scusarti più di una volta, non promettere rimborsi, non inventare. Poi la traduzione in italiano. Recensione: [incolla, senza nomi]"
+    },
+    {
+     "label": "LA RICHIESTA DI RECENSIONE",
+     "testo": "Scrivi il messaggio WhatsApp da mandare a un ospite il giorno dopo la partenza per chiedere una recensione su Google: tre righe, nel tono della scheda, con una domanda specifica sul soggiorno e il link [LINK]. Due versioni: italiano e inglese."
+    }
+   ]
+  },
+  "copia": [
+   {
+    "label": "Risposta",
+    "testo": "Rispondi a questa recensione nel tono della scheda, nella lingua dell'ospite, massimo 80 parole. Ringrazia per una cosa specifica che ha scritto, non scusarti più di una volta, non promettere rimborsi, non inventare. Poi la traduzione in italiano. Recensione: [incolla, senza nomi]"
+   },
+   {
+    "label": "Richiesta",
+    "testo": "Scrivi il messaggio WhatsApp da mandare a un ospite il giorno dopo la partenza per chiedere una recensione su Google: tre righe, nel tono della scheda, con una domanda specifica sul soggiorno e il link [LINK]. Due versioni: italiano e inglese."
+   }
+  ],
+  "segmento": "Recensioni"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "ESERCIZIO 1 · 20 MIN",
+  "brand": "11",
+  "contenuto": {
+   "occhiello": "Tocca a voi.",
+   "titolo": "Una recensione <span class=\"accent\">vostra</span>,<br>e la richiesta.",
+   "compito": "1 · Create il Progetto «Recensioni»: scheda più le regole dalla dispensa. 2 · Incollate una vostra recensione vera, senza il nome di chi scrive. 3 · Rileggete, correggete. 4 · Scrivete la vostra richiesta di recensione. Due letture ad alta voce."
+  },
+  "cd": 1200,
+  "segmento": "Esercizio 1"
+ },
+ {
+  "layout": "frase",
+  "tema": "scuro",
+  "kicker": "PAUSA · 10:50",
+  "brand": "12",
+  "contenuto": {
+   "frase": "Pausa.",
+   "sotto": "Alle 11:05 si riparte: foto, grafiche e il calendario dei post. Tenete il telefono a portata di mano."
+  },
+  "segmento": "Pausa"
+ },
+ {
+  "id": "parteB",
+  "layout": "title",
+  "tema": "chiaro",
+  "kicker": "INCONTRO 04 · 11:05",
+  "brand": "CONFCOMMERCIO AREZZO",
+  "contenuto": {
+   "titolo": "Cosa si <span class=\"accent\">vede</span> di voi.",
+   "sub": "Le vostre foto, una grafica di stagione in un minuto, un reel girato qui, e il calendario dei post di novembre e dicembre. Strumento: Social."
+  },
+  "segmento": "Cosa si vede"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "LE VOSTRE FOTO · 8 MIN",
+  "brand": "13",
+  "contenuto": {
+   "occhiello": "Le cinque foto portate da casa.",
+   "titolo": "Quale racconta<br>qualcosa?",
+   "compito": "1 · Guardate le vostre cinque foto. 2 · Per ognuna: un ospite capisce cosa succede qui, o è solo una camera? 3 · Tre di voi mostrano la migliore e dicono perché."
+  },
+  "cd": 480,
+  "segmento": "Cosa si vede"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "DEMO 3 · CHATGPT PER LE IMMAGINI · 20 MIN",
+  "brand": "14",
+  "pb": "pb3",
+  "contenuto": {
+   "titolo": "Dalla foto vera<br>alla grafica di <span class=\"accent\">stagione</span>.",
+   "guardate": "Carico una foto vera della struttura. In un minuto: la versione per la storia Instagram con il testo \"Ponte dell'Immacolata\", poi la stessa con luce invernale. Si pubblica dicendo che è generata.",
+   "schermo": "ChatGPT, chat nuova, foto caricata."
+  },
+  "segmento": "Immagini"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "DEMO 3 · LE RICHIESTE",
+  "brand": "",
+  "pb": "pb3",
+  "contenuto": {
+   "titolo": "Cosa scrivo a ChatGPT.",
+   "prompts": [
+    {
+     "label": "LA GRAFICA PER LA STORIA",
+     "testo": "Partendo da questa foto, crea una grafica per una storia Instagram, formato verticale 9:16: la foto con una luce calda, in alto il testo \"Ponte dell'Immacolata ad Arezzo\", in basso \"Città del Natale a dieci minuti\". Stile pulito, pochi elementi, niente loghi, nessun oggetto aggiunto nella stanza."
+    },
+    {
+     "label": "LA LUCE INVERNALE",
+     "testo": "Stessa foto, stessa inquadratura: cambia solo la luce, come in un pomeriggio di dicembre con il sole basso dalla finestra. Non aggiungere né togliere oggetti."
+    }
+   ]
+  },
+  "copia": [
+   {
+    "label": "Storia",
+    "testo": "Partendo da questa foto, crea una grafica per una storia Instagram, formato verticale 9:16: la foto con una luce calda, in alto il testo \"Ponte dell'Immacolata ad Arezzo\", in basso \"Città del Natale a dieci minuti\". Stile pulito, pochi elementi, niente loghi, nessun oggetto aggiunto nella stanza."
+   },
+   {
+    "label": "Luce",
+    "testo": "Stessa foto, stessa inquadratura: cambia solo la luce, come in un pomeriggio di dicembre con il sole basso dalla finestra. Non aggiungere né togliere oggetti."
+   }
+  ],
+  "segmento": "Immagini"
+ },
+ {
+  "layout": "confronto",
+  "tema": "chiaro",
+  "kicker": "RICHIAMO AI ACT · 5 MIN",
+  "brand": "15",
+  "contenuto": {
+   "titolo": "La grafica sì, la camera finta no.",
+   "sinistra": {
+    "tipo": "si",
+    "label": "Si pubblica, dichiarandola",
+    "testo": "Grafica con testo sulla foto vera.<br>Luce o stagione cambiata.<br>Un'immagine di fantasia per un post.<br>Con la dicitura: \"immagine generata con AI\"."
+   },
+   "destra": {
+    "tipo": "no",
+    "label": "Non si spaccia per vera",
+    "testo": "La camera con mobili aggiunti.<br>La vista che non c'è.<br>Il rendering della camera da ristrutturare come se fosse fatta.<br>La piscina più grande."
+   }
+  },
+  "segmento": "Immagini"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "DEMO 4 · IL REEL COL TELEFONO · 15 MIN",
+  "brand": "16",
+  "cuscinetto": true,
+  "contenuto": {
+   "titolo": "Un reel di 15 secondi,<br>girato <span class=\"accent\">qui</span>.",
+   "guardate": "Claude scrive lo storyboard: cinque inquadrature da tre secondi, il testo in sovrimpressione, la musica. Poi lo giriamo in sala con il telefono, così com'è.",
+   "schermo": "Claude, Progetto «La mia struttura». Poi il telefono."
+  },
+  "segmento": "Il reel"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "DEMO 4 · LA RICHIESTA",
+  "brand": "",
+  "cuscinetto": true,
+  "contenuto": {
+   "titolo": "Cosa scrivo a Claude.",
+   "prompts": [
+    {
+     "label": "LO STORYBOARD",
+     "testo": "Scrivi lo storyboard di un reel di 15 secondi per la mia struttura sul tema [una mattina d'inverno da noi]: cinque inquadrature da tre secondi, per ognuna cosa inquadrare con il telefono, il movimento della mano, il testo in sovrimpressione di massimo cinque parole. Suggerisci il tipo di musica. Niente voce."
+    }
+   ]
+  },
+  "copia": [
+   {
+    "label": "Storyboard",
+    "testo": "Scrivi lo storyboard di un reel di 15 secondi per la mia struttura sul tema [una mattina d'inverno da noi]: cinque inquadrature da tre secondi, per ognuna cosa inquadrare con il telefono, il movimento della mano, il testo in sovrimpressione di massimo cinque parole. Suggerisci il tipo di musica. Niente voce."
+   }
+  ],
+  "segmento": "Il reel"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "DEMO 5 · STRUMENTO SOCIAL · 25 MIN",
+  "brand": "17",
+  "pb": "pb4",
+  "contenuto": {
+   "titolo": "Otto post per novembre<br>e dicembre, <span class=\"accent\">adesso</span>.",
+   "guardate": "Dalla scheda della struttura e dal calendario degli eventi di Arezzo, Claude scrive il calendario dei post: giorno, testo, foto da usare, hashtag. Un mese di social in cinque minuti.",
+   "schermo": "Claude, Progetto «Social», chat nuova. Calendario eventi incollato."
+  },
+  "segmento": "Social"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "DEMO 5 · LA RICHIESTA",
+  "brand": "",
+  "pb": "pb4",
+  "contenuto": {
+   "titolo": "Cosa scrivo a Claude.",
+   "prompts": [
+    {
+     "label": "IL CALENDARIO DEI POST",
+     "testo": "Dalla scheda della struttura e da questo calendario di eventi, scrivi otto post per novembre e dicembre: per ognuno il giorno di pubblicazione, il testo di massimo 60 parole nel tono della scheda, la foto da usare descritta in una riga, tre hashtag. Alterna: eventi del territorio, la struttura, consigli pratici per chi arriva. Niente prezzi. Calendario: [incolla]"
+    }
+   ]
+  },
+  "copia": [
+   {
+    "label": "Calendario",
+    "testo": "Dalla scheda della struttura e da questo calendario di eventi, scrivi otto post per novembre e dicembre: per ognuno il giorno di pubblicazione, il testo di massimo 60 parole nel tono della scheda, la foto da usare descritta in una riga, tre hashtag. Alterna: eventi del territorio, la struttura, consigli pratici per chi arriva. Niente prezzi. Calendario: [incolla]"
+   }
+  ],
+  "segmento": "Social"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "ESERCIZIO 2 · 25 MIN",
+  "brand": "18",
+  "contenuto": {
+   "occhiello": "Tocca a voi.",
+   "titolo": "Quattro post<br>e una <span class=\"accent\">grafica</span>.",
+   "compito": "1 · Create il Progetto «Social»: scheda, regole dei post, calendario eventi dalla dispensa. 2 · Chiedete il calendario; tenete i quattro post migliori. 3 · Con una vostra foto, una grafica in ChatGPT, formato storia. 4 · Giro di sala: un post a testa, letto ad alta voce."
+  },
+  "cd": 1500,
+  "segmento": "Esercizio 2"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "GLI STRUMENTI DI OGGI",
+  "brand": "19",
+  "contenuto": {
+   "h": "Due strumenti. Siamo a tre su cinque.",
+   "punti": [
+    {
+     "n": "02 · RECENSIONI",
+     "t": "<strong>Progetto «Recensioni»</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Scheda + regole. Risposta nel vostro tono, richiesta in tre righe.</span>"
+    },
+    {
+     "n": "03 · SOCIAL",
+     "t": "<strong>Progetto «Social»</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Scheda + regole dei post + calendario eventi. Otto post al mese, grafica da ChatGPT.</span>"
+    },
+    {
+     "n": "E I 10 PUNTI",
+     "t": "<strong>La lista stampata</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Sette cose da fare voi, due da chiedere a chi fa il sito, una abitudine ogni tre mesi.</span>"
+    }
+   ]
+  },
+  "segmento": "Chiusura"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "COMPITI PER IL 3 NOVEMBRE",
+  "brand": "20",
+  "contenuto": {
+   "occhiello": "Si torna su Zoom.",
+   "titolo": "Due post pubblicati.<br>Zero recensioni <span class=\"accent\">senza risposta</span>.",
+   "compito": "1 · Pubblicate due post del calendario, con la grafica dichiarata. 2 · Rispondete a tutte le recensioni senza risposta degli ultimi tre mesi. 3 · Mandate la richiesta di recensione a chi parte questa settimana. 4 · Chi fa il sito: mandategli i punti 8 e 9."
+  },
+  "segmento": "Chiusura"
+ },
+ {
+  "layout": "frase",
+  "tema": "scuro",
+  "kicker": "12:50 · DOMANDE",
+  "brand": "21",
+  "contenuto": {
+   "frase": "Domande?",
+   "sotto": "Michele Passalacqua<br>Associazione Albergatori Confcommercio Firenze-Arezzo<br>me@mipassalacqua.it"
+  },
+  "segmento": "Chiusura"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "RISERVA A · 10 MIN",
+  "brand": "",
+  "cuscinetto": true,
+  "contenuto": {
+   "titolo": "La recensione <span class=\"accent\">ingiusta</span>.",
+   "guardate": "Una recensione che racconta cose non vere. Claude scrive due risposte: una che chiarisce con calma i fatti, una più asciutta. La sala sceglie.",
+   "schermo": "Claude, Progetto «Recensioni», chat nuova."
+  },
+  "copia": [
+   {
+    "label": "Riserva A",
+    "testo": "Questa recensione contiene affermazioni non vere: [elenca i fatti reali, senza nomi]. Scrivi due risposte nel tono della scheda, massimo 80 parole: una che chiarisce i fatti con calma e senza polemica, una più asciutta. Non accusare l'ospite di mentire, non promettere rimborsi. Recensione: [incolla, senza nomi]"
+   }
+  ],
+  "segmento": "Riserva"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "RISERVA B · 10 MIN",
+  "brand": "",
+  "cuscinetto": true,
+  "contenuto": {
+   "titolo": "Le didascalie<br>delle <span class=\"accent\">foto</span>.",
+   "guardate": "Punto 6 della lista: le foto con didascalie. Descrivo a Claude le cinque foto portate da casa e lui scrive la didascalia per Google e il testo alternativo per il sito.",
+   "schermo": "Claude, Progetto «La mia struttura»."
+  },
+  "copia": [
+   {
+    "label": "Riserva B",
+    "testo": "Per ognuna di queste foto della mia struttura scrivi una didascalia di massimo 12 parole per la scheda Google e un testo alternativo per il sito, nel tono della scheda, con il nome del luogo. Foto: 1) [cosa si vede] 2) [cosa si vede] 3) [cosa si vede] 4) [cosa si vede] 5) [cosa si vede]"
+   }
+  ],
+  "segmento": "Riserva"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "RISERVA C · 15 MIN",
+  "brand": "",
+  "cuscinetto": true,
+  "contenuto": {
+   "titolo": "La mail ai portali<br>degli <span class=\"accent\">eventi</span>.",
+   "guardate": "Fiera, gara sportiva, matrimonio: gli organizzatori cercano camere. Claude scrive la mail con cui vi proponete, dalla scheda, con quello che offrite ai gruppi.",
+   "schermo": "Claude, Progetto «La mia struttura»."
+  },
+  "copia": [
+   {
+    "label": "Riserva C",
+    "testo": "Scrivi la mail con cui propongo la mia struttura all'organizzazione di [evento, date] per ospitare partecipanti o squadre: nel tono della scheda, massimo 150 parole, con quello che offriamo ai gruppi, la distanza dal luogo dell'evento e una domanda finale per fissare una telefonata. Niente prezzi: lascia le parentesi quadre."
+   }
+  ],
+  "segmento": "Riserva"
+ }
+];
+const SEGMENTI = [
+  { id:'rip', nome:'Ripresa', chiavi:['Ripresa'], ora:540, min:15, ritardo:'un solo esempio letto, niente giro di mani.' },
+  { id:'num', nome:'I numeri', chiavi:['I numeri'], ora:555, min:10, ritardo:'solo il numero SiteMinder, BrightLocal a voce in una frase.' },
+  { id:'via', nome:'La prova del viaggiatore', chiavi:['La prova del viaggiatore'], ora:565, min:20, ritardo:'una sola domanda da viaggiatore, poi subito il "perché no".' },
+  { id:'fon', nome:'Da dove legge', chiavi:['Da dove legge'], ora:585, min:10, ritardo:'slide mappa in due minuti.' },
+  { id:'die', nome:'I 10 punti', chiavi:['I 10 punti'], ora:595, min:15, ritardo:'saltare la demo FAQ: "è nella dispensa".' },
+  { id:'rec', nome:'Recensioni', chiavi:['Recensioni'], ora:610, min:20, ritardo:'due recensioni invece di tre, niente inglese.' },
+  { id:'es1', nome:'Esercizio 1', chiavi:['Esercizio 1'], ora:630, min:20, ritardo:'esercizio a 15 minuti, una sola lettura.' },
+  { id:'pau', nome:'Pausa', chiavi:['Pausa'], ora:650, min:15, ritardo:'pausa a 10 minuti.' },
+  { id:'ved', nome:'Cosa si vede', chiavi:['Cosa si vede'], ora:665, min:10, ritardo:'una sola foto mostrata.' },
+  { id:'img', nome:'Immagini', chiavi:['Immagini'], ora:675, min:20, ritardo:'una sola grafica, AI Act in una frase.' },
+  { id:'reel', nome:'Il reel', chiavi:['Il reel'], ora:695, min:15, ritardo:'saltare tutto il reel: lo storyboard è nella dispensa.' },
+  { id:'soc', nome:'Social', chiavi:['Social'], ora:710, min:25, ritardo:'leggere due post invece di tre.' },
+  { id:'es2', nome:'Esercizio 2', chiavi:['Esercizio 2'], ora:735, min:25, ritardo:'due post invece di quattro, niente grafica.' },
+  { id:'chi', nome:'Chiusura', chiavi:['Chiusura'], ora:760, min:20, ritardo:'compiti in un minuto, domande a chi resta.' }
+];
+
+function gruppoDi(slide) {
+  if (!slide || slide.cuscinetto || slide.pianoB) return null;
+  return SEGMENTI.find(g => g.chiavi.includes(slide.segmento)) || null;
+}
+const FLUSSO = SLIDES.map((s,i)=>i).filter(i => !SLIDES[i].pianoB);
+(function numera(){
+  let n = 0, r = 0;
+  SLIDES.forEach(s => {
+    if (s.pianoB) { s.brand = 'B'; return; }
+    if (s.cuscinetto) { r++; s.brand = 'R' + r; return; }
+    n++;
+    if (!s.brand || /^\d+$/.test(s.brand)) s.brand = String(n).padStart(2,'0');
+  });
+})();
+function prossimoIndice(da) {
+  const base = SLIDES[da].pianoB ? (stato.ritorno != null ? stato.ritorno : da) : da;
+  for (let i = base + 1; i < SLIDES.length; i++) if (!SLIDES[i].pianoB) return i;
+  return null;
+}
+function precedenteIndice(da) {
+  if (SLIDES[da].pianoB) return stato.ritorno != null ? stato.ritorno : null;
+  for (let i = da - 1; i >= 0; i--) if (!SLIDES[i].pianoB) return i;
+  return null;
+}
+/* ============================================================
+   STATO E SINCRONIA
+============================================================ */
+const VIEW = 'pubblico';
+const channel = { postMessage(){} };
+let stato = { indice: 0, timerStart: null, timerRunning: false, timerSeconds: 0, cdFine: null, cdIndice: -1, ritorno: null, entrate: {} };
+
+function leggiStato() {
+  try {
+    const s = localStorage.getItem('corso-ai-stato-34');
+    if (s) stato = { ...stato, ...JSON.parse(s) };
+  } catch(e) {}
+}
+function salvaStato() {
+  try { localStorage.setItem('corso-ai-stato-34', JSON.stringify(stato)); } catch(e) {}
+}
+function broadcasta() {
+  channel.postMessage(stato);
+  salvaStato();
+}
+channel.onmessage = (e) => {
+  stato = { ...stato, ...e.data };
+  render();
+};
+
+/* ============================================================
+   RENDER MAPPA SVG (sistema PMS + satelliti)
+============================================================ */
+function renderMappa(c) {
+  const sats = c.satelliti || [];
+  const cx = 350, cy = 240, R = 165, r = 62;
+  const n = sats.length || 1;
+  const pts = sats.map((s, k) => { const ang = -Math.PI/2 + k * 2*Math.PI/n; return { ...s, x: cx + R*Math.cos(ang), y: cy + R*Math.sin(ang) }; });
+  const links = pts.map(s => { const dx=s.x-cx, dy=s.y-cy, len=Math.sqrt(dx*dx+dy*dy), ux=dx/len, uy=dy/len;
+    return `<line class="sat-link ${s.attivo?'link-on':''}" x1="${cx+ux*75}" y1="${cy+uy*75}" x2="${s.x-ux*r}" y2="${s.y-uy*r}" />`; }).join('');
+  const circles = pts.map(s => `<g class="${s.attivo?'sat-on':''}">
+      <circle class="sat-circle" cx="${s.x}" cy="${s.y}" r="${r}" />
+      <text class="sat-label" x="${s.x}" y="${s.y-4}" text-anchor="middle" style="font-size:11.5px;letter-spacing:.5px">${s.label}</text>
+      <text class="sat-sub" x="${s.x}" y="${s.y+13}" text-anchor="middle" style="font-size:9.5px">${s.sub}</text>
+    </g>`).join('');
+  const centro = (c.centro || 'PMS').split('<br>');
+  return `<div class="l-mappa">
+    <div class="testo"><h1>${c.titolo}</h1></div>
+    <div>
+      <svg class="mappa-svg completa" viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg">
+        ${links}${circles}
+        <circle class="pms-circle" cx="${cx}" cy="${cy}" r="75" />
+        ${centro.map((t,k)=>`<text class="pms-label" x="${cx}" y="${cy-8+k*24-(centro.length-1)*8}" text-anchor="middle" style="font-size:18px">${t}</text>`).join('')}
+        <text class="pms-sub" x="${cx}" y="${cy+40}" text-anchor="middle" style="font-size:9px">${c.centroSub||''}</text>
+      </svg>
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   RENDER SLIDE (riusabile in entrambe le viste)
+============================================================ */
+function renderSlide(slide, live) {
+  if (!slide) return '<div class="slide"></div>';
+  const temaClass = slide.tema === 'scuro' ? 'tema-scuro' : '';
+  let inner = '';
+  if (slide.layout === 'title') {
+    inner = `<div class="l-title">
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'question') {
+    inner = `<div class="l-question"><h1>${slide.contenuto.titolo}</h1></div>`;
+  } else if (slide.layout === 'big-word') {
+    inner = `<div class="l-big-word">
+      <div class="label">${slide.contenuto.label}</div>
+      <div class="word">${slide.contenuto.word}</div>
+    </div>`;
+  } else if (slide.layout === 'three') {
+    const cols = slide.contenuto.punti.map(p =>
+      `<div class="col"><div class="n">${p.n}</div><div class="t">${p.t}</div></div>`
+    ).join('');
+    inner = `<div class="l-three">
+      <p class="h">${slide.contenuto.h}</p>
+      <div class="row">${cols}</div>
+    </div>`;
+  } else if (slide.layout === 'metafora-intro') {
+    inner = `<div class="l-metafora-intro">
+      <div class="occhiello">${slide.contenuto.occhiello}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+    </div>`;
+  } else if (slide.layout === 'figura') {
+    inner = `<div class="l-figura">
+      <div class="icona">${slide.contenuto.icona}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'frase') {
+    inner = `<div class="l-frase">
+      <div class="frase">${slide.contenuto.frase}</div>
+      <div class="sotto">${slide.contenuto.sotto}</div>
+    </div>`;
+  } else if (slide.layout === 'ponte') {
+    inner = `<div class="l-ponte">
+      <div class="occhiello">${slide.contenuto.occhiello}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'mappa-centro') {
+    inner = renderMappa(slide.contenuto);
+  } else if (slide.layout === 'confronto') {
+    const c = slide.contenuto;
+    const segno = (tipo) => tipo === 'no' ? '✕' : (tipo === 'si' ? '✓' : '—');
+    inner = `<div class="l-confronto">
+      ${c.titolo ? `<div class="titolo-c">${c.titolo}</div>` : ''}
+      <div class="cols">
+        <div class="col ${c.sinistra.tipo}">
+          <div class="col-label"><span class="col-segno">${segno(c.sinistra.tipo)}</span> ${c.sinistra.label}</div>
+          <div class="col-testo">${c.sinistra.testo}</div>
+        </div>
+        <div class="col ${c.destra.tipo}">
+          <div class="col-label"><span class="col-segno">${segno(c.destra.tipo)}</span> ${c.destra.label}</div>
+          <div class="col-testo">${c.destra.testo}</div>
+        </div>
+      </div>
+    </div>`;
+  } else if (slide.layout === 'caso') {
+    const c = slide.contenuto;
+    inner = `<div class="l-caso">
+      <div class="nome">${c.nome}</div>
+      <div class="tratto">${c.tratto}</div>
+      <div class="ai-label">DOVE L'AI AMPLIFICA</div>
+      <div class="ai-testo">${c.ai}</div>
+    </div>`;
+  } else if (slide.layout === 'demo') {
+    const c = slide.contenuto;
+    inner = `<div class="l-demo">
+      <h1>${c.titolo}</h1>
+      <div class="guardate">${c.guardate}</div>
+      ${c.schermo ? `<div class="schermo-hint"><span class="freccia">→</span> ${c.schermo}</div>` : ''}
+    </div>`;
+  } else if (slide.layout === 'coinvolgimento') {
+    const c = slide.contenuto;
+    inner = `<div class="l-coinvolgi">
+      ${c.occhiello ? `<div class="occhiello">${c.occhiello}</div>` : ''}
+      <h1>${c.titolo}</h1>
+      ${c.compito ? `<div class="compito">${c.compito}</div>` : ''}
+    </div>`;
+  } else if (slide.layout === 'numero') {
+    const c = slide.contenuto;
+    inner = `<div class="l-numero"><div class="cifra">${c.cifra}</div><div class="riga">${c.riga}</div><div class="fonte">${c.fonte}</div></div>`;
+  } else if (slide.layout === 'prompt') {
+    const c = slide.contenuto;
+    inner = `<div class="l-prompt"><h1>${c.titolo}</h1>${c.prompts.map(p => `<div class="chat"><div class="chat-label">${p.label}</div><div class="chat-testo">${p.testo}</div></div>`).join('')}</div>`;
+  } else if (slide.layout === 'pianob') {
+    const c = slide.contenuto;
+    inner = `<div class="l-pianob"><div class="pb-tag">PIANO B · RISPOSTA DELLA PROVA</div><h1>${c.titolo}</h1>${c.immagine ? `<img src="${c.immagine}" alt="">` : `<div class="pb-vuoto">${c.attesa}</div>`}</div>`;
+  } else if (slide.layout === 'checkpoint') {
+    const c = slide.contenuto;
+    inner = `<div class="l-checkpoint">
+      <div class="icona">${c.icona || '✋'}</div>
+      <h1>${c.titolo}</h1>
+      ${c.sub ? `<div class="sub">${c.sub}</div>` : ''}
+    </div>`;
+  }
+  // badge tipo-slide pratico
+  const badge = {
+    demo:           '<div class="tipo-badge demo"><span class="pallino"></span> ORA GUARDATE</div>',
+    coinvolgimento: '<div class="tipo-badge coinvolgimento"><span class="pallino"></span> TOCCA A VOI</div>',
+    checkpoint:     '<div class="tipo-badge checkpoint"><span class="pallino"></span> CHECKPOINT</div>'
+  }[slide.layout] || '';
+  return `<div class="slide ${temaClass}">
+    ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+    ${badge}
+    ${slide.cuscinetto ? '<div class="cuscinetto-tag">RISERVA · SE SEI CORTO</div>' : ''}
+    ${slide.brand ? `<div class="brand">${slide.brand}</div>` : ''}
+    ${inner}
+    ${(live && cdRestante(slide) !== null) ? `<div class="countdown ${cdRestante(slide) <= 60 ? 'urgente' : ''}">${formatTime(cdRestante(slide))}</div>` : ''}
+    <div class="zona-webcam">WEBCAM</div>
+  </div>`;
+}
+function cdRestante(slide) {
+  if (stato.cdFine && SLIDES[stato.indice] === slide) return Math.max(0, Math.ceil((stato.cdFine - Date.now()) / 1000));
+  return null;
+}
+function getCopia(slide) {
+  if (!slide) return [];
+  if (slide.copia) return slide.copia;
+  if (slide.contenuto && slide.contenuto.prompts) return slide.contenuto.prompts.map(p => ({ label: p.label, testo: p.testo }));
+  return [];
+}
+
+/* ============================================================
+   VISTA: HOME (selettore)
+============================================================ */
+/* ============================================================
+   VISTA: PUBBLICO
+============================================================ */
+let ultimoIndiceRender = -1;
+function barraAvanzamento(slide) {
+  const g = gruppoDi(slide);
+  if (!g) return '';
+  const celle = SEGMENTI.map(s => {
+    const idx = FLUSSO.filter(i => !SLIDES[i].cuscinetto && SLIDES[i].segmento && s.chiavi.includes(SLIDES[i].segmento));
+    let cls = 'futuro', style = '';
+    const gi = SEGMENTI.indexOf(g), si = SEGMENTI.indexOf(s);
+    if (si < gi) cls = 'passato';
+    else if (si === gi) {
+      const pos = idx.indexOf(stato.indice) + 1;
+      const r = idx.length ? Math.round(100 * pos / idx.length) : 100;
+      cls = 'corrente'; style = `background:linear-gradient(to right,#34C759 ${r}%,rgba(128,128,128,0.35) ${r}%)`;
+    }
+    return `<div class="seg ${cls}" style="flex:${s.min};${style}"></div>`;
+  }).join('');
+  return `<div class="barra">${celle}</div>`;
+}
+function renderPubblico() {
+  const slide = SLIDES[stato.indice];
+  if (!slide) {
+    return `<div class="pubblico"><div class="pubblico-attesa">
+      <h2>In attesa</h2>
+      <div>La presentazione inizierà tra poco.</div>
+    </div></div>`;
+  }
+  const anim = (ultimoIndiceRender !== stato.indice) ? 'anim' : '';
+  ultimoIndiceRender = stato.indice;
+  return `<div class="pubblico ${anim}">${barraAvanzamento(slide)}${renderSlide(slide, true)}</div>`;
+}
+
+/* ============================================================
+   VISTA: RELATORE
+============================================================ */
+function minutiOra() {
+  if (stato.timerSeconds > 0) return 540 + stato.timerSeconds / 60;
+  const d = new Date();
+  return d.getHours() * 60 + d.getMinutes() + d.getSeconds() / 60;
+}
+function hhmm(m) {
+  m = Math.round(m);
+  return String(Math.floor(m / 60)).padStart(2,'0') + ':' + String(m % 60).padStart(2,'0');
+}
+function registraEntrata() {
+  const g = gruppoDi(SLIDES[stato.indice]);
+  if (g && stato.entrate[g.id] == null) stato.entrate[g.id] = minutiOra();
+}
+function segInfo(slide) {
+  const g = gruppoDi(slide);
+  if (!g) return { html: `Segmento: ${slide ? slide.segmento : '—'}`, ritardo: '' };
+  const now = minutiOra(), fine = g.ora + g.min, rest = Math.round(fine - now);
+  const ent = stato.entrate[g.id];
+  const sc = ent != null ? Math.round(ent - g.ora) : null;
+  const cls = rest < 0 ? 'rosso' : (rest <= 3 ? 'arancio' : 'verde');
+  const html = `${g.nome} · previsto ${hhmm(g.ora)}–${hhmm(fine)}` + (sc != null ? ` · entrato ${sc > 0 ? '+' : ''}${sc} min` : '') +
+    ` · <span class="${cls}">${rest >= 0 ? 'restano ' + rest + ' min' : 'oltre di ' + (-rest) + ' min'}</span>`;
+  return { html, ritardo: g.ritardo };
+}
+function posLabel() {
+  const i = FLUSSO.indexOf(stato.indice);
+  if (i < 0) return 'PIANO B';
+  if (SLIDES[stato.indice].cuscinetto) return 'RISERVA · ' + (i + 1) + ' di ' + FLUSSO.length;
+  return (i + 1) + ' di ' + FLUSSO.length;
+}
+function cdTxt() {
+  if (stato.cdFine && stato.cdIndice === stato.indice) return ' · ⏲ ' + formatTime(Math.max(0, Math.ceil((stato.cdFine - Date.now()) / 1000)));
+  return '';
+}
+function copia(i) {
+  const c = getCopia(SLIDES[stato.indice])[i];
+  if (!c) return;
+  const ok = () => { const b = document.getElementById('cb' + i); if (b) b.textContent = 'Copiato ✓'; };
+  const fallback = () => {
+    const t = document.createElement('textarea'); t.value = c.testo; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); ok(); } catch (e) {} document.body.removeChild(t);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(c.testo).then(ok).catch(fallback);
+  else fallback();
+}
+function formatTime(s) {
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+}
+
+// Formatta le note di regia distinguendo: frasi DA DIRE (tra virgolette),
+// PROMEMORIA (tra parentesi quadre), e ISTRUZIONI di regia (il resto).
+function formattaNote(testo) {
+  if (!testo) return '';
+  // divido in paragrafi
+  const paragrafi = testo.split(/\n\n/);
+  return paragrafi.map(par => {
+    let p = par.replace(/\n/g, '<br>');
+    // PROMEMORIA: paragrafo che inizia con [ ... ] → tutto evidenziato arancione
+    if (/^\s*\[/.test(par)) {
+      return `<p><span class="promemoria">${p}</span></p>`;
+    }
+    // DA DIRE: "frase tra virgolette" → evidenziato verde
+    p = p.replace(/["“]([^"”]+)["”]/g, '<span class="dire">"$1"</span>');
+    const haDire = p.includes('class="dire"');
+    const haProm = false;
+    if (!haDire && !haProm) {
+      return `<p class="regia">${p}</p>`;
+    }
+    return `<p>${p}</p>`;
+  }).join('');
+}
+
+/* ============================================================
+   AZIONI
+============================================================ */
+function vai(n) {
+  if (n === null || n === undefined) return;
+  stato.indice = n;
+  stato.cdFine = null;
+  registraEntrata();
+  broadcasta();
+  render();
+}
+function next() { vai(prossimoIndice(stato.indice)); }
+function prev() { vai(precedenteIndice(stato.indice)); }
+function toggleCd() {
+  const s = SLIDES[stato.indice];
+  if (!s || !s.cd) return;
+  if (stato.cdFine && stato.cdIndice === stato.indice) stato.cdFine = null;
+  else { stato.cdFine = Date.now() + s.cd * 1000; stato.cdIndice = stato.indice; }
+  broadcasta();
+  render();
+}
+function togglePB() {
+  const s = SLIDES[stato.indice];
+  if (!s) return;
+  if (s.pianoB) { if (stato.ritorno != null) { const r = stato.ritorno; stato.ritorno = null; vai(r); } return; }
+  if (!s.pb) return;
+  const idx = SLIDES.findIndex(x => x.id === s.pb);
+  if (idx < 0) return;
+  stato.ritorno = stato.indice;
+  vai(idx);
+}
+function toggleTimer() {
+  stato.timerRunning = !stato.timerRunning;
+  if (stato.timerRunning) { if (stato.timerSeconds === 0) stato.entrate = {}; registraEntrata(); }
+  broadcasta();
+  render();
+}
+function resetTimer() {
+  stato.timerSeconds = 0;
+  stato.timerRunning = false;
+  stato.entrate = {};
+  stato.cdFine = null;
+  broadcasta();
+  render();
+}
+
+setInterval(() => {
+  if (stato.timerRunning) {
+    stato.timerSeconds++;
+    if (VIEW === 'relatore') render();
+    broadcasta();
+  } else if (stato.cdFine && VIEW) {
+    render();
+  }
+}, 1000);
+
+/* tastiera (solo relatore) */
+{
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 't' || e.key === 'T') { e.preventDefault(); toggleCd(); }
+  });
+}
+
+/* ============================================================
+   RENDER
+============================================================ */
+function render() {
+  const app = document.getElementById('app');
+  const pos = FLUSSO.indexOf(stato.indice);
+  app.innerHTML = renderPubblico() + `<div class="dnav">
+    <button type="button" onclick="prev()" ${pos <= 0 ? 'disabled' : ''} aria-label="Slide precedente">&larr;</button>
+    <span>${pos + 1} / ${FLUSSO.length}</span>
+    <button type="button" onclick="next()" ${pos >= FLUSSO.length - 1 ? 'disabled' : ''} aria-label="Slide successiva">&rarr;</button>
+  </div>`;
+}
+let tx = null;
+document.addEventListener('touchstart', (e) => { tx = e.changedTouches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', (e) => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 60) { dx < 0 ? next() : prev(); }
+}, { passive: true });
+render();
+</script>
+</body>
+</html>
