@@ -1,0 +1,266 @@
+codice_prenotazione;codice_cliente;data_prenotazione;arrivo;partenza;notti;ospiti;canale;nazionalita;stato;importo_eur
+2764;C305;2025-09-05;2025-11-04;2025-11-05;1;2;Sito diretto;Germania;Check-out effettuato;47
+2708;C202;2025-10-21;2025-11-05;2025-11-08;3;3;Booking;Italia;Cancellata;186
+2706;C119;2025-11-05;2025-11-07;2025-11-09;2;2;Sito diretto;Italia;Check-out effettuato;92
+2532;C126;2025-08-06;2025-11-08;2025-11-10;2;1;Sito diretto;Svizzera;Check-out effettuato;96
+2749;C292;2025-11-03;2025-11-08;2025-11-10;2;2;Booking;Italia;Check-out effettuato;90
+2733;C284;2025-10-29;2025-11-11;2025-11-14;3;4;Booking;Italia;Check-out effettuato;195
+2600;C106;2025-11-11;2025-11-14;2025-11-21;7;1;Sito diretto;Italia;Check-out effettuato;301
+2761;C303;2025-11-10;2025-11-14;2025-11-16;2;1;Sito diretto;Stati Uniti;Check-out effettuato;88
+2520;C116;2025-11-14;2025-11-15;2025-11-17;2;4;Booking;Italia;Check-out effettuato;122
+2648;C112;2025-11-11;2025-11-15;2025-11-17;2;6;Sito diretto;Regno Unito;Check-out effettuato;218
+2735;C286;2025-08-30;2025-11-15;2025-11-17;2;1;Booking;Paesi Bassi;Cancellata;98
+2653;C221;2025-11-02;2025-11-19;2025-11-22;3;2;Expedia;Italia;Check-out effettuato;159
+2725;C279;2025-05-14;2025-11-19;2025-11-21;2;4;Sito diretto;Germania;Check-out effettuato;116
+2670;C232;2025-07-16;2025-11-21;2025-11-25;4;12;Telefono/Email;Germania;Check-out effettuato;816
+2755;C297;2025-11-06;2025-11-23;2025-11-25;2;2;Booking;Francia;Check-out effettuato;92
+2630;C204;2025-08-23;2025-11-24;2025-11-27;3;3;Airbnb;Germania;Check-out effettuato;180
+2591;C174;2025-11-08;2025-11-25;2025-11-26;1;1;Booking;Germania;Check-out effettuato;45
+2704;C214;2025-11-17;2025-12-01;2025-12-04;3;1;Sito diretto;Italia;Check-out effettuato;201
+2554;C144;2025-11-03;2025-12-02;2025-12-05;3;2;Sito diretto;Italia;Cancellata;174
+2734;C285;2025-11-29;2025-12-11;2025-12-14;3;1;Expedia;Germania;Check-out effettuato;168
+2508;C102;2025-10-19;2025-12-12;2025-12-14;2;3;Sito diretto;Italia;Check-out effettuato;146
+2550;C140;2025-12-11;2025-12-12;2025-12-15;3;2;Telefono/Email;Italia;Cancellata;174
+2646;C215;2025-11-05;2025-12-12;2025-12-13;1;2;Sito diretto;Italia;Check-out effettuato;65
+2529;C123;2025-12-15;2025-12-16;2025-12-20;4;2;Telefono/Email;Italia;Check-out effettuato;240
+2663;C177;2025-12-15;2025-12-16;2025-12-18;2;4;Booking;Italia;Check-out effettuato;144
+2540;C130;2025-12-18;2025-12-24;2025-12-25;1;2;Sito diretto;Italia;Check-out effettuato;63
+2585;C168;2025-12-08;2025-12-27;2026-01-01;5;1;Airbnb;Italia;Cancellata;285
+2638;C209;2025-10-06;2025-12-30;2026-01-01;2;2;Telefono/Email;Germania;No show;136
+2665;C228;2025-12-26;2026-01-02;2026-01-04;2;3;Expedia;Germania;Cancellata;108
+2740;C289;2025-12-24;2026-01-02;2026-01-03;1;2;Sito diretto;Germania;Check-out effettuato;42
+2519;C115;2025-12-29;2026-01-07;2026-01-08;1;3;Telefono/Email;Paesi Bassi;Confermata;45
+2716;C270;2026-01-04;2026-01-10;2026-01-12;2;3;Booking;Regno Unito;Check-out effettuato;108
+2754;C296;2026-01-03;2026-01-12;2026-01-13;1;1;Telefono/Email;Italia;Check-out effettuato;37
+2686;C248;2025-12-31;2026-01-14;2026-01-15;1;1;Telefono/Email;Italia;Cancellata;41
+2549;C139;2025-12-26;2026-01-16;2026-01-18;2;4;Booking;Italia;Check-out effettuato;108
+2655;C166;2026-01-14;2026-01-16;2026-01-18;2;2;Sito diretto;Italia;Check-out effettuato;88
+2578;C125;2026-01-21;2026-01-23;2026-01-25;2;3;Sito diretto;Italia;Check-out effettuato;90
+2570;C157;2025-11-17;2026-01-28;2026-01-31;3;3;Booking;Germania;Check-out effettuato;159
+2528;C122;2026-01-30;2026-02-01;2026-02-06;5;2;Booking;Italia;Cancellata;245
+2536;C129;2026-01-24;2026-02-02;2026-02-04;2;2;Booking;Italia;Check-out effettuato;86
+2611;C188;2026-01-28;2026-02-05;2026-02-06;1;2;Airbnb;Svizzera;Check-out effettuato;44
+2703;C261;2025-07-28;2026-02-05;2026-02-07;2;2;Telefono/Email;Belgio;Check-out effettuato;96
+2579;C163;2026-01-30;2026-02-10;2026-02-15;5;2;Expedia;Italia;Check-out effettuato;215
+2602;C181;2026-01-06;2026-02-13;2026-02-17;4;4;Booking;Francia;Cancellata;212
+2603;C182;2026-01-26;2026-02-13;2026-02-15;2;1;Booking;Italia;Cancellata;102
+2628;C203;2026-02-11;2026-02-16;2026-02-17;1;2;Booking;Italia;Check-out effettuato;54
+2530;C124;2026-02-18;2026-02-22;2026-02-24;2;6;Expedia;Italia;Check-out effettuato;224
+2650;C218;2025-11-17;2026-02-22;2026-02-23;1;1;Airbnb;Stati Uniti;Check-out effettuato;48
+2526;C120;2026-02-16;2026-02-23;2026-02-25;2;2;Sito diretto;Italia;Check-out effettuato;84
+2515;C111;2026-01-20;2026-02-25;2026-03-04;7;3;Sito diretto;Paesi Bassi;Check-out effettuato;420
+2743;C290;2026-01-08;2026-02-27;2026-03-01;2;2;Booking;Italia;Check-out effettuato;106
+2509;C107;2026-02-24;2026-02-28;2026-03-02;2;2;Expedia;Italia;Check-out effettuato;104
+2573;C158;2025-12-13;2026-02-28;2026-03-02;2;2;Booking;Svizzera;Check-out effettuato;102
+2594;C176;2026-02-28;2026-03-02;2026-03-05;3;2;Expedia;Italia;Check-out effettuato;216
+2692;C253;2026-02-28;2026-03-02;2026-03-06;4;2;Booking;Italia;Check-out effettuato;308
+2741;C269;2026-02-27;2026-03-05;2026-03-10;5;6;Expedia;Italia;Check-out effettuato;895
+2661;C225;2026-02-02;2026-03-08;2026-03-09;1;2;Expedia;Italia;Confermata;64
+2724;C278;2026-02-13;2026-03-09;2026-03-14;5;1;Telefono/Email;Belgio;Check-out effettuato;360
+2586;C169;2026-03-01;2026-03-10;2026-03-14;4;1;Expedia;Italia;Cancellata;268
+2649;C217;2026-03-10;2026-03-12;2026-03-17;5;2;Booking;Italia;Cancellata;350
+2652;C220;2026-02-09;2026-03-12;2026-03-14;2;4;Booking;Italia;Cancellata;174
+2531;C125;2026-03-06;2026-03-15;2026-03-17;2;2;Booking;Italia;Check-out effettuato;126
+2513;C109;2026-03-13;2026-03-16;2026-03-19;3;12;Telefono/Email;Italia;Check-out effettuato;795
+2610;C142;2026-03-01;2026-03-17;2026-03-18;1;1;Telefono/Email;Francia;Check-out effettuato;72
+2750;C256;2026-03-12;2026-03-18;2026-03-25;7;2;Sito diretto;Italia;Check-out effettuato;567
+2756;C298;2026-03-15;2026-03-21;2026-03-22;1;3;Airbnb;Paesi Bassi;Check-out effettuato;85
+2621;C197;2026-03-22;2026-03-24;2026-03-26;2;2;Telefono/Email;Italia;Cancellata;132
+2647;C216;2025-12-11;2026-03-24;2026-03-27;3;12;Telefono/Email;Belgio;Check-out effettuato;1008
+2744;C154;2026-02-17;2026-03-25;2026-03-27;2;2;Booking;Regno Unito;No show;134
+2605;C184;2026-03-19;2026-03-28;2026-03-31;3;1;Booking;Italia;Check-out effettuato;198
+2503;C103;2026-02-10;2026-03-29;2026-03-31;2;1;Sito diretto;Germania;Check-out effettuato;130
+2548;C138;2026-03-05;2026-03-29;2026-03-31;2;3;Booking;Italia;Cancellata;182
+2645;C214;2026-03-16;2026-03-29;2026-03-30;1;6;Sito diretto;Italia;Cancellata;162
+2639;C207;2025-12-07;2026-03-30;2026-04-03;4;2;Sito diretto;Germania;Check-out effettuato;252
+2657;C223;2026-03-20;2026-03-31;2026-04-02;2;2;Sito diretto;Italia;Check-out effettuato;160
+2762;C293;2026-03-26;2026-03-31;2026-04-01;1;2;Telefono/Email;Belgio;Cancellata;65
+2613;C190;2025-12-30;2026-04-01;2026-04-03;2;3;Booking;Germania;Check-out effettuato;248
+2709;C264;2026-03-28;2026-04-01;2026-04-05;4;3;Airbnb;Germania;Check-out effettuato;444
+2612;C189;2026-03-14;2026-04-02;2026-04-03;1;2;Booking;Germania;Check-out effettuato;103
+2537;C130;2026-02-13;2026-04-03;2026-04-05;2;2;Booking;Germania;Cancellata;186
+2533;C105;2026-03-25;2026-04-07;2026-04-11;4;3;Sito diretto;Italia;Check-out effettuato;452
+2640;C210;2026-03-21;2026-04-08;2026-04-10;2;2;Airbnb;Italia;Check-out effettuato;190
+2553;C143;2026-03-23;2026-04-13;2026-04-17;4;3;Booking;Germania;Check-out effettuato;452
+2641;C211;2026-04-11;2026-04-14;2026-04-18;4;4;Sito diretto;Germania;Cancellata;504
+2687;C199;2026-03-21;2026-04-15;2026-04-16;1;2;Sito diretto;Italia;No show;86
+2569;C156;2026-04-11;2026-04-16;2026-04-17;1;2;Sito diretto;Italia;Check-out effettuato;107
+2679;C241;2026-03-01;2026-04-16;2026-04-17;1;1;Sito diretto;Regno Unito;Check-out effettuato;106
+2598;C179;2025-11-14;2026-04-17;2026-04-19;2;6;Booking;Germania;Cancellata;450
+2737;C255;2026-04-12;2026-04-18;2026-04-20;2;2;Sito diretto;Italia;Check-out effettuato;210
+2691;C252;2026-03-30;2026-04-21;2026-04-22;1;1;Booking;Italia;Check-out effettuato;89
+2729;C282;2026-04-20;2026-04-24;2026-04-26;2;2;Sito diretto;Germania;Check-out effettuato;184
+2551;C141;2026-03-25;2026-04-25;2026-04-26;1;2;Booking;Paesi Bassi;Check-out effettuato;88
+2701;C259;2026-04-13;2026-04-26;2026-04-28;2;4;Booking;Paesi Bassi;Check-out effettuato;230
+2512;C108;2026-04-15;2026-04-27;2026-04-30;3;12;Telefono/Email;Italia;Check-out effettuato;1080
+2684;C246;2026-04-29;2026-04-30;2026-05-03;3;1;Sito diretto;Paesi Bassi;Check-out effettuato;291
+2746;C161;2026-01-24;2026-04-30;2026-05-01;1;2;Sito diretto;Paesi Bassi;Check-out effettuato;107
+2721;C275;2026-04-28;2026-05-01;2026-05-04;3;4;Telefono/Email;Italia;Check-out effettuato;402
+2728;C281;2026-02-09;2026-05-02;2026-05-03;1;4;Sito diretto;Stati Uniti;Check-out effettuato;131
+2658;C111;2026-05-02;2026-05-04;2026-05-06;2;1;Expedia;Italia;Check-out effettuato;218
+2745;C103;2026-03-15;2026-05-04;2026-05-06;2;1;Telefono/Email;Italia;Check-out effettuato;224
+2696;C257;2026-04-28;2026-05-05;2026-05-08;3;1;Telefono/Email;Italia;Cancellata;303
+2516;C112;2026-03-14;2026-05-06;2026-05-08;2;2;Booking;Italia;Cancellata;228
+2577;C162;2026-05-04;2026-05-06;2026-05-11;5;2;Booking;Italia;Cancellata;530
+2601;C180;2026-03-13;2026-05-06;2026-05-09;3;4;Airbnb;Germania;Check-out effettuato;369
+2547;C137;2026-05-10;2026-05-12;2026-05-15;3;4;Expedia;Italia;Cancellata;399
+2714;C268;2026-05-08;2026-05-13;2026-05-15;2;2;Sito diretto;Germania;Check-out effettuato;206
+2710;C246;2026-05-08;2026-05-14;2026-05-16;2;2;Expedia;Italia;Cancellata;194
+2643;C213;2026-04-10;2026-05-15;2026-05-17;2;2;Telefono/Email;Stati Uniti;Check-out effettuato;196
+2662;C226;2026-05-14;2026-05-15;2026-05-16;1;2;Expedia;Italia;Cancellata;95
+2555;C145;2026-05-14;2026-05-16;2026-05-20;4;1;Sito diretto;Stati Uniti;Check-out effettuato;456
+2567;C154;2026-03-27;2026-05-17;2026-05-18;1;4;Expedia;Francia;Cancellata;135
+2622;C198;2026-05-16;2026-05-17;2026-05-19;2;2;Expedia;Regno Unito;Check-out effettuato;230
+2644;C124;2026-04-19;2026-05-17;2026-05-19;2;4;Booking;Belgio;Check-out effettuato;234
+2672;C234;2026-05-10;2026-05-17;2026-05-19;2;2;Telefono/Email;Italia;Check-out effettuato;194
+2695;C256;2026-04-20;2026-05-17;2026-05-18;1;3;Telefono/Email;Italia;Check-out effettuato;117
+2545;C135;2026-05-09;2026-05-18;2026-05-20;2;1;Airbnb;Italia;No show;190
+2524;C118;2026-05-01;2026-05-20;2026-05-21;1;2;Booking;Italia;Cancellata;95
+2619;C186;2026-05-12;2026-05-20;2026-05-21;1;3;Booking;Stati Uniti;Check-out effettuato;136
+2501;C101;2026-04-30;2026-05-22;2026-05-23;1;1;Booking;Germania;Cancellata;102
+2518;C114;2026-05-05;2026-05-22;2026-05-23;1;1;Telefono/Email;Italia;Check-out effettuato;108
+2673;C235;2026-05-09;2026-05-22;2026-05-24;2;2;Booking;Francia;Confermata;198
+2717;C271;2026-03-13;2026-05-22;2026-05-23;1;2;Booking;Svizzera;Check-out effettuato;108
+2576;C161;2026-05-12;2026-05-23;2026-05-25;2;2;Booking;Italia;Check-out effettuato;226
+2698;C142;2026-05-01;2026-05-25;2026-05-26;1;6;Sito diretto;Italia;Check-out effettuato;215
+2712;C266;2026-05-24;2026-05-25;2026-05-26;1;3;Booking;Italia;Cancellata;138
+2742;C282;2026-05-19;2026-05-25;2026-05-27;2;6;Sito diretto;Italia;Check-out effettuato;428
+2565;C152;2026-05-10;2026-05-27;2026-06-01;5;2;Booking;Italia;Cancellata;500
+2720;C274;2026-05-23;2026-05-27;2026-05-29;2;2;Booking;Italia;Check-out effettuato;228
+2759;C301;2026-05-25;2026-05-28;2026-05-30;2;4;Sito diretto;Italia;Check-out effettuato;282
+2575;C160;2026-05-28;2026-05-29;2026-05-30;1;2;Booking;Italia;Check-out effettuato;105
+2620;C196;2026-03-19;2026-05-31;2026-06-01;1;2;Booking;Germania;Check-out effettuato;98
+2666;C229;2026-05-26;2026-06-04;2026-06-11;7;1;Sito diretto;Italia;Check-out effettuato;847
+2713;C267;2026-06-05;2026-06-06;2026-06-09;3;1;Booking;Italia;No show;309
+2699;C258;2026-05-27;2026-06-09;2026-06-10;1;2;Booking;Italia;Check-out effettuato;114
+2564;C151;2026-06-02;2026-06-10;2026-06-12;2;2;Telefono/Email;Italia;Check-out effettuato;222
+2596;C178;2026-04-16;2026-06-12;2026-06-13;1;2;Sito diretto;Paesi Bassi;Check-out effettuato;123
+2758;C300;2026-05-18;2026-06-13;2026-06-15;2;2;Sito diretto;Francia;Check-out effettuato;220
+2511;C103;2026-06-13;2026-06-14;2026-06-18;4;12;Telefono/Email;Italia;Cancellata;1916
+2527;C121;2026-05-13;2026-06-14;2026-06-16;2;1;Booking;Italia;Check-out effettuato;202
+2671;C233;2026-05-28;2026-06-14;2026-06-15;1;3;Booking;Italia;Check-out effettuato;143
+2674;C236;2025-10-07;2026-06-14;2026-06-16;2;2;Sito diretto;Francia;Check-out effettuato;248
+2633;C161;2026-06-07;2026-06-17;2026-06-24;7;2;Telefono/Email;Germania;Check-out effettuato;791
+2588;C171;2026-05-23;2026-06-20;2026-06-21;1;2;Sito diretto;Regno Unito;Check-out effettuato;106
+2689;C250;2026-04-20;2026-06-22;2026-06-24;2;12;Telefono/Email;Svizzera;Check-out effettuato;950
+2535;C128;2026-05-02;2026-06-24;2026-06-26;2;2;Booking;Italia;Cancellata;244
+2542;C132;2026-06-12;2026-06-24;2026-06-27;3;3;Booking;Italia;Cancellata;375
+2559;C113;2026-05-25;2026-06-24;2026-06-26;2;2;Sito diretto;Francia;Check-out effettuato;232
+2568;C155;2026-06-18;2026-06-24;2026-06-25;1;3;Telefono/Email;Italia;Check-out effettuato;121
+2664;C227;2026-06-23;2026-06-26;2026-06-30;4;1;Telefono/Email;Italia;Check-out effettuato;448
+2697;C219;2026-04-25;2026-06-26;2026-06-27;1;2;Sito diretto;Francia;Check-out effettuato;123
+2626;C195;2026-06-19;2026-06-28;2026-06-29;1;2;Sito diretto;Italia;Check-out effettuato;99
+2693;C254;2026-05-19;2026-06-28;2026-06-30;2;2;Expedia;Italia;Check-out effettuato;248
+2727;C199;2026-06-02;2026-06-28;2026-06-29;1;2;Sito diretto;Italia;Check-out effettuato;118
+2522;C102;2026-06-23;2026-07-01;2026-07-04;3;2;Booking;Italia;Check-out effettuato;321
+2580;C136;2026-06-29;2026-07-01;2026-07-03;2;2;Booking;Italia;Check-out effettuato;264
+2583;C166;2026-06-22;2026-07-01;2026-07-03;2;4;Booking;Italia;Cancellata;266
+2625;C201;2026-06-22;2026-07-01;2026-07-02;1;2;Booking;Italia;Check-out effettuato;105
+2604;C183;2026-06-05;2026-07-02;2026-07-04;2;2;Sito diretto;Italia;Check-out effettuato;252
+2738;C103;2026-06-27;2026-07-03;2026-07-06;3;2;Telefono/Email;Italia;Check-out effettuato;399
+2730;C283;2026-04-17;2026-07-05;2026-07-06;1;1;Expedia;Belgio;Check-out effettuato;118
+2651;C219;2026-06-22;2026-07-06;2026-07-11;5;2;Booking;Belgio;Check-out effettuato;540
+2763;C304;2026-06-07;2026-07-06;2026-07-10;4;1;Sito diretto;Paesi Bassi;Check-out effettuato;496
+2562;C104;2026-06-23;2026-07-07;2026-07-08;1;2;Telefono/Email;Stati Uniti;Confermata;109
+2627;C202;2026-07-06;2026-07-07;2026-07-09;2;1;Booking;Italia;Check-out effettuato;256
+2690;C251;2026-07-06;2026-07-07;2026-07-08;1;2;Expedia;Italia;Cancellata;117
+2707;C263;2026-05-31;2026-07-07;2026-07-09;2;1;Telefono/Email;Svizzera;Check-out effettuato;222
+2616;C193;2026-06-01;2026-07-09;2026-07-10;1;3;Booking;Italia;Check-out effettuato;158
+2722;C276;2026-07-06;2026-07-09;2026-07-11;2;4;Sito diretto;Italia;Cancellata;304
+2505;C105;2026-07-04;2026-07-12;2026-07-14;2;1;Telefono/Email;Italia;Cancellata;236
+2538;C117;2026-05-18;2026-07-12;2026-07-13;1;4;Telefono/Email;Germania;Check-out effettuato;157
+2552;C142;2026-06-28;2026-07-13;2026-07-16;3;2;Sito diretto;Italia;Check-out effettuato;330
+2678;C240;2026-06-26;2026-07-14;2026-07-18;4;2;Booking;Germania;Check-out effettuato;460
+2541;C131;2026-05-13;2026-07-16;2026-07-19;3;2;Booking;Germania;Cancellata;336
+2539;C121;2026-06-08;2026-07-17;2026-07-20;3;3;Sito diretto;Italia;Check-out effettuato;393
+2561;C149;2026-06-21;2026-07-17;2026-07-19;2;2;Sito diretto;Italia;Check-out effettuato;266
+2523;C117;2026-06-25;2026-07-18;2026-07-19;1;3;Booking;Regno Unito;Check-out effettuato;162
+2572;C119;2026-06-17;2026-07-18;2026-07-19;1;2;Telefono/Email;Italia;Cancellata;132
+2587;C170;2026-07-13;2026-07-18;2026-07-20;2;2;Booking;Italia;Check-out effettuato;226
+2546;C136;2026-07-17;2026-07-19;2026-07-21;2;2;Booking;Italia;No show;250
+2683;C245;2026-07-15;2026-07-19;2026-07-21;2;2;Sito diretto;Italia;Check-out effettuato;248
+2584;C167;2026-07-18;2026-07-20;2026-07-23;3;3;Telefono/Email;Regno Unito;Check-out effettuato;450
+2617;C194;2026-07-10;2026-07-21;2026-07-23;2;3;Telefono/Email;Italia;Confermata;270
+2606;C172;2026-07-13;2026-07-22;2026-07-23;1;3;Airbnb;Italia;Check-out effettuato;151
+2719;C273;2026-07-10;2026-07-22;2026-07-26;4;12;Telefono/Email;Italia;Check-out effettuato;1936
+2521;C105;2026-07-22;2026-07-23;2026-07-25;2;2;Sito diretto;Italia;Check-out effettuato;222
+2544;C134;2026-07-02;2026-07-23;2026-07-30;7;2;Sito diretto;Belgio;Check-out effettuato;833
+2514;C110;2026-07-15;2026-07-24;2026-07-26;2;2;Booking;Belgio;Cancellata;268
+2660;C224;2026-07-15;2026-07-25;2026-07-27;2;1;Telefono/Email;Italia;Check-out effettuato;218
+2757;C299;2026-07-24;2026-07-26;2026-07-27;1;1;Booking;Italia;Check-out effettuato;115
+2563;C150;2026-07-11;2026-07-27;2026-07-29;2;2;Booking;Paesi Bassi;Cancellata;226
+2681;C243;2026-07-25;2026-07-27;2026-07-30;3;6;Booking;Italia;Check-out effettuato;816
+2748;C291;2026-07-01;2026-07-28;2026-07-29;1;3;Booking;Paesi Bassi;Check-out effettuato;146
+2558;C147;2026-07-13;2026-07-29;2026-07-30;1;2;Telefono/Email;Italia;Check-out effettuato;112
+2599;C122;2026-07-26;2026-07-30;2026-08-02;3;2;Sito diretto;Italia;Check-out effettuato;372
+2668;C111;2026-07-23;2026-07-30;2026-08-02;3;2;Sito diretto;Italia;Check-out effettuato;357
+2680;C242;2026-06-29;2026-08-03;2026-08-06;3;2;Sito diretto;Francia;Check-out effettuato;399
+2753;C295;2026-05-23;2026-08-06;2026-08-08;2;4;Airbnb;Belgio;Check-out effettuato;318
+2752;C294;2026-07-09;2026-08-07;2026-08-08;1;2;Booking;Germania;Check-out effettuato;122
+2624;C200;2026-08-01;2026-08-08;2026-08-11;3;3;Expedia;Italia;Cancellata;474
+2636;C207;2026-08-11;2026-08-13;2026-08-17;4;12;Telefono/Email;Stati Uniti;Check-out effettuato;2328
+2739;C288;2026-07-15;2026-08-13;2026-08-15;2;20;Telefono/Email;Belgio;Confermata;1848
+2751;C293;2026-07-08;2026-08-13;2026-08-15;2;12;Telefono/Email;Germania;Check-out effettuato;1056
+2656;C193;2026-08-12;2026-08-14;2026-08-16;2;20;Telefono/Email;Italia;Check-out effettuato;1832
+2593;C124;2026-08-05;2026-08-15;2026-08-18;3;2;Sito diretto;Germania;Check-out effettuato;342
+2632;C205;2026-08-06;2026-08-15;2026-08-16;1;2;Expedia;Italia;Cancellata;136
+2504;C104;2026-08-05;2026-08-16;2026-08-18;2;2;Booking;Paesi Bassi;Check-out effettuato;230
+2667;C230;2026-07-31;2026-08-16;2026-08-19;3;12;Telefono/Email;Francia;Check-out effettuato;1647
+2502;C102;2026-07-29;2026-08-17;2026-08-22;5;2;Booking;Germania;Confermata;570
+2571;C117;2026-08-15;2026-08-18;2026-08-20;2;2;Booking;Italia;Check-out effettuato;236
+2635;C181;2026-07-27;2026-08-19;2026-08-20;1;3;Telefono/Email;Italia;Cancellata;165
+2642;C212;2026-07-24;2026-08-20;2026-08-22;2;3;Airbnb;Belgio;Check-out effettuato;314
+2506;C103;2026-08-20;2026-08-21;2026-08-23;2;1;Expedia;Italia;Check-out effettuato;268
+2589;C172;2026-07-23;2026-08-23;2026-08-26;3;12;Telefono/Email;Italia;Check-out effettuato;1650
+2623;C199;2026-05-26;2026-08-24;2026-08-26;2;1;Booking;Belgio;Check-out effettuato;280
+2723;C277;2026-08-22;2026-08-25;2026-08-26;1;2;Telefono/Email;Italia;Cancellata;140
+2760;C302;2026-08-16;2026-08-25;2026-08-26;1;3;Telefono/Email;Italia;Check-out effettuato;156
+2688;C249;2026-08-24;2026-08-26;2026-08-28;2;2;Booking;Italia;Check-out effettuato;226
+2590;C173;2026-08-14;2026-08-27;2026-08-30;3;2;Expedia;Paesi Bassi;Check-out effettuato;375
+2556;C146;2026-08-05;2026-08-28;2026-09-02;5;2;Booking;Stati Uniti;Check-out effettuato;585
+2682;C244;2026-07-19;2026-08-28;2026-08-29;1;4;Sito diretto;Francia;Check-out effettuato;171
+2685;C247;2026-07-31;2026-08-28;2026-08-31;3;4;Booking;Italia;Check-out effettuato;432
+2731;C146;2026-08-23;2026-08-28;2026-08-31;3;6;Sito diretto;Italia;Cancellata;909
+2592;C175;2026-08-06;2026-08-29;2026-08-30;1;3;Booking;Francia;Check-out effettuato;162
+2736;C287;2026-07-24;2026-09-03;2026-09-04;1;2;Airbnb;Regno Unito;Check-out effettuato;102
+2659;C189;2026-08-21;2026-09-08;2026-09-09;1;2;Telefono/Email;Italia;Check-out effettuato;99
+2726;C280;2026-08-03;2026-09-09;2026-09-11;2;1;Booking;Germania;Check-out effettuato;220
+2618;C195;2026-08-30;2026-09-11;2026-09-13;2;6;Booking;Italia;Check-out effettuato;438
+2566;C153;2026-08-28;2026-09-12;2026-09-13;1;1;Telefono/Email;Paesi Bassi;Check-out effettuato;116
+2637;C208;2026-09-11;2026-09-13;2026-09-14;1;2;Booking;Paesi Bassi;Check-out effettuato;102
+2715;C269;2026-08-13;2026-09-14;2026-09-16;2;2;Expedia;Paesi Bassi;Check-out effettuato;202
+2677;C239;2026-09-11;2026-09-15;2026-09-17;2;3;Booking;Italia;Check-out effettuato;246
+2534;C127;2026-08-23;2026-09-17;2026-09-18;1;4;Booking;Italia;Check-out effettuato;119
+2634;C206;2026-09-03;2026-09-17;2026-09-19;2;12;Telefono/Email;Paesi Bassi;Check-out effettuato;860
+2607;C185;2026-08-09;2026-09-18;2026-09-22;4;2;Booking;Stati Uniti;Check-out effettuato;408
+2654;C222;2026-09-15;2026-09-18;2026-09-20;2;1;Airbnb;Italia;Check-out effettuato;218
+2747;C225;2026-09-17;2026-09-18;2026-09-19;1;3;Booking;Italia;Cancellata;113
+2608;C186;2026-08-26;2026-09-19;2026-09-22;3;2;Sito diretto;Germania;Check-out effettuato;285
+2676;C238;2026-08-08;2026-09-19;2026-09-20;1;2;Expedia;Italia;Check-out effettuato;102
+2614;C191;2026-08-10;2026-09-25;2026-09-27;2;2;Expedia;Paesi Bassi;Cancellata;194
+2669;C231;2026-09-21;2026-09-25;2026-09-28;3;1;Expedia;Germania;Check-out effettuato;276
+2705;C262;2026-07-22;2026-09-25;2026-09-26;1;2;Booking;Regno Unito;Check-out effettuato;96
+2517;C113;2026-09-15;2026-09-26;2026-09-29;3;2;Telefono/Email;Regno Unito;Check-out effettuato;300
+2595;C177;2026-09-27;2026-09-28;2026-09-30;2;2;Expedia;Italia;Cancellata;222
+2510;C101;2026-09-13;2026-10-02;2026-10-05;3;3;Booking;Regno Unito;Cancellata;333
+2629;C139;2026-10-01;2026-10-02;2026-10-03;1;3;Sito diretto;Italia;Check-out effettuato;108
+2582;C165;2026-09-23;2026-10-04;2026-10-05;1;2;Sito diretto;Italia;Check-out effettuato;95
+2525;C119;2026-10-04;2026-10-05;2026-10-07;2;3;Booking;Italia;Cancellata;196
+2609;C187;2026-10-02;2026-10-05;2026-10-08;3;2;Booking;Italia;Check-out effettuato;276
+2507;C106;2026-10-07;2026-10-09;2026-10-10;1;3;Airbnb;Italia;Check-out effettuato;104
+2675;C237;2026-07-27;2026-10-09;2026-10-13;4;2;Telefono/Email;Germania;Check-out effettuato;376
+2700;C163;2026-10-09;2026-10-10;2026-10-14;4;2;Booking;Italia;Cancellata;360
+2581;C164;2026-10-07;2026-10-11;2026-10-13;2;2;Expedia;Italia;Check-out effettuato;180
+2560;C148;2026-10-03;2026-10-12;2026-10-14;2;2;Booking;Italia;Check-out effettuato;170
+2694;C255;2026-10-03;2026-10-12;2026-10-16;4;2;Telefono/Email;Italia;Check-out effettuato;360
+2597;C134;2026-04-12;2026-10-14;2026-10-16;2;2;Telefono/Email;Germania;Check-out effettuato;192
+2631;C184;2026-09-03;2026-10-15;2026-10-18;3;1;Sito diretto;Germania;Cancellata;258
+2765;C306;2026-10-04;2026-10-15;2026-10-19;4;4;Booking;Francia;Cancellata;432
+2732;C169;2026-10-16;2026-10-20;2026-10-22;2;4;Sito diretto;Italia;Check-out effettuato;190
+2543;C133;2026-09-30;2026-10-21;2026-10-22;1;2;Sito diretto;Italia;Confermata;92
+2702;C260;2026-08-19;2026-10-21;2026-10-24;3;2;Telefono/Email;Francia;Confermata;276
+2718;C272;2026-10-15;2026-10-23;2026-10-24;1;4;Sito diretto;Germania;Confermata;107
+2557;C117;2026-09-09;2026-10-25;2026-10-26;1;2;Telefono/Email;Italia;Confermata;84
+2711;C265;2026-08-21;2026-10-28;2026-10-30;2;3;Booking;Italia;Confermata;196
+2574;C159;2026-10-14;2026-10-30;2026-11-01;2;1;Booking;Italia;Confermata;190
+2615;C192;2026-10-17;2026-10-31;2026-11-02;2;2;Booking;Italia;Confermata;162
