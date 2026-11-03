@@ -239,25 +239,35 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   <div class="wrap">
     <div class="kicker">Prompt e istruzioni · Incontro 5 · 3 novembre 2026 · Zoom</div>
     <h1 style="font-size:clamp(32px,5vw,52px);max-width:22ch">Da tenere aperta <em>durante la lezione.</em></h1>
-    <p class="lede">Come finire il Social e collegarlo a Metricool, le domande ai numeri del gestionale, i richiami, e il quarto strumento: il Progetto «Manutenzione». Il file di esempio è in fondo.</p>
+    <p class="lede">La catena completa del Social, da Claude alla pubblicazione automatica. Le domande ai numeri del gestionale. E il quarto strumento: il Progetto «Manutenzione» più un'app costruita da zero. I file di esempio sono in fondo.</p>
   </div>
 </header>
 
 <section style="padding:0 0 72px">
   <div class="wrap">
     <div class="article">
-      <p>Regola di oggi: all'AI servono le date, non le persone. Prima di caricare un file dal gestionale si cancellano le colonne con nome, email, telefono, documento, note. Resta un codice cliente, un numero, al posto del nome.</p>
+      <p>Le tre frasi di oggi. <b>L'AI scrive, voi firmate, la macchina spedisce.</b> <b>All'AI servono le date, non le persone.</b> <b>Il Progetto capisce, l'app ricorda.</b></p>
 
-      <h2>1 · Il Social, finito</h2>
-      <h3>Collegare Metricool a Claude (gratuito)</h3>
+      <h2>1 · Il Social, la catena completa</h2>
+      <p>Quattro passi. Claude scrive i post. Claude li consegna a Metricool come bozze. Voi li rileggete e li programmate. Metricool li pubblica da solo all'ora stabilita. Uno solo dei quattro passi è vostro: approvare.</p>
+      <h3>Come si collega (una volta sola, gratuito)</h3>
       <ol>
         <li>Account su metricool.com; collegate Instagram, Facebook e la scheda Google (serve essere amministratori della pagina Facebook).</li>
         <li>In Claude: Impostazioni, Connettori, Sfoglia connettori, cercate «Metricool», Connetti, Concedi accesso. Nel piano gratuito di Claude si tiene un connettore alla volta.</li>
         <li>Nel Progetto «Social», sotto la scheda e le regole dei post, aggiungete queste righe:</li>
       </ol>
       <div class="prompt">Quando ti chiedo di programmare, usa Metricool. Crea sempre i post come bozza: non programmare mai la pubblicazione automatica se non scrivo la parola "pubblica". Per Instagram serve una foto: se non te l'ho data, prepara il testo e chiedimela. Per la scheda Google usa il tipo "publication". Se la grafica è generata con l'AI, segnala il post come generato con AI. Dopo aver creato le bozze dammi l'elenco con giorno, rete e link al pianificatore. Orari di default: 18:00 nei giorni feriali, 10:30 nel weekend.</div>
-      <h3>Richiesta di prova (Progetto «Social»)</h3>
-      <div class="prompt">Scrivi due post per questa settimana dal calendario eventi e mettili in Metricool come bozze: uno su Facebook giovedì alle 18, uno sulla scheda Google venerdì alle 10:30.</div>
+      <h3>Passo 1 · I post della settimana (Progetto «Social», chat nuova)</h3>
+      <div class="prompt">Dal calendario eventi e dalla scheda, scrivi i post della prossima settimana: due su Facebook, uno sulla scheda Google. Per ognuno: giorno, ora, testo pronto, foto suggerita.</div>
+      <h3>Passo 2 · In Metricool, come bozze (stessa chat)</h3>
+      <div class="prompt">Mettili in Metricool come bozze, con il giorno e l'ora che hai indicato. Poi dammi l'elenco con giorno, rete e link al pianificatore.</div>
+      <h3>Passo 3 · Voi approvate (in Metricool)</h3>
+      <p>Pianificatore, aprite la bozza, rileggete, correggete, aggiungete la foto, stato «programmato», salvate.</p>
+      <h3>Passo 4 · Metricool pubblica</h3>
+      <p>Niente da fare: il post esce all'ora stabilita. Se è generato con l'AI, dichiaratelo nel post.</p>
+      <h3>Il passo in più · ogni lunedì da sola (quando vi fidate della catena)</h3>
+      <p>In Claude, attività programmate: nuova attività, ogni lunedì alle 9, con questo testo. Il lunedì mattina trovate le bozze: rileggete e programmate. Verificate nel vostro piano se le attività programmate sono disponibili.</p>
+      <div class="prompt">Nel Progetto «Social», scrivi i post di questa settimana dal calendario eventi e dalla scheda e mettili in Metricool come bozze. Poi mandami l'elenco con giorno, rete e link al pianificatore.</div>
 
       <h2>2 · I numeri del gestionale</h2>
       <p><b>Le dieci colonne che bastano:</b> codice prenotazione, codice cliente, data prenotazione, arrivo, partenza, notti, ospiti, canale, nazionalità, stato, importo.<br><b>Da cancellare prima di caricare:</b> nome e cognome, email, telefono, documento, indirizzo, note sull'ospite, targa.</p>
@@ -269,8 +279,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <h3>Chi torna</h3>
       <div class="prompt">Usando il codice cliente: quanti clienti hanno soggiornato più di una volta? Per questi, da quale canale è arrivata la prima prenotazione e da quale la seconda, quante notti fanno in media, quanti mesi passano tra un soggiorno e l'altro, in quali mesi tornano. Poi dimmi quali gruppi di clienti (per nazionalità, canale, stagione) hanno soggiornato una volta sola e sarebbero da richiamare.</div>
       <h3>I tre richiami (Progetto «La mia struttura»)</h3>
-      <div class="prompt">Dai dati risulta che questi tre gruppi di ospiti sono venuti una volta sola: [famiglie italiane in luglio e agosto], [coppie nei weekend di primavera], [gruppi che vengono a prepararsi: atleti, squadre giovanili in ritiro]. Per ognuno scrivi una mail di richiamo nel tono della scheda, massimo 120 parole: oggetto, un motivo concreto per tornare nei prossimi tre mesi legato alla stagione e agli eventi di Arezzo, nessuno sconto generico, prezzi e date tra parentesi quadre, una riga per disiscriversi.
-Le email degli ospiti non passano mai da Claude: si filtrano nel gestionale per codice cliente e si mandano da lì, solo a chi ha accettato comunicazioni.</div>
+      <div class="prompt">Dai dati risulta che questi tre gruppi di ospiti sono venuti una volta sola: [famiglie italiane in luglio e agosto], [coppie nei weekend di primavera], [gruppi che vengono a prepararsi: atleti, squadre giovanili in ritiro]. Per ognuno scrivi una mail di richiamo nel tono della scheda, massimo 120 parole: oggetto, un motivo concreto per tornare nei prossimi tre mesi legato alla stagione e agli eventi di Arezzo, nessuno sconto generico, prezzi e date tra parentesi quadre, una riga per disiscriversi.</div>
       <p>Le email degli ospiti non passano mai da Claude: si filtrano nel gestionale per codice cliente e si mandano da lì, solo a chi ha accettato comunicazioni.</p>
       <h3>Altre domande ai dati</h3>
       <div class="prompt">Calcola l'occupazione (notti vendute) per mese e per giorno della settimana, solo sui soggiorni con check-out effettuato. Fammi un grafico per ciascuno e dimmi qual è il giorno della settimana più debole in ogni stagione.</div>
@@ -278,17 +287,22 @@ Le email degli ospiti non passano mai da Claude: si filtrano nel gestionale per 
       <div class="prompt">Analizza le cancellazioni e i no show: quante sono sul totale, da quali canali arrivano in proporzione, con quanti giorni di preavviso rispetto all'arrivo, in quali mesi. Dimmi se c'è un canale che cancella molto più degli altri e cosa potrei cambiare nelle condizioni di cancellazione.</div>
       <p><b>Tre trappole dei numeri.</b> Il campione piccolo: sotto le 20-30 righe è un aneddoto, non un dato. La stagione travestita: si confronta con lo stesso mese dell'anno prima, non con il mese prima. La causa inventata: due cose che succedono insieme non si spiegano a vicenda; il dato dice cosa, il perché si verifica nel mondo.</p>
 
-      <h2>3 · Il Progetto «Manutenzione»</h2>
+      <h2>3 · La manutenzione: il Progetto capisce, l'app ricorda</h2>
+      <h3>Il Progetto «Manutenzione» (quarto strumento)</h3>
       <p>Nuovo Progetto in Claude, nome «Manutenzione». Istruzioni:</p>
       <div class="prompt">Sei il registro delle manutenzioni di [nome struttura]. Ogni messaggio che ricevo è una segnalazione, anche se scritta male o a voce: trasformala in una riga con cosa, dove (camera o luogo), urgenza (alta: sicurezza, acqua, riscaldamento, ospite in camera; media: entro la settimana; bassa: quando capita), chi serve (interno, idraulico, elettricista, fornitore), cosa comprare, stato (aperta). Non usare mai nomi di ospiti: solo numeri di camera. Se una segnalazione è ambigua, chiedi una cosa sola. Quando chiedo il riepilogo, raggruppa per urgenza e aggiungi la lista della spesa.</div>
       <h3>Le segnalazioni</h3>
       <div class="prompt">Ecco le segnalazioni di oggi, così come sono arrivate. Mettile in tabella: cosa, dove, urgenza (alta, media, bassa), chi serve (interno, idraulico, elettricista, fornitore), cosa comprare, stato. Segnalazioni: [incolla]</div>
       <h3>Il riepilogo</h3>
       <div class="prompt">Fammi il riepilogo della settimana per il manutentore: tutte le segnalazioni aperte raggruppate per urgenza, con la lista delle cose da comprare e un ordine di lavoro consigliato per domani mattina.</div>
-      <p>Come si usa: una chat del Progetto resta aperta sul telefono. Chi vede una cosa la scrive lì, anche con una foto. Il lunedì si chiede il riepilogo e si manda al manutentore. Per provare: <a href="segnalazioni_esempio.txt" download>segnalazioni_esempio.txt</a>.</p>
+      <p>Per provare: <a href="segnalazioni_esempio.txt" download>segnalazioni_esempio.txt</a>.</p>
+      <h3>L'app delle segnalazioni (chat nuova, una richiesta sola)</h3>
+      <div class="prompt">Costruisci una pagina web per le segnalazioni di manutenzione di [nome struttura]. In alto un modulo con: dove (camera o luogo), cosa succede, urgenza (alta, media, bassa), chi segnala (nome di chi lavora, mai ospiti). Sotto, la lista delle segnalazioni aperte ordinata per urgenza con la data, un pulsante "Risolto" che le sposta in fondo in grigio, e il contatore delle aperte. Salva i dati nel browser, così restano quando chiudo e riapro. Grafica pulita, pulsanti grandi, deve funzionare bene sul telefono. Tutto in italiano.</div>
+      <p>Quando l'app compare: inserite una segnalazione per provarla. Poi «Pubblica», in alto a destra sull'app: ottenete un link da aprire dal telefono e da dare a chi lavora con voi. Per cambiare qualcosa non si ricomincia: «aggiungi un campo per la foto», «metti un filtro per camera».</p>
+      <p><b>Cosa fa e cosa non fa ancora.</b> Si apre dal telefono con un link, e chi segnala non deve avere Claude. Ma la lista resta nel browser dove è stata scritta: ogni telefono vede la sua, e se svuotate il browser sparisce. È un prototipo. La versione con i dati in un posto solo, visibili a tutti, è il passo successivo: si chiede a Claude e si paga qualche euro al mese per lo spazio dei dati.</p>
 
       <h2>I compiti per il 10 novembre</h2>
-      <p>Ultimo incontro, su Zoom alle 10:30. <b>Uno</b>: due domande ai vostri dati, con la cintura di sicurezza; portate una scoperta. <b>Due</b>: cinque strutture concorrenti con i loro prezzi per quattro date, presi a mano dai portali (5 dicembre, 8 dicembre, 27 dicembre, 15 gennaio), in un foglio con nome, data, prezzo, tipo di camera. <b>Tre</b>: listino, regole della casa e FAQ in un unico file, per l'assistente del 10. <b>Quattro</b>: i due post messi in bozza oggi, rileggeteli e approvateli.</p>
+      <p>Ultimo incontro, su Zoom alle 10:30. <b>Uno</b>: approvate i post in bozza in Metricool, sono i primi del corso che vanno online. <b>Due</b>: il primo sguardo ai vostri dati, poi due domande, sempre con la cintura di sicurezza; portate una scoperta. <b>Tre</b>: l'app Manutenzione aperta sul telefono, con tre segnalazioni vere dentro. <b>Quattro</b>: cinque strutture concorrenti con i loro prezzi per quattro date, presi a mano dai portali (5 dicembre, 8 dicembre, 27 dicembre, 15 gennaio), in un foglio con nome, data, prezzo, tipo di camera. <b>Cinque</b>: listino, regole della casa e FAQ in un unico file, per l'assistente del 10. Quello che oggi non si è fatto in tempo si riprende il 10.</p>
 
     </div>
     <p class="nota"><a href="bignami-3.html">Bignami del 27 ottobre</a> · <a href="prompt-3.html">Prompt del 27 ottobre</a> · <a href="../dispense.html">Torna alle dispense</a></p>
