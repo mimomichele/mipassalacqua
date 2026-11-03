@@ -239,7 +239,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   <div class="wrap">
     <div class="kicker">Prompt e istruzioni · Incontro 5 · 3 novembre 2026 · Zoom</div>
     <h1 style="font-size:clamp(32px,5vw,52px);max-width:22ch">Da tenere aperta <em>durante la lezione.</em></h1>
-    <p class="lede">La catena completa del Social, da Claude alla pubblicazione automatica. Le domande ai numeri del gestionale. E il quarto strumento: il Progetto «Manutenzione» più un'app costruita da zero. I file di esempio sono in fondo.</p>
+    <p class="lede">La catena completa del Social, da Claude alla pubblicazione automatica. Le domande ai numeri del gestionale. E il quarto strumento: il Progetto «Manutenzione» più il tutorial dell'app, da zero a finita. I file di esempio sono in fondo.</p>
   </div>
 </header>
 
@@ -296,16 +296,48 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <h3>Il riepilogo</h3>
       <div class="prompt">Fammi il riepilogo della settimana per il manutentore: tutte le segnalazioni aperte raggruppate per urgenza, con la lista delle cose da comprare e un ordine di lavoro consigliato per domani mattina.</div>
       <p>Per provare: <a href="segnalazioni_esempio.txt" download>segnalazioni_esempio.txt</a>.</p>
-      <h3>L'app delle segnalazioni (chat nuova, una richiesta sola)</h3>
+
+      <h2>L'app Manutenzione, da zero a finita: il tutorial</h2>
+      <p>Un'app vera è fatta di tre pezzi, tutti gratuiti. <b>La pagina</b>: quello che si vede, la scrive Claude. <b>L'archivio</b>: il posto in rete dove stanno i dati, che tutti i telefoni leggono; si chiama Supabase. <b>L'indirizzo</b>: il link che si apre da ovunque; si chiama Vercel. Dieci passi, in ordine. Non si scrive codice: si copia, si incolla, si descrive quello che si vuole.</p>
+      <p><b>Cosa vi serve.</b> Il computer con Claude aperto (il piano gratuito basta). Una mail, con la posta aperta: vi registrate a due siti e ognuno manda un link di conferma. Il telefono per la prova finale. Un foglio dove scrivere una password.</p>
+
+      <h3>Passo 1 · La pagina: la richiesta</h3>
+      <p>In Claude aprite una chat nuova (non dentro il Progetto Social). Copiate la richiesta, cambiate il nome della struttura, invio.</p>
       <div class="prompt">Costruisci una pagina web per le segnalazioni di manutenzione di [nome struttura]. In alto un modulo con: dove (camera o luogo), cosa succede, urgenza (alta, media, bassa), chi segnala (nome di chi lavora, mai ospiti). Sotto, la lista delle segnalazioni aperte ordinata per urgenza con la data, un pulsante "Risolto" che le sposta in fondo in grigio, e il contatore delle aperte. Salva i dati nel browser, così restano quando chiudo e riapro. Grafica pulita, pulsanti grandi, deve funzionare bene sul telefono. Tutto in italiano.</div>
-      <p>Quando l'app compare: inserite una segnalazione per provarla. Poi «Pubblica», in alto a destra sull'app: ottenete un link da aprire dal telefono e da dare a chi lavora con voi. Per cambiare qualcosa non si ricomincia: «aggiungi un campo per la foto», «metti un filtro per camera».</p>
-      <h3>Metterla online con un indirizzo vostro (Vercel, gratuito)</h3>
-      <p>Il link di Claude va bene per provare. Per darla a chi lavora con voi e tenerla nel tempo serve un indirizzo vostro. Tre gesti. <b>Uno</b>: sull'app, menu in alto a destra, «Scarica»: vi salva un file; rinominatelo <b>index.html</b>. <b>Due</b>: aprite <a href="https://vercel.com/drop">vercel.com/drop</a> e trascinate il file dentro la pagina; in trenta secondi avete un indirizzo che finisce in .vercel.app, da aprire dal telefono. <b>Tre</b>: senza account l'indirizzo scade (c'è un conto alla rovescia): cliccate «Claim your project» e create l'account gratuito con la vostra email; da quel momento resta online finché volete.</p>
-      <p>Per aggiornarla: cambiate l'app in Claude con una frase, scaricate di nuovo il file, trascinatelo sul progetto nel vostro Vercel. Stesso indirizzo, versione nuova. L'indirizzo è pubblico: dentro l'app non vanno mai nomi di ospiti.</p>
-      <p><b>Cosa fa e cosa non fa ancora.</b> Si apre dal telefono con un link, e chi segnala non deve avere Claude. Ma la lista resta nel browser dove è stata scritta: ogni telefono vede la sua, e se svuotate il browser sparisce. È un prototipo. La versione con i dati in un posto solo, visibili a tutti, è il passo successivo: si chiede a Claude e si paga qualche euro al mese per lo spazio dei dati.</p>
+
+      <h3>Passo 2 · La pagina: aspettate e provate</h3>
+      <p>Claude scrive il codice per un minuto, a volte due: non toccate niente e non ricaricate. Quando l'app compare nel riquadro a fianco, inserite una segnalazione vera: camera 12, caldaia che non parte, alta, il vostro nome. Compare in cima. Premete «Risolto»: va in fondo, in grigio. La pagina funziona, ma i dati stanno solo nel vostro browser: dal telefono di un'altra persona non si vedono. Per questo serve l'archivio.</p>
+
+      <h3>Passo 3 · L'archivio: registratevi a Supabase</h3>
+      <p>Aprite <a href="https://supabase.com">supabase.com</a>, pulsante «Start your project». Registratevi con la mail (o con Google) e confermate dal link che arriva nella posta. Siete dentro: una pagina quasi vuota con il pulsante «New project». La pagina è fatta per i programmatori, ma voi userete tre cose in tutto, indicate qui sotto.</p>
+
+      <h3>Passo 4 · L'archivio: il progetto</h3>
+      <p>«New project». Tre campi. <b>Nome</b>: il nome della struttura. <b>Password</b>: inventatela e scrivetela sul foglio, adesso (serve di rado ma non si recupera facilmente). <b>Regione</b>: Europa, Frankfurt o Ireland. Poi «Create new project» e aspettate due minuti senza chiudere la pagina: sta preparando l'archivio.</p>
+
+      <h3>Passo 5 · L'archivio: la tabella</h3>
+      <p>L'archivio è vuoto: bisogna dirgli che forma hanno i dati. Nel menu a sinistra di Supabase cliccate «SQL Editor», incollate questo testo così com'è e premete «Run». Deve rispondere «Success». Il testo dice: una tabella che si chiama segnalazioni, con le stesse colonne del modulo, e chi ha il link può leggere, scrivere e aggiornare.</p>
+      <div class="prompt">create table segnalazioni (<br>&nbsp;&nbsp;id bigint generated always as identity primary key,<br>&nbsp;&nbsp;dove text not null,<br>&nbsp;&nbsp;cosa text not null,<br>&nbsp;&nbsp;urgenza text not null,<br>&nbsp;&nbsp;chi text not null default '',<br>&nbsp;&nbsp;stato text not null default 'aperta',<br>&nbsp;&nbsp;created_at timestamptz not null default now(),<br>&nbsp;&nbsp;resolved_at timestamptz<br>);<br>alter table segnalazioni enable row level security;<br>create policy "tutti leggono" on segnalazioni for select to anon using (true);<br>create policy "tutti scrivono" on segnalazioni for insert to anon with check (true);<br>create policy "tutti aggiornano" on segnalazioni for update to anon using (true);</div>
+
+      <h3>Passo 6 · L'archivio: le due chiavi</h3>
+      <p>Per far parlare la pagina con l'archivio servono due cose, da copiare da Supabase. Cliccate la rotella in basso a sinistra («Project Settings»), poi «API» (oppure il pulsante «Connect» in alto). Copiate il <b>Project URL</b>, che finisce in .supabase.co, e la <b>chiave pubblica</b>, quella chiamata «anon public» oppure «publishable» (inizia con sb_publishable_ o con eyJ). Una sola attenzione: c'è anche una chiave chiamata «service_role» o «secret»: quella non va mai in una pagina web.</p>
+
+      <h3>Passo 7 · La pagina parla con l'archivio</h3>
+      <p>Tornate in Claude, nella stessa chat dell'app. Incollate questa richiesta mettendo al posto delle parentesi l'indirizzo e la chiave copiati al passo 6. Claude riscrive la pagina: non si ricomincia, cambia solo dove mette i dati. Nell'anteprima dentro Claude l'app potrebbe non riuscire a parlare con l'archivio, per motivi di sicurezza: non è rotta, la proverete al passo 9.</p>
+      <div class="prompt">Ora i dati non devono più stare nel browser: salvali su Supabase, così tutti i telefoni vedono la stessa lista. Indirizzo del progetto: [PROJECT URL]. Chiave pubblica: [CHIAVE]. La tabella si chiama "segnalazioni" e ha le colonne id, dove, cosa, urgenza, chi, stato ("aperta" o "risolta"), created_at, resolved_at. Usa le chiamate dirette all'API REST di Supabase, senza librerie esterne. Ricarica la lista ogni 20 secondi e quando riapro la pagina. Tutto il resto resta uguale.</div>
+
+      <h3>Passo 8 · L'indirizzo: scaricate, trascinate, tenete</h3>
+      <p><b>Scaricate.</b> Sull'app, in alto a destra, il menu con «Scarica»: vi salva un file nella cartella Download. Rinominatelo <b>index.html</b>, tutto minuscolo. <b>Trascinate.</b> Aprite <a href="https://vercel.com/drop">vercel.com/drop</a> e trascinate il file dentro la pagina. Parte da solo; in trenta secondi vi dà un indirizzo che finisce in .vercel.app: la vostra app è online. <b>Tenete.</b> Senza account l'indirizzo scade, c'è un conto alla rovescia: cliccate «Claim your project», create l'account gratuito con la mail e confermate. Da quel momento l'indirizzo è vostro e resta online.</p>
+
+      <h3>Passo 9 · La prova: due telefoni</h3>
+      <p>Aprite il link dal vostro telefono e inserite «rubinetto che perde, camera 7, alta». Fatelo aprire a un'altra persona dal suo telefono: la segnalazione c'è. Lei preme «Risolto»: sul vostro sparisce. Questa è l'app finita. Il link lo date a chi lavora con voi: non serve Claude, non serve un account, si apre e si scrive.</p>
+
+      <h3>Passo 10 · Cambiarla, domani</h3>
+      <p>Volete una cosa in più? Stessa chat di Claude, una frase: «aggiungi un campo per la foto», «metti un filtro per camera», «il pulsante Risolto non si vede sul telefono». Poi scaricate di nuovo il file (index.html) e trascinatelo sul vostro progetto dentro Vercel: stesso indirizzo, versione nuova. I dati non si perdono, perché stanno nell'archivio, non nella pagina.</p>
+
+      <p><b>Tre cose da sapere.</b> Chi ha il link scrive: datelo a chi lavora con voi, non pubblicatelo sul sito. Mai nomi di ospiti dentro l'app: solo numeri di camera. L'archivio gratuito si addormenta dopo una settimana senza uso: in Supabase c'è un pulsante per risvegliarlo; se l'app si usa ogni giorno non succede.</p>
 
       <h2>I compiti per il 10 novembre</h2>
-      <p>Ultimo incontro, su Zoom alle 10:30. <b>Uno</b>: approvate i post in bozza in Metricool, sono i primi del corso che vanno online. <b>Due</b>: il primo sguardo ai vostri dati, poi due domande, sempre con la cintura di sicurezza; portate una scoperta. <b>Tre</b>: l'app Manutenzione su Vercel, aperta sul telefono, con tre segnalazioni vere dentro. <b>Quattro</b>: cinque strutture concorrenti con i loro prezzi per quattro date, presi a mano dai portali (5 dicembre, 8 dicembre, 27 dicembre, 15 gennaio), in un foglio con nome, data, prezzo, tipo di camera. <b>Cinque</b>: listino, regole della casa e FAQ in un unico file, per l'assistente del 10. Quello che oggi non si è fatto in tempo si riprende il 10.</p>
+      <p>Ultimo incontro, su Zoom alle 10:30. <b>Uno</b>: approvate i post in bozza in Metricool, sono i primi del corso che vanno online. <b>Due</b>: il primo sguardo ai vostri dati, poi due domande, sempre con la cintura di sicurezza; portate una scoperta. <b>Tre</b>: l'app Manutenzione finita (i dieci passi qui sopra), con il link a una persona che lavora con voi e tre segnalazioni vere dentro. <b>Quattro</b>: cinque strutture concorrenti con i loro prezzi per quattro date, presi a mano dai portali (5 dicembre, 8 dicembre, 27 dicembre, 15 gennaio), in un foglio con nome, data, prezzo, tipo di camera. <b>Cinque</b>: listino, regole della casa e FAQ in un unico file, per l'assistente del 10. Quello che oggi non si è fatto in tempo si riprende il 10.</p>
 
     </div>
     <p class="nota"><a href="bignami-3.html">Bignami del 27 ottobre</a> · <a href="prompt-3.html">Prompt del 27 ottobre</a> · <a href="../dispense.html">Torna alle dispense</a></p>
