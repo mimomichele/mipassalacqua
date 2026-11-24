@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corso AI · Incontro 6 — Numeri, prezzi e assistenti</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, system-ui, sans-serif; background: #FFFFFF; color: #1D1D1F; -webkit-font-smoothing: antialiased; }
+
+/* ============================================================
+   HOME (selettore vista)
+============================================================ */
+.home { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px; }
+.home-card { max-width: 720px; width: 100%; text-align: center; }
+.home-kicker { font-size: 12px; color: #86868B; letter-spacing: 2.5px; font-weight: 500; margin-bottom: 18px; }
+.home h1 { font-size: 44px; font-weight: 600; letter-spacing: -1.2px; line-height: 1.1; margin-bottom: 14px; }
+.home h1 .accent { color: #2C5F2D; }
+.home .lead { font-size: 17px; color: #6E6E73; max-width: 540px; margin: 0 auto 44px; line-height: 1.5; }
+.home .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 560px; margin: 0 auto 40px; }
+.home .btn { display: block; padding: 24px 20px; border: 1px solid #E5E5EA; border-radius: 14px; text-decoration: none; color: #1D1D1F; transition: all 0.15s ease; background: white; cursor: pointer; font-family: inherit; text-align: left; }
+.home .btn:hover { border-color: #2C5F2D; transform: translateY(-1px); }
+.home .btn .ico { font-size: 22px; margin-bottom: 8px; display: block; }
+.home .btn .lbl { font-size: 13px; color: #86868B; letter-spacing: 1.5px; font-weight: 500; margin-bottom: 4px; }
+.home .btn .ttl { font-size: 19px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.3px; }
+.home .btn .dsc { font-size: 13px; color: #6E6E73; line-height: 1.4; }
+.home .istruzioni { font-size: 13px; color: #86868B; line-height: 1.6; max-width: 540px; margin: 0 auto; padding: 20px; background: #F5F5F7; border-radius: 12px; text-align: left; }
+.home .istruzioni strong { color: #1D1D1F; font-weight: 600; }
+
+/* ============================================================
+   VISTA PUBBLICO (slide a tutto schermo)
+============================================================ */
+.pubblico { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; background: #FFFFFF; overflow: hidden; cursor: none; }
+.pubblico:hover { cursor: default; }
+.slide { width: 100%; height: 100%; max-width: 1600px; aspect-ratio: 16/9; background: #FFFFFF; padding: 5vmin 6vmin; position: relative; display: flex; align-items: center; justify-content: center; }
+.slide.tema-scuro { background: #1D1D1F; color: #FFFFFF; }
+
+.kicker { position: absolute; top: 4vmin; left: 6vmin; font-size: 1.3vmin; color: #86868B; letter-spacing: 0.3em; font-weight: 500; }
+.brand { position: absolute; bottom: 3.5vmin; right: 6vmin; font-size: 1.3vmin; color: #B8B8BD; letter-spacing: 0.15em; }
+.tema-scuro .kicker { color: rgba(255,255,255,0.4); }
+.tema-scuro .brand { color: rgba(255,255,255,0.35); }
+
+/* layout: title */
+.l-title { text-align: center; }
+.l-title h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 2.5vmin; }
+.l-title h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-title h1 .accent { color: #30D158; }
+.l-title .sub { font-size: 2.1vmin; color: #6E6E73; font-weight: 400; }
+.tema-scuro .l-title .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: question */
+.l-question h1 { font-size: 5.5vmin; font-weight: 500; line-height: 1.15; letter-spacing: -0.025em; max-width: 75vw; }
+.l-question h1 em { font-style: normal; color: #2C5F2D; }
+.tema-scuro .l-question h1 em { color: #30D158; }
+
+/* layout: big-word */
+.l-big-word { text-align: center; }
+.l-big-word .label { font-size: 1.7vmin; color: #86868B; letter-spacing: 0.3em; margin-bottom: 3vmin; font-weight: 500; }
+.l-big-word .word { font-size: 12vmin; font-weight: 700; letter-spacing: -0.06em; line-height: 1; }
+.l-big-word .word .strike { color: #D2D2D7; text-decoration: line-through; text-decoration-thickness: 0.4vmin; }
+
+/* layout: three-points */
+.l-three { width: 100%; max-width: 90vw; }
+.l-three .h { font-size: 2.8vmin; font-weight: 500; color: #6E6E73; margin-bottom: 4vmin; letter-spacing: -0.015em; }
+.tema-scuro .l-three .h { color: rgba(255,255,255,0.6); }
+.l-three .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4vmin; }
+.l-three .n { font-size: 1.7vmin; color: #2C5F2D; font-weight: 500; letter-spacing: 0.15em; margin-bottom: 1.2vmin; }
+.tema-scuro .l-three .n { color: #30D158; }
+.l-three .t { font-size: 2.4vmin; font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; }
+
+/* layout: metafora-intro (apertura due-personaggi) */
+.l-metafora-intro { text-align: center; }
+.l-metafora-intro .occhiello { font-size: 2.2vmin; color: #6E6E73; font-weight: 400; margin-bottom: 3vmin; letter-spacing: -0.01em; }
+.l-metafora-intro h1 { font-size: 7vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; }
+.l-metafora-intro h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-metafora-intro h1 .accent { color: #30D158; }
+
+/* layout: figura (icona grande + titolo + sub) */
+.l-figura { text-align: center; max-width: 80vw; }
+.l-figura .icona { font-size: 14vmin; line-height: 1; margin-bottom: 3vmin; filter: grayscale(0.15); }
+.l-figura h1 { font-size: 6vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 2.5vmin; }
+.l-figura .sub { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.5; max-width: 70vw; margin: 0 auto; }
+.tema-scuro .l-figura .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: frase (citazione grande, accent verde) */
+.l-frase { text-align: center; max-width: 90vw; }
+.l-frase .frase { font-size: 7.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 4vmin; }
+.l-frase .frase .accent { color: #2C5F2D; }
+.tema-scuro .l-frase .frase .accent { color: #30D158; }
+.l-frase .sotto { font-size: 4vmin; font-weight: 400; color: #1D1D1F; line-height: 1.2; letter-spacing: -0.025em; }
+.l-frase .sotto strong { font-weight: 600; }
+.tema-scuro .l-frase .sotto { color: #FFFFFF; }
+
+/* layout: ponte (transizione tra segmenti) */
+.l-ponte { text-align: center; max-width: 85vw; }
+.l-ponte .occhiello { font-size: 2.2vmin; color: #6E6E73; font-style: italic; margin-bottom: 2.8vmin; letter-spacing: -0.01em; }
+.l-ponte h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 3vmin; }
+.l-ponte .sub { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.4; }
+.tema-scuro .l-ponte .occhiello, .tema-scuro .l-ponte .sub { color: rgba(255,255,255,0.55); }
+
+/* layout: mappa-centro (sistema PMS + satelliti) */
+.l-mappa { width: 100%; max-width: 95vw; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4vmin; align-items: center; }
+.l-mappa .testo h1 { font-size: 5.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; }
+.l-mappa .testo h1 .accent { color: #2C5F2D; }
+.l-mappa .mappa-svg { width: 100%; height: auto; max-height: 70vmin; }
+.mappa-svg .pms-circle { fill: #1D1D1F; }
+.mappa-svg .pms-label { fill: #FFFFFF; font-size: 22px; font-weight: 600; letter-spacing: 1px; }
+.mappa-svg .pms-sub { fill: rgba(255,255,255,0.6); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; }
+.mappa-svg .sat-circle { fill: #F5F5F7; stroke: #E5E5EA; stroke-width: 1.5; transition: all 0.5s ease; }
+.mappa-svg .sat-label { fill: #C7C7CC; font-size: 15px; font-weight: 500; transition: fill 0.5s ease; }
+.mappa-svg .sat-sub { fill: #D2D2D7; font-size: 11px; font-weight: 400; transition: fill 0.5s ease; }
+.mappa-svg .sat-link { stroke: #E5E5EA; stroke-width: 1.5; stroke-dasharray: 4,4; opacity: 0.5; transition: all 0.5s ease; }
+.mappa-svg .sat-on .sat-circle { fill: #FFFFFF; stroke: #2C5F2D; stroke-width: 2; }
+.mappa-svg .sat-on .sat-label { fill: #1D1D1F; }
+.mappa-svg .sat-on .sat-sub { fill: #6E6E73; }
+.mappa-svg .link-on { stroke: #2C5F2D; stroke-width: 2; stroke-dasharray: none; opacity: 1; }
+.mappa-svg.completa .pms-circle { fill: #1D1D1F; }
+.mappa-svg.completa .sat-on .sat-circle { fill: #F0F7F0; stroke: #2C5F2D; stroke-width: 2; }
+
+/* layout: confronto (due colonne prima/dopo) */
+.l-confronto { width: 100%; max-width: 92vw; }
+.l-confronto .titolo-c { font-size: 5vmin; font-weight: 600; text-align: center; letter-spacing: -0.035em; margin-bottom: 5vmin; }
+.l-confronto .titolo-c .accent { color: #2C5F2D; }
+.l-confronto .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4vmin; }
+.l-confronto .col { padding: 4vmin; border-radius: 2vmin; }
+.l-confronto .col.no { background: #FBF3F2; border: 1.5px solid #F0D5D2; }
+.l-confronto .col.si { background: #F0F7F0; border: 1.5px solid #C9E3C9; }
+.l-confronto .col.neutro { background: #F5F5F7; border: 1.5px solid #E5E5EA; }
+.l-confronto .col-label { font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 2vmin; display: flex; align-items: center; gap: 1vmin; }
+.l-confronto .col.no .col-label { color: #C0392B; }
+.l-confronto .col.si .col-label { color: #2C5F2D; }
+.l-confronto .col.neutro .col-label { color: #6E6E73; }
+.l-confronto .col-segno { font-size: 2.4vmin; line-height: 1; }
+.l-confronto .col-testo { font-size: 2.5vmin; line-height: 1.4; color: #1D1D1F; letter-spacing: -0.01em; }
+
+/* layout: caso (struttura partecipante) */
+.l-caso { width: 100%; max-width: 80vw; }
+.l-caso .nome { font-size: 6vmin; font-weight: 600; letter-spacing: -0.04em; margin-bottom: 1.5vmin; }
+.l-caso .tratto { font-size: 3vmin; font-weight: 500; color: #1D1D1F; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 4vmin; padding-bottom: 4vmin; border-bottom: 1.5px solid #E5E5EA; }
+.l-caso .ai-label { font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; color: #2C5F2D; margin-bottom: 1.5vmin; }
+.l-caso .ai-testo { font-size: 2.6vmin; line-height: 1.45; color: #6E6E73; letter-spacing: -0.01em; }
+
+/* ============================================================
+   LAYOUT PRATICI (demo / coinvolgimento / checkpoint)
+============================================================ */
+.tipo-badge { position: absolute; top: 8.5vmin; left: 6vmin; display: inline-flex; align-items: center; gap: 1vmin; font-size: 1.5vmin; font-weight: 600; letter-spacing: 0.12em; padding: 0.9vmin 1.8vmin; border-radius: 100px; }
+.tipo-badge .pallino { width: 1.1vmin; height: 1.1vmin; border-radius: 50%; }
+.tipo-badge.demo { background: #EAF3FB; color: #1B5E9B; }
+.tipo-badge.demo .pallino { background: #1B5E9B; animation: pulsa 1.6s ease-in-out infinite; }
+.tipo-badge.coinvolgimento { background: #F0F7F0; color: #2C5F2D; }
+.tipo-badge.coinvolgimento .pallino { background: #2C5F2D; }
+.tipo-badge.checkpoint { background: #FFF4E0; color: #B26B00; }
+.tipo-badge.checkpoint .pallino { background: #E89A1C; }
+@keyframes pulsa { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+
+.zona-webcam { position: absolute; bottom: 3vmin; right: 4vmin; width: 22vmin; height: 16vmin; border: 1.5px dashed #D2D2D7; border-radius: 1.5vmin; display: none; align-items: center; justify-content: center; color: #C7C7CC; font-size: 1.3vmin; letter-spacing: 0.1em; }
+.rel-current .zona-webcam, .rel-next .zona-webcam { display: flex; }
+.tema-scuro .zona-webcam { border-color: rgba(255,255,255,0.18); color: rgba(255,255,255,0.3); }
+
+.l-demo { width: 100%; max-width: 70vw; align-self: center; text-align: left; padding-bottom: 4vmin; }
+.l-demo h1 { font-size: 5.5vmin; font-weight: 600; line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 3vmin; }
+.l-demo h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-demo h1 .accent { color: #30D158; }
+.l-demo .guardate { font-size: 2.4vmin; color: #6E6E73; font-weight: 400; line-height: 1.45; max-width: 60vw; }
+.tema-scuro .l-demo .guardate { color: rgba(255,255,255,0.6); }
+.l-demo .schermo-hint { margin-top: 4vmin; display: inline-flex; align-items: center; gap: 1.4vmin; font-size: 1.7vmin; color: #1B5E9B; font-weight: 500; }
+.tema-scuro .l-demo .schermo-hint { color: #6FB1E8; }
+.l-demo .schermo-hint .freccia { font-size: 2.2vmin; }
+
+.l-coinvolgi { width: 100%; max-width: 72vw; text-align: left; }
+.l-coinvolgi .occhiello { font-size: 2vmin; color: #2C5F2D; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 2.5vmin; }
+.l-coinvolgi h1 { font-size: 6vmin; font-weight: 600; line-height: 1.06; letter-spacing: -0.038em; margin-bottom: 3.5vmin; }
+.l-coinvolgi h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-coinvolgi h1 .accent { color: #30D158; }
+.l-coinvolgi .compito { font-size: 2.6vmin; color: #1D1D1F; font-weight: 400; line-height: 1.4; max-width: 60vw; padding: 3vmin 3.5vmin; background: #F0F7F0; border-left: 0.6vmin solid #2C5F2D; border-radius: 1.2vmin; }
+.tema-scuro .l-coinvolgi .compito { background: rgba(48,209,88,0.08); color: #FFFFFF; }
+
+.l-checkpoint { text-align: center; max-width: 80vw; }
+.l-checkpoint .icona { font-size: 9vmin; line-height: 1; margin-bottom: 2.5vmin; }
+.l-checkpoint h1 { font-size: 6.5vmin; font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 2.5vmin; }
+.l-checkpoint h1 .accent { color: #2C5F2D; }
+.tema-scuro .l-checkpoint h1 .accent { color: #30D158; }
+.l-checkpoint .sub { font-size: 2.3vmin; color: #6E6E73; font-weight: 400; line-height: 1.45; max-width: 60vw; margin: 0 auto; }
+.tema-scuro .l-checkpoint .sub { color: rgba(255,255,255,0.55); }
+
+.cuscinetto-tag { position: absolute; top: 4vmin; right: 6vmin; font-size: 1.2vmin; font-weight: 600; letter-spacing: 0.14em; color: #C7C7CC; border: 1px solid #E5E5EA; padding: 0.6vmin 1.4vmin; border-radius: 100px; }
+
+.pubblico-attesa { text-align: center; color: #86868B; font-size: 16px; }
+.pubblico-attesa h2 { font-size: 28px; color: #1D1D1F; font-weight: 500; margin-bottom: 10px; letter-spacing: -0.5px; }
+
+/* ============================================================
+   VISTA RELATORE
+============================================================ */
+.relatore { width: 100vw; min-height: 100vh; background: #F5F5F7; padding: 16px; display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto 1fr auto auto; gap: 14px; }
+
+.rel-header { grid-column: 1 / -1; background: white; border-radius: 12px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #E5E5EA; }
+.rel-header .titolo { font-size: 14px; font-weight: 600; }
+.rel-header .titolo .sub { color: #86868B; font-weight: 400; margin-left: 10px; }
+.rel-header .stato { display: flex; gap: 18px; align-items: center; font-size: 13px; color: #6E6E73; }
+.rel-header .stato .live { display: inline-flex; align-items: center; gap: 6px; }
+.rel-header .stato .live .dot { width: 7px; height: 7px; background: #34C759; border-radius: 50%; }
+.rel-header .stato .live.off .dot { background: #FF3B30; }
+.rel-header .timer { font-variant-numeric: tabular-nums; font-weight: 500; color: #1D1D1F; font-size: 14px; }
+
+.rel-current { grid-row: 3; background: white; border-radius: 12px; padding: 14px; border: 1px solid #E5E5EA; display: flex; flex-direction: column; }
+.rel-current .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; margin-bottom: 8px; }
+.rel-current .frame { aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid #E5E5EA; }
+.rel-current .frame .slide { padding: 2.8vmin 3.4vmin; }
+.rel-current .frame .slide h1 { font-size: 3.5vmin !important; }
+.rel-current .frame .slide .word { font-size: 6vmin !important; }
+.rel-current .frame .slide .sub, .rel-current .frame .slide .h, .rel-current .frame .slide .t, .rel-current .frame .slide .label, .rel-current .frame .slide .occhiello, .rel-current .frame .slide .sotto { font-size: 1.3vmin !important; }
+.rel-current .frame .slide .frase { font-size: 4vmin !important; }
+.rel-current .frame .slide .titolo-c { font-size: 2.6vmin !important; margin-bottom: 2vmin !important; }
+.rel-current .frame .slide .col { padding: 2vmin !important; }
+.rel-current .frame .slide .col-testo { font-size: 1.5vmin !important; }
+.rel-current .frame .slide .col-label { font-size: 1vmin !important; }
+.rel-current .frame .slide .col-segno { font-size: 1.4vmin !important; }
+.rel-current .frame .slide .nome { font-size: 3.2vmin !important; }
+.rel-current .frame .slide .tratto { font-size: 1.7vmin !important; margin-bottom: 2vmin !important; padding-bottom: 2vmin !important; }
+.rel-current .frame .slide .ai-testo { font-size: 1.4vmin !important; }
+.rel-current .frame .slide .ai-label { font-size: 0.9vmin !important; }
+.rel-current .frame .slide .icona { font-size: 7vmin !important; margin-bottom: 1.5vmin !important; }
+.rel-current .frame .slide .n { font-size: 1vmin !important; }
+.rel-current .frame .kicker { font-size: 0.85vmin !important; }
+.rel-current .frame .brand { font-size: 0.85vmin !important; }
+
+.rel-next { grid-row: 3; background: white; border-radius: 12px; padding: 14px; border: 1px solid #E5E5EA; display: flex; flex-direction: column; }
+.rel-next .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; margin-bottom: 8px; display: flex; justify-content: space-between; }
+.rel-next .lbl .conta { color: #1D1D1F; }
+.rel-next .frame { aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid #E5E5EA; opacity: 0.6; }
+.rel-next .frame .slide { padding: 2.8vmin 3.4vmin; }
+.rel-next .frame .slide h1 { font-size: 3.5vmin !important; }
+.rel-next .frame .slide .word { font-size: 6vmin !important; }
+.rel-next .frame .slide .sub, .rel-next .frame .slide .h, .rel-next .frame .slide .t, .rel-next .frame .slide .label, .rel-next .frame .slide .occhiello, .rel-next .frame .slide .sotto { font-size: 1.3vmin !important; }
+.rel-next .frame .slide .frase { font-size: 4vmin !important; }
+.rel-next .frame .slide .titolo-c { font-size: 2.6vmin !important; margin-bottom: 2vmin !important; }
+.rel-next .frame .slide .col { padding: 2vmin !important; }
+.rel-next .frame .slide .col-testo { font-size: 1.5vmin !important; }
+.rel-next .frame .slide .col-label { font-size: 1vmin !important; }
+.rel-next .frame .slide .col-segno { font-size: 1.4vmin !important; }
+.rel-next .frame .slide .nome { font-size: 3.2vmin !important; }
+.rel-next .frame .slide .tratto { font-size: 1.7vmin !important; margin-bottom: 2vmin !important; padding-bottom: 2vmin !important; }
+.rel-next .frame .slide .ai-testo { font-size: 1.4vmin !important; }
+.rel-next .frame .slide .ai-label { font-size: 0.9vmin !important; }
+.rel-next .frame .slide .icona { font-size: 7vmin !important; margin-bottom: 1.5vmin !important; }
+.rel-next .frame .slide .n { font-size: 1vmin !important; }
+.rel-next .frame .kicker { font-size: 0.85vmin !important; }
+.rel-next .frame .brand { font-size: 0.85vmin !important; }
+
+.rel-note { grid-column: 1 / -1; grid-row: 2; overflow-y: auto; background: white; border-radius: 12px; padding: 18px 22px; border: 1px solid #E5E5EA; }
+.rel-note .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.rel-note .head .lbl { font-size: 11px; color: #86868B; letter-spacing: 0.15em; font-weight: 500; }
+.rel-note .head .segm { font-size: 13px; color: #2C5F2D; font-weight: 500; }
+.rel-note h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.3px; }
+.rel-note p { font-size: 15px; color: #1D1D1F; line-height: 1.55; margin-bottom: 10px; }
+.rel-note p:last-child { margin-bottom: 0; }
+.rel-note .dire { color: #1D1D1F; font-weight: 500; font-size: 16px; background: linear-gradient(transparent 60%, #DDF0DD 60%); padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.rel-note .regia { color: #86868B; font-size: 13.5px; font-style: italic; }
+.rel-note .promemoria { display: inline-block; background: #FFF4E0; color: #8A5A00; border-left: 3px solid #E0A030; padding: 2px 10px; border-radius: 0 6px 6px 0; font-size: 13.5px; font-weight: 500; margin: 2px 0; }
+.rel-note .quote { padding: 10px 14px; background: #F5F5F7; border-left: 3px solid #2C5F2D; font-style: italic; color: #1D1D1F; border-radius: 0 8px 8px 0; }
+.rel-note .legenda { display: flex; gap: 16px; margin-bottom: 12px; font-size: 11px; color: #86868B; flex-wrap: wrap; }
+.rel-note .legenda span { display: inline-flex; align-items: center; gap: 5px; }
+.rel-note .legenda .campione { width: 14px; height: 10px; border-radius: 2px; display: inline-block; }
+.rel-note .legenda .c-dire { background: #DDF0DD; }
+.rel-note .legenda .c-regia { background: #E5E5EA; }
+.rel-note .legenda .c-prom { background: #FFE0A0; }
+
+.rel-controls { grid-column: 1 / -1; grid-row: 4; display: flex; justify-content: space-between; align-items: center; background: white; border-radius: 12px; padding: 12px 18px; border: 1px solid #E5E5EA; }
+.rel-controls .conta { font-size: 13px; color: #6E6E73; font-variant-numeric: tabular-nums; }
+.rel-controls .btns { display: flex; gap: 10px; }
+.rel-controls button { padding: 10px 22px; font-size: 14px; font-weight: 500; border: 1px solid #D2D2D7; background: white; border-radius: 8px; cursor: pointer; font-family: inherit; transition: all 0.1s ease; }
+.rel-controls button:hover { background: #F5F5F7; }
+.rel-controls button:active { transform: scale(0.97); }
+.rel-controls button.primary { background: #2C5F2D; color: white; border-color: #2C5F2D; }
+.rel-controls button.primary:hover { background: #24501E; }
+.rel-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
+.rel-controls .timer-ctrl { display: flex; gap: 8px; align-items: center; }
+.rel-controls .timer-ctrl button { padding: 6px 12px; font-size: 12px; }
+
+.shortcut { font-size: 11px; color: #86868B; margin-left: 6px; padding: 2px 6px; background: #F5F5F7; border-radius: 4px; }
+
+/* ===== layout aggiunti dall'incontro 1 ===== */
+.pubblico { position: relative; }
+.pubblico.anim .slide { animation: dissolvenza 0.25s ease-out; }
+@keyframes dissolvenza { from { opacity: 0; } to { opacity: 1; } }
+.barra { position: absolute; top: 0; left: 0; right: 0; height: 0.7vmin; display: flex; gap: 2px; z-index: 5; }
+.barra .seg { height: 100%; }
+.barra .seg.passato { background: #86868B; }
+.barra .seg.futuro { background: rgba(128,128,128,0.28); }
+.l-numero { text-align: center; max-width: 80vw; }
+.l-numero .cifra { font-size: 22vmin; font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: #2C5F2D; }
+.tema-scuro .l-numero .cifra { color: #30D158; }
+.l-numero .riga { font-size: 3.6vmin; font-weight: 500; margin-top: 3vmin; line-height: 1.3; letter-spacing: -0.02em; }
+.l-numero .fonte { font-size: 2vmin; color: #86868B; margin-top: 5vmin; }
+.l-prompt { width: 100%; max-width: 72vw; }
+.l-prompt h1 { font-size: 5vmin; font-weight: 600; letter-spacing: -0.035em; margin-bottom: 4vmin; }
+.l-prompt .chat { background: #F5F5F7; border: 1px solid #D2D2D7; border-radius: 2.2vmin; padding: 3vmin 3.5vmin; margin-bottom: 2.5vmin; }
+.tema-scuro .l-prompt .chat { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.l-prompt .chat-label { font-size: 2.2vmin; letter-spacing: 0.2em; color: #2C5F2D; font-weight: 600; margin-bottom: 1.4vmin; }
+.l-prompt .chat-testo { font-size: 3.2vmin; line-height: 1.4; color: #1D1D1F; }
+.l-prompt .chat-testo.lungo { font-size: 2.5vmin; }
+.tema-scuro .l-prompt .chat-testo { color: #fff; }
+.l-pianob { text-align: center; width: 100%; max-width: 80vw; }
+.l-pianob .pb-tag { font-size: 2.2vmin; letter-spacing: 0.25em; color: #B26B00; font-weight: 600; margin-bottom: 2vmin; }
+.l-pianob h1 { font-size: 4.5vmin; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 3vmin; }
+.l-pianob img { max-width: 100%; max-height: 62vh; border: 1px solid #D2D2D7; border-radius: 1.5vmin; }
+.l-pianob .pb-vuoto { font-size: 2.6vmin; color: #86868B; border: 0.3vmin dashed #D2D2D7; border-radius: 2vmin; padding: 8vmin 4vmin; }
+.countdown { position: absolute; left: 6vmin; bottom: 5vmin; font-size: 10vmin; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; color: #1D1D1F; }
+.tema-scuro .countdown { color: #fff; }
+.countdown.urgente { color: #D70015; }
+.rel-note .ritardo { background: #FFF4E0; border-left: 4px solid #E89A1C; border-radius: 6px; padding: 8px 12px; font-size: 13px; color: #6B4400; margin: 4px 0 10px; }
+.rel-note .copia-box { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 12px; }
+.rel-note .copia-box button { font-family: inherit; font-size: 13px; font-weight: 600; background: #2C5F2D; color: #fff; border: 0; border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+.rel-note .copia-box button:hover { background: #1F4720; }
+.segm .verde { color: #2C5F2D; font-weight: 600; }
+.segm .arancio { color: #B26B00; font-weight: 600; }
+.segm .rosso { color: #D70015; font-weight: 700; }
+.l-demo .schermo-hint { font-size: 2.2vmin; }
+
+/* anteprime relatore: nuovi layout in scala */
+.rel-current .frame .slide .chat-testo, .rel-next .frame .slide .chat-testo { font-size: 1.5vmin !important; }
+.rel-current .frame .slide .chat-label, .rel-next .frame .slide .chat-label { font-size: 1vmin !important; margin-bottom: 0.6vmin !important; }
+.rel-current .frame .slide .chat, .rel-next .frame .slide .chat { padding: 1.4vmin 1.8vmin !important; margin-bottom: 1vmin !important; }
+.rel-current .frame .slide .l-prompt h1, .rel-next .frame .slide .l-prompt h1 { margin-bottom: 1.5vmin !important; }
+.rel-current .frame .slide .cifra, .rel-next .frame .slide .cifra { font-size: 10vmin !important; }
+.rel-current .frame .slide .riga, .rel-next .frame .slide .riga { font-size: 1.7vmin !important; margin-top: 1vmin !important; }
+.rel-current .frame .slide .fonte, .rel-next .frame .slide .fonte { font-size: 1vmin !important; margin-top: 2vmin !important; }
+.rel-current .frame .slide .compito, .rel-next .frame .slide .compito { font-size: 1.3vmin !important; padding: 1.4vmin !important; }
+.rel-current .frame .slide .guardate, .rel-next .frame .slide .guardate { font-size: 1.3vmin !important; }
+.rel-current .frame .slide .pb-vuoto, .rel-next .frame .slide .pb-vuoto { font-size: 1.3vmin !important; padding: 3vmin 2vmin !important; }
+.rel-current .frame .slide .pb-tag, .rel-next .frame .slide .pb-tag { font-size: 1vmin !important; }
+.rel-current .frame .countdown, .rel-next .frame .countdown { font-size: 4vmin !important; }
+.dnav { position: fixed; right: 18px; bottom: 18px; z-index: 20; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.92); border: 1px solid #E5E5EA; border-radius: 999px; padding: 6px 8px; font-size: 13px; color: #6E6E73; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.dnav button { font: inherit; font-size: 17px; line-height: 1; width: 34px; height: 34px; border-radius: 50%; border: 0; background: #1D1D1F; color: #fff; cursor: pointer; }
+.dnav button:disabled { opacity: .25; cursor: default; }
+.dnav span { min-width: 56px; text-align: center; font-variant-numeric: tabular-nums; }
+.pubblico { cursor: default; }
+/* layout: tabella */
+.l-tabella { width: 100%; max-width: 86vw; }
+.l-tabella h1 { font-size: 4.4vmin; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 3vmin; }
+.l-tabella table { width: 100%; border-collapse: collapse; font-size: 2.3vmin; }
+.l-tabella th { text-align: left; font-size: 1.5vmin; letter-spacing: 0.12em; color: #86868B; font-weight: 600; padding: 1.2vmin 1.4vmin; border-bottom: 2px solid #1D1D1F; }
+.l-tabella td { padding: 1.5vmin 1.4vmin; border-bottom: 1px solid #E5E5EA; vertical-align: top; line-height: 1.3; }
+.l-tabella td.su { color: #2C5F2D; font-weight: 600; white-space: nowrap; }
+.l-tabella td.giu { color: #C0392B; font-weight: 600; white-space: nowrap; }
+.l-tabella .sotto-t { font-size: 2vmin; color: #6E6E73; margin-top: 2.5vmin; }
+.rel-current .frame .slide .l-tabella table, .rel-next .frame .slide .l-tabella table { font-size: 1.05vmin !important; }
+.rel-current .frame .slide .l-tabella th, .rel-next .frame .slide .l-tabella th { font-size: 0.8vmin !important; padding: 0.5vmin !important; }
+.rel-current .frame .slide .l-tabella td, .rel-next .frame .slide .l-tabella td { padding: 0.5vmin !important; }
+.rel-current .frame .slide .sotto-t, .rel-next .frame .slide .sotto-t { font-size: 1vmin !important; margin-top: 1vmin !important; }
+.rel-current .frame .slide .l-tabella h1, .rel-next .frame .slide .l-tabella h1 { font-size: 2.2vmin !important; margin-bottom: 1.2vmin !important; }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+const SLIDES = [
+ {
+  "layout": "title",
+  "tema": "chiaro",
+  "kicker": "INCONTRO 06 · 2 ORE · ULTIMO",
+  "brand": "CONFCOMMERCIO AREZZO",
+  "contenuto": {
+   "titolo": "Numeri, <span class=\"accent\">prezzi</span><br>e un assistente su misura.",
+   "sub": "Oggi niente teoria: il revenue manager del lunedì, il report del mese, l'agente delle recensioni, l'assistente che conosce la vostra struttura. Poi chiudiamo il corso."
+  },
+  "segmento": "Ripresa"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "RIPRESA · 8 MIN",
+  "brand": "01",
+  "contenuto": {
+   "occhiello": "Tre settimane dopo.",
+   "titolo": "Cosa è rimasto<br>del <span class=\"accent\">3 novembre</span>?",
+   "compito": "1 · Chi ha collegato i social e ha visto le bozze in calendario. 2 · Chi ha fatto una domanda ai propri dati. 3 · Chi ha provato il listino dei novanta giorni. Alzata di mano, poi due raccontano."
+  },
+  "segmento": "Ripresa"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "OGGI",
+  "brand": "02",
+  "contenuto": {
+   "h": "Tre strumenti. Due li provate oggi, uno lo accendete a casa.",
+   "punti": [
+    {
+     "n": "01 · PREZZI",
+     "t": "<strong>Il revenue manager</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Ogni lunedì un file dal gestionale: quali prezzi cambiare, e perché. Il primo del mese, il report.</span>"
+    },
+    {
+     "n": "02 · RECENSIONI",
+     "t": "<strong>L'agente delle recensioni</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Ogni mattina legge le recensioni nuove e vi manda la risposta in bozza. Con Make, passo per passo.</span>"
+    },
+    {
+     "n": "03 · ASSISTENTE",
+     "t": "<strong>La mia struttura</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Scheda, listino, regole e domande frequenti in un Progetto. Risponde con i vostri dati e dice quando non sa.</span>"
+    }
+   ]
+  },
+  "segmento": "Ripresa"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "COSA FA UN SOFTWARE DI REVENUE",
+  "brand": "",
+  "contenuto": {
+   "h": "Tre mosse. Le facciamo con un Progetto e venti minuti il lunedì.",
+   "punti": [
+    {
+     "n": "01 · PARTE",
+     "t": "<strong>Da un prezzo base</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Il vostro listino per stagione, con un minimo e un massimo. L'avete già.</span>"
+    },
+    {
+     "n": "02 · GUARDA",
+     "t": "<strong>Quanto è già venduto, e cosa c'è in città</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Per ogni notte dei prossimi novanta giorni: camere prese, giorni mancanti, eventi.</span>"
+    },
+    {
+     "n": "03 · CORREGGE",
+     "t": "<strong>Ogni settimana</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Piena in anticipo o giorno di evento: alza. Vuota a pochi giorni: abbassa.</span>"
+    }
+   ]
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "COME FUNZIONA IL NOSTRO",
+  "brand": "",
+  "contenuto": {
+   "h": "Voi gli date tre cose. Lui vi restituisce le date da cambiare.",
+   "punti": [
+    {
+     "n": "UNA VOLTA",
+     "t": "<strong>Le regole</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Camere, prezzi, minimo, massimo e quattro regole. Stanno nelle istruzioni del Progetto.</span>"
+    },
+    {
+     "n": "UNA VOLTA AL MESE",
+     "t": "<strong>Il calendario degli eventi</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Feste, fiere, congressi. Sta nei documenti del Progetto.</span>"
+    },
+    {
+     "n": "OGNI LUNEDÌ",
+     "t": "<strong>Il file delle prenotazioni</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Gli arrivi dei prossimi novanta giorni, dal gestionale, senza nomi. Si carica in chat.</span>"
+    }
+   ]
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "PASSI 1-3 · SI PREPARA UNA VOLTA",
+  "brand": "",
+  "contenuto": {
+   "h": "Dieci minuti, e non si rifà più.",
+   "punti": [
+    {
+     "n": "PASSO 1",
+     "t": "<strong>Il Progetto</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">In Claude: Progetti, Nuovo progetto. Nome: «Revenue manager».</span>"
+    },
+    {
+     "n": "PASSO 2",
+     "t": "<strong>Le istruzioni</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Copiate il testo dalla pagina dei prompt, incollatelo nelle istruzioni e riempite le parentesi quadre.</span>"
+    },
+    {
+     "n": "PASSO 3",
+     "t": "<strong>Il calendario</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Nei documenti del Progetto caricate il file con gli eventi dei prossimi tre mesi.</span>"
+    }
+   ]
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "PASSO 2 · COSA C'È SCRITTO NELLE ISTRUZIONI",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Quattro regole, in italiano.",
+   "prompts": [
+    {
+     "label": "REGOLA 1 · QUASI PIENA",
+     "testo": "Più dell'85% delle camere vendute: prezzo più 15%."
+    },
+    {
+     "label": "REGOLA 2 · PIENA IN ANTICIPO",
+     "testo": "Dal 70% all'85% a più di 30 giorni dall'arrivo: più 10%."
+    },
+    {
+     "label": "REGOLA 3 · EVENTO",
+     "testo": "Giorno di evento o di festa con almeno metà delle camere vendute: più 10%."
+    },
+    {
+     "label": "REGOLA 4 · VUOTA ALL'ULTIMO",
+     "testo": "Meno del 30% a meno di 7 giorni: meno 10%. Mai in un giorno di evento."
+    }
+   ]
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "PASSO 3 · IL CALENDARIO SI AGGIORNA COSÌ",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Gli eventi li cerca lui. Voi li confermate.",
+   "prompts": [
+    {
+     "label": "UNA VOLTA AL MESE, CON LA RICERCA WEB ACCESA",
+     "testo": "Cerca gli eventi. Cosa succede a [città] e nei dintorni nei prossimi 90 giorni: feste e ponti, fiere, congressi, concerti, gare, mercatini. Date, nome, quanta gente porta, link della fonte. «Da confermare» dove la data non è certa."
+    }
+   ]
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "PASSI 4-6 · OGNI LUNEDÌ",
+  "brand": "",
+  "contenuto": {
+   "h": "Venti minuti. Sempre gli stessi tre gesti.",
+   "punti": [
+    {
+     "n": "PASSO 4",
+     "t": "<strong>Esportate</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Dal gestionale: le prenotazioni con arrivo nei prossimi 90 giorni, cancellate comprese, senza nomi.</span>"
+    },
+    {
+     "n": "PASSO 5",
+     "t": "<strong>Caricate e chiedete</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Chat nuova nel Progetto, il file con la graffetta, e scrivete: «aggiorna i prezzi. Oggi è il…».</span>"
+    },
+    {
+     "n": "PASSO 6",
+     "t": "<strong>Leggete e chiedete perché</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Vi dà solo le date da cambiare. Di almeno una chiedete: «spiegami il 12 dicembre».</span>"
+    }
+   ]
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "DEMO · I PASSI 4-6 DAL VIVO · 5 MIN",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Un file, due parole:<br>«aggiorna i <span class=\"accent\">prezzi</span>».",
+   "guardate": "Carico le prenotazioni dei prossimi novanta giorni. Claude conta le camere vendute notte per notte, guarda il calendario e mi dice solo le date da toccare.",
+   "schermo": "Progetto «Revenue manager», chat nuova. File prenotazioni_future_esempio.csv."
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "tabella",
+  "tema": "chiaro",
+  "kicker": "PASSO 6 · COSA VI RISPONDE",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Solo le date da cambiare. Sedici su novanta.",
+   "colPrezzo": 3,
+   "colonne": [
+    "DATA",
+    "CAMERE VENDUTE",
+    "PREZZO OGGI",
+    "PREZZO NUOVO",
+    "PERCHÉ"
+   ],
+   "righe": [
+    [
+     "Sabato 5 dicembre",
+     "18 su 20",
+     "115",
+     "132 (+15%)",
+     "Quasi piena: regola 1"
+    ],
+    [
+     "Giovedì 31 dicembre",
+     "16 su 20",
+     "115",
+     "126,50 (+10%)",
+     "Piena al 70% a più di un mese: regola 2"
+    ],
+    [
+     "Sabato 12 dicembre",
+     "12 su 20",
+     "79",
+     "87 (+10%)",
+     "Mercatini di Natale, più di metà venduta: regola 3"
+    ],
+    [
+     "Mercoledì 25 novembre",
+     "4 su 20",
+     "79",
+     "71 (−10%)",
+     "Vuota a un giorno dall'arrivo, nessun evento: regola 4"
+    ]
+   ],
+   "sotto": "In fondo: «ho lavorato su 301 righe, ho escluso 14 cancellate». E gli eventi da tenere d'occhio."
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "PASSI 7-9 · CONTROLLARE E USARE",
+  "brand": "",
+  "contenuto": {
+   "h": "Prima di cambiare un prezzo, tre controlli.",
+   "punti": [
+    {
+     "n": "PASSO 7",
+     "t": "<strong>La cintura di sicurezza</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Quante cancellate ha escluso? Tre date contate a mano. Più camere vendute di quante ne avete: ha sbagliato.</span>"
+    },
+    {
+     "n": "PASSO 8",
+     "t": "<strong>I concorrenti, su due o tre date</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Solo dove alza di più: aprite un portale su quella notte, fate lo screenshot, caricatelo.</span>"
+    },
+    {
+     "n": "PASSO 9",
+     "t": "<strong>L'Excel, e il gestionale</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">«Dammi la tabella in Excel». I prezzi nel gestionale li cambiate voi, a mano.</span>"
+    }
+   ]
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "confronto",
+  "tema": "chiaro",
+  "kicker": "A COSA SERVONO I CONCORRENTI",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Un controllo su tre date. Non il <span class=\"accent\">listino</span>.",
+   "sinistra": {
+    "tipo": "si",
+    "label": "Così",
+    "testo": "Il listino dei novanta giorni lo fanno le vostre camere vendute e il calendario. I concorrenti li guardate solo sulle date che state per alzare: uno screenshot a data."
+   },
+   "destra": {
+    "tipo": "no",
+    "label": "Non con questo",
+    "testo": "Seguire i prezzi di tutti per novanta giorni. Per quello serve un software che li legge ogni giorno da solo. Costa, ed è il passo dopo."
+   }
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "COSA NON FA",
+  "brand": "",
+  "contenuto": {
+   "h": "Un revenue manager a cui portate voi il giornale.",
+   "punti": [
+    {
+     "n": "01 · NON LEGGE DA SOLO",
+     "t": "<strong>I dati glieli date voi</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Il file del lunedì e gli screenshot. In cambio sapete sempre cosa sta guardando.</span>"
+    },
+    {
+     "n": "02 · NON CARICA I PREZZI",
+     "t": "<strong>Suggerisce, decidete voi</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Regola sei del 6 ottobre: nessuna decisione senza una persona. E il prezzo è una decisione.</span>"
+    },
+    {
+     "n": "03 · NON LAVORA DA SOLO",
+     "t": "<strong>Saltato il lunedì, non serve</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Mettetelo in agenda. Chi ha già un software di revenue lo tiene.</span>"
+    }
+   ]
+  },
+  "segmento": "Revenue manager"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "TOCCA A VOI · 13 MIN",
+  "brand": "",
+  "contenuto": {
+   "h": "Adesso voi, con l'Albergo Esempio. I file sono nella pagina dei prompt.",
+   "punti": [
+    {
+     "n": "PASSI 1-3",
+     "t": "<strong>Preparate</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Progetto «Revenue manager». Istruzioni con: 20 camere, doppia 79, 95, 115, minimo 65, massimo 150. Nei documenti il calendario di esempio.</span>"
+    },
+    {
+     "n": "PASSI 4-5",
+     "t": "<strong>Chiedete</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Chat nuova, caricate prenotazioni_future_esempio.csv, scrivete «aggiorna i prezzi. Oggi è il 24 novembre».</span>"
+    },
+    {
+     "n": "PASSI 6-7",
+     "t": "<strong>Controllate</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Quante date vi dà? Quante cancellate ha escluso? Chiedete il perché di una data.</span>"
+    }
+   ]
+  },
+  "segmento": "Tocca a voi · prezzi"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "DEMO 2 · IL REPORT DEL MESE · 8 MIN",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Una pagina.<br>Cinque numeri, <span class=\"accent\">tre cose</span> da fare.",
+   "guardate": "Stesso Progetto, il file dello storico del 3 novembre. Chiedo il report di ottobre: cosa è successo, e cosa faccio il mese prossimo.",
+   "schermo": "Progetto «Revenue manager», chat nuova. File prenotazioni_esempio.csv."
+  },
+  "segmento": "Report"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "DEMO 2 · LA RICHIESTA",
+  "brand": "",
+  "contenuto": {
+   "titolo": "La stessa, ogni primo del mese.",
+   "prompts": [
+    {
+     "label": "IL REPORT DEL MESE",
+     "testo": "Questo è l'export delle prenotazioni, senza dati personali. Fammi il report di [mese e anno] in una pagina sola. Cinque numeri: soggiorni conclusi, notti vendute, prezzo medio a notte, da quali canali sono arrivati (in percentuale), cancellazioni e no show sul totale degli arrivi del mese. Poi tre cose da fare il mese prossimo, ognuna legata a un numero. In fondo: su quante righe hai lavorato e come hai calcolato. Se un numero poggia su meno di venti righe, scrivilo accanto."
+    }
+   ]
+  },
+  "segmento": "Report"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "LE TRE TRAPPOLE, ANCORA",
+  "brand": "",
+  "contenuto": {
+   "h": "Un report sbagliato è peggio di nessun report.",
+   "punti": [
+    {
+     "n": "01 · POCHI CASI",
+     "t": "<strong>Sotto venti righe è un aneddoto</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Un mese vuoto si legge insieme a quelli vicini.</span>"
+    },
+    {
+     "n": "02 · LA STAGIONE",
+     "t": "<strong>Ottobre con ottobre</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Mai con settembre: si confronta con lo stesso mese dell'anno prima.</span>"
+    },
+    {
+     "n": "03 · IL PERCHÉ",
+     "t": "<strong>Il dato dice cosa</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Il perché lo verificate voi. Le tre cose da fare sono proposte, non ordini.</span>"
+    }
+   ]
+  },
+  "segmento": "Report"
+ },
+ {
+  "layout": "checkpoint",
+  "tema": "chiaro",
+  "kicker": "PAUSA · 5 MIN",
+  "brand": "",
+  "contenuto": {
+   "icona": "☕",
+   "titolo": "Cinque minuti.",
+   "sub": "Al rientro: le recensioni che si rispondono quasi da sole, l'assistente su misura, e poi lavorate voi."
+  },
+  "segmento": "Pausa"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "SESTO STRUMENTO · L'AGENTE DELLE RECENSIONI · 12 MIN",
+  "brand": "",
+  "contenuto": {
+   "titolo": "La recensione arriva.<br>La risposta è già in <span class=\"accent\">bozza</span>.",
+   "guardate": "Ogni mattina Make legge le recensioni Google nuove, Claude propone la risposta nel tono della scheda, e vi arriva una mail. Voi leggete, correggete, pubblicate.",
+   "schermo": "Make, scenario «Recensioni, proposta di risposta». Run once. Poi la posta."
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "frase",
+  "tema": "scuro",
+  "kicker": "LA MAPPA",
+  "brand": "",
+  "contenuto": {
+   "frase": "Google legge.<br>Claude <span class=\"accent\">scrive</span>.",
+   "sotto": "L'email ve la porta. <strong>Voi pubblicate.</strong>"
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "COME SI COSTRUISCE · LO COSTRUISCE CLAUDE",
+  "brand": "",
+  "contenuto": {
+   "h": "Voi dite cosa volete. Lo scenario su Make lo monta lui.",
+   "punti": [
+    {
+     "n": "PASSO 1",
+     "t": "<strong>Collegate Make a Claude</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">In Claude: Impostazioni, Connettori, cercate Make, Collega. Entrate con il vostro account Make.</span>"
+    },
+    {
+     "n": "PASSO 2",
+     "t": "<strong>Mandate il messaggio 1</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Chat nuova nel Progetto «La mia struttura». Claude crea lo scenario con le tre caselle.</span>"
+    },
+    {
+     "n": "PASSO 3",
+     "t": "<strong>Date i permessi</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Google, Claude e Gmail li autorizzate voi. Lui vi dice dove cliccare. Voi scrivete «fatto».</span>"
+    }
+   ]
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "MESSAGGIO 1 · COSTRUISCILO TU",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Costruiscilo tu.",
+   "prompts": [
+    {
+     "label": "MESSAGGIO 1 · VERSIONE COMPLETA NEL PULSANTE COPIA E NELLA PAGINA DEI PROMPT",
+     "testo": "Usa il connettore Make. Costruisci tu, nel mio account Make, lo scenario «Recensioni, proposta di risposta». Ogni mattina alle 8:30: legge le nuove recensioni Google della mia struttura, tiene solo quelle senza risposta, chiede a Claude una proposta con le regole e la scheda del Progetto, e mi manda per email recensione e proposta. Niente esce da solo. Lascialo spento. Prima dimmi cosa fai tu e cosa devo fare io, poi un passo alla volta."
+    }
+   ]
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "MESSAGGIO 2 · LE CONNESSIONI",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Le connessioni.",
+   "prompts": [
+    {
+     "label": "MESSAGGIO 2 · DA COPIARE E MANDARE A CLAUDE",
+     "testo": "Dimmi quali connessioni mancano nel mio account Make per questo scenario: l'account Google che gestisce la scheda, la chiave di Claude, Gmail. Guidami a crearle una alla volta: dimmi dove cliccare e cosa scrivere, e aspetta il mio \"fatto\". Parti da quella di Google e dimmi se basta accedere con il mio account o se serve altro."
+    }
+   ]
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "MESSAGGIO 2 BIS · SE GOOGLE NON SI COLLEGA SUBITO",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Se Google non si collega subito.",
+   "prompts": [
+    {
+     "label": "MESSAGGIO 2 BIS · DA COPIARE E MANDARE A CLAUDE",
+     "testo": "La connessione a Google non è ancora pronta. Metti al posto della prima casella una recensione finta da cinque stelle, così proviamo tutto il resto. Quando Google sarà collegato te lo dico e rimetti la casella vera."
+    }
+   ]
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "MESSAGGIO 3 · LA PROVA",
+  "brand": "",
+  "contenuto": {
+   "titolo": "La prova.",
+   "prompts": [
+    {
+     "label": "MESSAGGIO 3 · DA COPIARE E MANDARE A CLAUDE",
+     "testo": "Fai girare lo scenario una volta e dimmi cosa è successo in ogni casella. Se c'è un errore, leggilo e correggilo tu. Poi dimmi se mi è arrivata l'email."
+    }
+   ]
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "MESSAGGIO 3 BIS · SE LA RISPOSTA NON VA BENE",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Se la risposta non va bene.",
+   "prompts": [
+    {
+     "label": "MESSAGGIO 3 BIS · DA COPIARE E MANDARE A CLAUDE",
+     "testo": "Ecco la risposta che ha prodotto: [incolla]. È troppo [formale / lunga / generica]. Correggi tu le regole dentro la casella di Claude e rifai la prova."
+    }
+   ]
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "MESSAGGIO 4 · ORARIO E ACCENSIONE",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Orario e accensione.",
+   "prompts": [
+    {
+     "label": "MESSAGGIO 4 · DA COPIARE E MANDARE A CLAUDE",
+     "testo": "Funziona. Controlla che sia impostato ogni giorno alle 8:30 e che prenda solo le recensioni nuove da adesso in poi. Non accenderlo tu: dimmi dov'è l'interruttore e lo accendo io."
+    }
+   ]
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "prompt",
+  "tema": "chiaro",
+  "kicker": "MESSAGGIO 5 · IL FOGLIO DA STAMPARE",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Il foglio da stampare.",
+   "prompts": [
+    {
+     "label": "MESSAGGIO 5 · DA COPIARE E MANDARE A CLAUDE",
+     "testo": "Scrivimi un foglio di una pagina da stampare: cosa fa questo automatismo, cosa fare quando arriva l'email, cosa fare se un giorno non arriva, dove si spegne, e cosa cambiare se cambia la scheda della struttura."
+    }
+   ]
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "confronto",
+  "tema": "chiaro",
+  "kicker": "DA SAPERE",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Propone da solo. <span class=\"accent\">Pubblicate</span> voi.",
+   "sinistra": {
+    "tipo": "si",
+    "label": "Così",
+    "testo": "Nel flusso passano solo recensioni già pubbliche, senza il nome di chi scrive. La risposta la legge e la pubblica una persona. Con una o due stelle, prima una telefonata."
+   },
+   "destra": {
+    "tipo": "no",
+    "label": "Non ancora",
+    "testo": "La pubblicazione automatica. Si può fare, più avanti: solo quando le proposte girano da un mese senza correzioni grosse."
+   }
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "A CASA · IN TRE TEMPI",
+  "brand": "",
+  "contenuto": {
+   "occhiello": "I sette messaggi sono nella pagina dei prompt.",
+   "titolo": "Oggi nasce<br>lo <span class=\"accent\">scenario</span>.",
+   "compito": "1 · Oggi: Make collegato a Claude e il messaggio 1. Lo scenario esiste. 2 · In settimana: le connessioni e la prova, finché arriva la mail. 3 · Quando tutto gira: l'interruttore lo accendete voi."
+  },
+  "segmento": "Recensioni automatiche"
+ },
+ {
+  "layout": "demo",
+  "tema": "chiaro",
+  "kicker": "DEMO 3 · L'ASSISTENTE SU MISURA · 8 MIN",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Risponde con i vostri dati.<br>E dice quando <span class=\"accent\">non sa</span>.",
+   "guardate": "Un Progetto con dentro la scheda e un file: listino, regole della casa, domande frequenti. Tre domande da ospite, più una a cui non può rispondere.",
+   "schermo": "Progetto «Assistente · Albergo Esempio». File listino_regole_faq_esempio.txt."
+  },
+  "segmento": "Assistente"
+ },
+ {
+  "layout": "confronto",
+  "tema": "chiaro",
+  "kicker": "PER CHI È",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Un collega che sa tutto. Non un <span class=\"accent\">centralino</span>.",
+   "sinistra": {
+    "tipo": "si",
+    "label": "Così",
+    "testo": "Lo usate voi e chi lavora con voi: la stagionale al primo giorno, chi copre il turno di sera. Prepara la risposta, voi la rileggete e la mandate."
+   },
+   "destra": {
+    "tipo": "no",
+    "label": "Non ancora",
+    "testo": "Lasciarlo rispondere da solo agli ospiti. Si può fare, ma è un altro lavoro: va provato a lungo, e l'ospite deve sapere che parla con un'AI."
+   }
+  },
+  "segmento": "Assistente"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "LABORATORIO · PARTE 1 · 11 MIN",
+  "brand": "",
+  "contenuto": {
+   "occhiello": "Il manuale della vostra struttura.",
+   "titolo": "Claude intervista,<br>Claude <span class=\"accent\">scrive</span>.",
+   "compito": "1 · Chat nuova: la richiesta dell'intervista, dieci domande una alla volta. 2 · Rispondete in due frasi, anche a voce. 3 · Alla fine avete il file con regole della casa e domande frequenti. Il listino lo aggiungete voi in cima. Chi ha fretta usa listino_regole_faq_esempio.txt."
+  },
+  "segmento": "Laboratorio"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "LABORATORIO · PARTE 2 · 11 MIN",
+  "brand": "",
+  "contenuto": {
+   "occhiello": "Il vostro assistente.",
+   "titolo": "Tre domande vere,<br>e un <span class=\"accent\">trabocchetto</span>.",
+   "compito": "1 · Progetto «La mia struttura»: il file nei documenti, la riga nuova nelle istruzioni. 2 · Tre domande che gli ospiti vi fanno davvero. 3 · Una domanda su una cosa che nel file non c'è: deve dire che non lo sa."
+  },
+  "segmento": "Laboratorio"
+ },
+ {
+  "layout": "checkpoint",
+  "tema": "chiaro",
+  "kicker": "LABORATORIO · 5 MIN",
+  "brand": "",
+  "contenuto": {
+   "icona": "✋",
+   "titolo": "Chi fa vedere?",
+   "sub": "Due di voi condividono lo schermo: una domanda a cui ha risposto bene, e quella a cui ha detto «non lo so»."
+  },
+  "segmento": "Laboratorio"
+ },
+ {
+  "layout": "mappa-centro",
+  "tema": "chiaro",
+  "kicker": "COSA VI PORTATE A CASA",
+  "brand": "",
+  "contenuto": {
+   "titolo": "Sei strumenti,<br>una <span class=\"accent\">scheda</span> al centro.",
+   "centro": "La mia<br>struttura",
+   "centroSub": "SCHEDA E FILE",
+   "satelliti": [
+    {
+     "label": "RISPONDITORE",
+     "sub": "20 ottobre",
+     "attivo": true
+    },
+    {
+     "label": "RECENSIONI",
+     "sub": "27 ottobre",
+     "attivo": true
+    },
+    {
+     "label": "AGENTE MAKE",
+     "sub": "recensioni · oggi",
+     "attivo": true
+    },
+    {
+     "label": "SOCIAL",
+     "sub": "27 ott · 3 nov",
+     "attivo": true
+    },
+    {
+     "label": "MANUTENZIONE",
+     "sub": "3 novembre",
+     "attivo": true
+    },
+    {
+     "label": "REVENUE",
+     "sub": "manager · oggi",
+     "attivo": true
+    }
+   ]
+  },
+  "segmento": "Chiusura"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "IL REGISTRO DI FORMAZIONE",
+  "brand": "",
+  "contenuto": {
+   "h": "Avete fatto formazione sull'AI. Scrivetelo.",
+   "punti": [
+    {
+     "n": "01 · COS'È",
+     "t": "<strong>Un foglio, una riga a persona</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Chi ha partecipato, quando, quante ore, cosa ha imparato a fare.</span>"
+    },
+    {
+     "n": "02 · PERCHÉ",
+     "t": "<strong>L'AI Act, in pratica</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Chi usa l'AI al lavoro deve avere persone preparate. Il registro è il modo semplice di mostrarlo.</span>"
+    },
+    {
+     "n": "03 · DOVE",
+     "t": "<strong>Con i documenti della struttura</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Il modello è nelle dispense, con le date del corso già scritte. Si aggiorna quando formate una persona nuova.</span>"
+    }
+   ]
+  },
+  "segmento": "Chiusura"
+ },
+ {
+  "layout": "three",
+  "tema": "chiaro",
+  "kicker": "SENZA IL CORSO",
+  "brand": "",
+  "contenuto": {
+   "h": "Tre appuntamenti in agenda, da domani.",
+   "punti": [
+    {
+     "n": "OGNI MAIL",
+     "t": "<strong>Il Risponditore</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Per una settimana, ogni risposta passa da lì. Rileggete, firmate voi.</span>"
+    },
+    {
+     "n": "OGNI LUNEDÌ",
+     "t": "<strong>Prezzi, social, manutenzione</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Il file al revenue manager, le bozze da approvare, il riepilogo per il manutentore.</span>"
+    },
+    {
+     "n": "OGNI PRIMO DEL MESE",
+     "t": "<strong>Il report</strong><br><span style=\"font-size:2.2vmin;color:#6E6E73\">Export, carica, incolla. E ogni tre mesi si rivedono listino e regole.</span>"
+    }
+   ]
+  },
+  "segmento": "Chiusura"
+ },
+ {
+  "layout": "coinvolgimento",
+  "tema": "chiaro",
+  "kicker": "UNA RIGA IN CHAT · 4 MIN",
+  "brand": "",
+  "contenuto": {
+   "occhiello": "Prima di salutarci.",
+   "titolo": "Cosa usate<br>da <span class=\"accent\">domani</span>?",
+   "compito": "Scrivete in chat due righe: lo strumento che userete da domani, e la cosa che vi è mancata in questo corso."
+  },
+  "segmento": "Chiusura"
+ },
+ {
+  "layout": "title",
+  "tema": "scuro",
+  "kicker": "FINE DEL CORSO",
+  "brand": "CONFCOMMERCIO AREZZO",
+  "contenuto": {
+   "titolo": "Il primo giorno non sapeva niente di voi.<br><span class=\"accent\">Adesso sì.</span>",
+   "sub": "Dispense, prompt e slide di tutti gli incontri: mipassalacqua.it/corso/dispense.html · me@mipassalacqua.it"
+  },
+  "segmento": "Chiusura"
+ }
+];
+const SEGMENTI = [
+ {
+  "id": "rip",
+  "nome": "Ripresa",
+  "chiavi": [
+   "Ripresa"
+  ],
+  "ora": 630,
+  "min": 8,
+  "ritardo": "un solo racconto, poi la mappa."
+ },
+ {
+  "id": "ap",
+  "nome": "Revenue manager",
+  "chiavi": [
+   "Revenue manager"
+  ],
+  "ora": 638,
+  "min": 20,
+  "ritardo": "salta la slide degli eventi e lo screenshot dal vivo: racconta il passo 8 e vai a cosa non fa."
+ },
+ {
+  "id": "tv",
+  "nome": "Tocca a voi · prezzi",
+  "chiavi": [
+   "Tocca a voi · prezzi"
+  ],
+  "ora": 658,
+  "min": 13,
+  "ritardo": "otto minuti: solo passi 1-5, poi dite quante date vi ha dato."
+ },
+ {
+  "id": "rep",
+  "nome": "Report",
+  "chiavi": [
+   "Report"
+  ],
+  "ora": 671,
+  "min": 12,
+  "ritardo": "solo la demo e il numero controllato a mano; le trappole in una frase."
+ },
+ {
+  "id": "pau",
+  "nome": "Pausa",
+  "chiavi": [
+   "Pausa"
+  ],
+  "ora": 683,
+  "min": 5,
+  "ritardo": "pausa a 3 minuti."
+ },
+ {
+  "id": "rec",
+  "nome": "Recensioni automatiche",
+  "chiavi": [
+   "Recensioni automatiche"
+  ],
+  "ora": 688,
+  "min": 12,
+  "ritardo": "demo, mappa, i tre passi e solo il messaggio 1: gli altri li leggono nella pagina."
+ },
+ {
+  "id": "ass",
+  "nome": "Assistente",
+  "chiavi": [
+   "Assistente"
+  ],
+  "ora": 700,
+  "min": 8,
+  "ritardo": "due domande e il trabocchetto."
+ },
+ {
+  "id": "lab",
+  "nome": "Laboratorio",
+  "chiavi": [
+   "Laboratorio"
+  ],
+  "ora": 708,
+  "min": 27,
+  "ritardo": "tutti sul file di esempio: salta la parte 1, venti minuti in tutto."
+ },
+ {
+  "id": "chi",
+  "nome": "Chiusura",
+  "chiavi": [
+   "Chiusura"
+  ],
+  "ora": 735,
+  "min": 15,
+  "ritardo": "sei strumenti, registro in una frase, la riga in chat. Non tagliare la chiusura."
+ }
+];
+function gruppoDi(slide) {
+  if (!slide || slide.cuscinetto || slide.pianoB) return null;
+  return SEGMENTI.find(g => g.chiavi.includes(slide.segmento)) || null;
+}
+const FLUSSO = SLIDES.map((s,i)=>i).filter(i => !SLIDES[i].pianoB);
+(function numera(){
+  let n = 0, r = 0;
+  SLIDES.forEach(s => {
+    if (s.pianoB) { s.brand = 'B'; return; }
+    if (s.cuscinetto) { r++; s.brand = 'R' + r; return; }
+    n++;
+    if (!s.brand || /^\d+$/.test(s.brand)) s.brand = String(n).padStart(2,'0');
+  });
+})();
+function prossimoIndice(da) {
+  const base = SLIDES[da].pianoB ? (stato.ritorno != null ? stato.ritorno : da) : da;
+  for (let i = base + 1; i < SLIDES.length; i++) if (!SLIDES[i].pianoB) return i;
+  return null;
+}
+function precedenteIndice(da) {
+  if (SLIDES[da].pianoB) return stato.ritorno != null ? stato.ritorno : null;
+  for (let i = da - 1; i >= 0; i--) if (!SLIDES[i].pianoB) return i;
+  return null;
+}
+/* ============================================================
+   STATO E SINCRONIA
+============================================================ */
+const VIEW = 'pubblico';
+const channel = { postMessage(){} };
+let stato = { indice: 0, timerStart: null, timerRunning: false, timerSeconds: 0, cdFine: null, cdIndice: -1, ritorno: null, entrate: {} };
+
+function leggiStato() {
+  try {
+    const s = localStorage.getItem('corso-ai-pub-5');
+    if (s) stato = { ...stato, ...JSON.parse(s) };
+    if (stato.indice >= SLIDES.length) stato.indice = 0;
+  } catch(e) {}
+}
+function salvaStato() {
+  try { localStorage.setItem('corso-ai-pub-5', JSON.stringify(stato)); } catch(e) {}
+}
+function broadcasta() {
+  channel.postMessage(stato);
+  salvaStato();
+}
+
+
+/* ============================================================
+   RENDER MAPPA SVG (sistema PMS + satelliti)
+============================================================ */
+function renderMappa(c) {
+  const sats = c.satelliti || [];
+  const cx = 350, cy = 240, R = 165, r = 62;
+  const n = sats.length || 1;
+  const pts = sats.map((s, k) => { const ang = -Math.PI/2 + k * 2*Math.PI/n; return { ...s, x: cx + R*Math.cos(ang), y: cy + R*Math.sin(ang) }; });
+  const links = pts.map(s => { const dx=s.x-cx, dy=s.y-cy, len=Math.sqrt(dx*dx+dy*dy), ux=dx/len, uy=dy/len;
+    return `<line class="sat-link ${s.attivo?'link-on':''}" x1="${cx+ux*75}" y1="${cy+uy*75}" x2="${s.x-ux*r}" y2="${s.y-uy*r}" />`; }).join('');
+  const circles = pts.map(s => `<g class="${s.attivo?'sat-on':''}">
+      <circle class="sat-circle" cx="${s.x}" cy="${s.y}" r="${r}" />
+      <text class="sat-label" x="${s.x}" y="${s.y-4}" text-anchor="middle" style="font-size:11.5px;letter-spacing:.5px">${s.label}</text>
+      <text class="sat-sub" x="${s.x}" y="${s.y+13}" text-anchor="middle" style="font-size:9.5px">${s.sub}</text>
+    </g>`).join('');
+  const centro = (c.centro || 'PMS').split('<br>');
+  return `<div class="l-mappa">
+    <div class="testo"><h1>${c.titolo}</h1></div>
+    <div>
+      <svg class="mappa-svg completa" viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg">
+        ${links}${circles}
+        <circle class="pms-circle" cx="${cx}" cy="${cy}" r="75" />
+        ${centro.map((t,k)=>`<text class="pms-label" x="${cx}" y="${cy-8+k*24-(centro.length-1)*8}" text-anchor="middle" style="font-size:18px">${t}</text>`).join('')}
+        <text class="pms-sub" x="${cx}" y="${cy+40}" text-anchor="middle" style="font-size:9px">${c.centroSub||''}</text>
+      </svg>
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   RENDER SLIDE (riusabile in entrambe le viste)
+============================================================ */
+function renderSlide(slide, live) {
+  if (!slide) return '<div class="slide"></div>';
+  const temaClass = slide.tema === 'scuro' ? 'tema-scuro' : '';
+  let inner = '';
+  if (slide.layout === 'title') {
+    inner = `<div class="l-title">
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'question') {
+    inner = `<div class="l-question"><h1>${slide.contenuto.titolo}</h1></div>`;
+  } else if (slide.layout === 'big-word') {
+    inner = `<div class="l-big-word">
+      <div class="label">${slide.contenuto.label}</div>
+      <div class="word">${slide.contenuto.word}</div>
+    </div>`;
+  } else if (slide.layout === 'three') {
+    const cols = slide.contenuto.punti.map(p =>
+      `<div class="col"><div class="n">${p.n}</div><div class="t">${p.t}</div></div>`
+    ).join('');
+    inner = `<div class="l-three">
+      <p class="h">${slide.contenuto.h}</p>
+      <div class="row">${cols}</div>
+    </div>`;
+  } else if (slide.layout === 'metafora-intro') {
+    inner = `<div class="l-metafora-intro">
+      <div class="occhiello">${slide.contenuto.occhiello}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+    </div>`;
+  } else if (slide.layout === 'figura') {
+    inner = `<div class="l-figura">
+      <div class="icona">${slide.contenuto.icona}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'frase') {
+    inner = `<div class="l-frase">
+      <div class="frase">${slide.contenuto.frase}</div>
+      <div class="sotto">${slide.contenuto.sotto}</div>
+    </div>`;
+  } else if (slide.layout === 'ponte') {
+    inner = `<div class="l-ponte">
+      <div class="occhiello">${slide.contenuto.occhiello}</div>
+      <h1>${slide.contenuto.titolo}</h1>
+      <div class="sub">${slide.contenuto.sub}</div>
+    </div>`;
+  } else if (slide.layout === 'mappa-centro') {
+    inner = renderMappa(slide.contenuto);
+  } else if (slide.layout === 'confronto') {
+    const c = slide.contenuto;
+    const segno = (tipo) => tipo === 'no' ? '✕' : (tipo === 'si' ? '✓' : '—');
+    inner = `<div class="l-confronto">
+      ${c.titolo ? `<div class="titolo-c">${c.titolo}</div>` : ''}
+      <div class="cols">
+        <div class="col ${c.sinistra.tipo}">
+          <div class="col-label"><span class="col-segno">${segno(c.sinistra.tipo)}</span> ${c.sinistra.label}</div>
+          <div class="col-testo">${c.sinistra.testo}</div>
+        </div>
+        <div class="col ${c.destra.tipo}">
+          <div class="col-label"><span class="col-segno">${segno(c.destra.tipo)}</span> ${c.destra.label}</div>
+          <div class="col-testo">${c.destra.testo}</div>
+        </div>
+      </div>
+    </div>`;
+  } else if (slide.layout === 'caso') {
+    const c = slide.contenuto;
+    inner = `<div class="l-caso">
+      <div class="nome">${c.nome}</div>
+      <div class="tratto">${c.tratto}</div>
+      <div class="ai-label">DOVE L'AI AMPLIFICA</div>
+      <div class="ai-testo">${c.ai}</div>
+    </div>`;
+  } else if (slide.layout === 'demo') {
+    const c = slide.contenuto;
+    inner = `<div class="l-demo">
+      <h1>${c.titolo}</h1>
+      <div class="guardate">${c.guardate}</div>
+      ${c.schermo ? `<div class="schermo-hint"><span class="freccia">→</span> ${c.schermo}</div>` : ''}
+    </div>`;
+  } else if (slide.layout === 'coinvolgimento') {
+    const c = slide.contenuto;
+    inner = `<div class="l-coinvolgi">
+      ${c.occhiello ? `<div class="occhiello">${c.occhiello}</div>` : ''}
+      <h1>${c.titolo}</h1>
+      ${c.compito ? `<div class="compito">${c.compito}</div>` : ''}
+    </div>`;
+  } else if (slide.layout === 'numero') {
+    const c = slide.contenuto;
+    inner = `<div class="l-numero"><div class="cifra">${c.cifra}</div><div class="riga">${c.riga}</div><div class="fonte">${c.fonte}</div></div>`;
+  } else if (slide.layout === 'prompt') {
+    const c = slide.contenuto;
+    const tot = c.prompts.reduce((a,p) => a + p.testo.length, 0);
+    const lungo = tot > 320 ? 'lungo' : '';
+    inner = `<div class="l-prompt"><h1>${c.titolo}</h1>${c.prompts.map(p => `<div class="chat"><div class="chat-label">${p.label}</div><div class="chat-testo ${lungo}">${p.testo}</div></div>`).join('')}</div>`;
+  } else if (slide.layout === 'pianob') {
+    const c = slide.contenuto;
+    inner = `<div class="l-pianob"><div class="pb-tag">PIANO B · RISPOSTA DELLA PROVA</div><h1>${c.titolo}</h1>${c.immagine ? `<img src="${c.immagine}" alt="">` : `<div class="pb-vuoto">${c.attesa}</div>`}</div>`;
+  } else if (slide.layout === 'tabella') {
+    const c = slide.contenuto;
+    inner = `<div class="l-tabella"><h1>${c.titolo}</h1><table><tr>${c.colonne.map(k=>`<th>${k}</th>`).join('')}</tr>${c.righe.map(r=>`<tr>${r.map((v,i)=>`<td class="${i===c.colPrezzo ? (r[c.colPrezzo].indexOf('−')>=0 ? 'giu' : 'su') : ''}">${v}</td>`).join('')}</tr>`).join('')}</table>${c.sotto ? `<div class="sotto-t">${c.sotto}</div>` : ''}</div>`;
+  } else if (slide.layout === 'checkpoint') {
+    const c = slide.contenuto;
+    inner = `<div class="l-checkpoint">
+      <div class="icona">${c.icona || '✋'}</div>
+      <h1>${c.titolo}</h1>
+      ${c.sub ? `<div class="sub">${c.sub}</div>` : ''}
+    </div>`;
+  }
+  const badge = {
+    demo:           '<div class="tipo-badge demo"><span class="pallino"></span> ORA GUARDATE</div>',
+    coinvolgimento: '<div class="tipo-badge coinvolgimento"><span class="pallino"></span> TOCCA A VOI</div>',
+    checkpoint:     '<div class="tipo-badge checkpoint"><span class="pallino"></span> CHECKPOINT</div>'
+  }[slide.layout] || '';
+  return `<div class="slide ${temaClass}">
+    ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+    ${badge}
+    ${slide.cuscinetto ? '<div class="cuscinetto-tag">RISERVA · SE SEI CORTO</div>' : ''}
+    ${slide.brand ? `<div class="brand">${slide.brand}</div>` : ''}
+    ${inner}
+    ${(live && cdRestante(slide) !== null) ? `<div class="countdown ${cdRestante(slide) <= 60 ? 'urgente' : ''}">${formatTime(cdRestante(slide))}</div>` : ''}
+    <div class="zona-webcam">WEBCAM</div>
+  </div>`;
+}
+function cdRestante(slide) {
+  if (stato.cdFine && SLIDES[stato.indice] === slide) return Math.max(0, Math.ceil((stato.cdFine - Date.now()) / 1000));
+  return null;
+}
+function getCopia(slide) {
+  if (!slide) return [];
+  if (slide.copia) return slide.copia;
+  if (slide.contenuto && slide.contenuto.prompts) return slide.contenuto.prompts.map(p => ({ label: p.label, testo: p.testo }));
+  return [];
+}
+
+/* ============================================================
+   VISTA: HOME (selettore)
+============================================================ */
+function renderHome() {
+  return `<div class="home">
+    <div class="home-card">
+      <div class="home-kicker">CORSO AI · STRUTTURE RICETTIVE</div>
+      <h1>Apri la presentazione<br>nella vista <span class="accent">giusta</span>.</h1>
+      <p class="lead">Incontro su Zoom: condividi solo la finestra pubblico, tieni quella relatore davanti a te.</p>
+      <div class="actions">
+        <button class="btn" onclick="window.open(location.pathname + '?view=pubblico', 'pubblico', 'width=1280,height=720')">
+          <span class="lbl">PER IL PUBBLICO</span>
+          <div class="ttl">Vista presentazione</div>
+          <div class="dsc">Slide a tutto schermo. Condividi questa finestra su Zoom.</div>
+        </button>
+        <button class="btn" onclick="window.open(location.pathname + '?view=relatore', 'relatore', 'width=1280,height=820')">
+          <span class="lbl">PER TE</span>
+          <div class="ttl">Vista relatore</div>
+          <div class="dsc">Slide attuale + successiva + note + timer. Solo per i tuoi occhi.</div>
+        </button>
+      </div>
+      <div class="istruzioni">
+        <strong>Come usarlo il giorno del corso:</strong><br>
+        1. Avvia Zoom e condividi <strong>solo la finestra pubblico</strong> (non tutto lo schermo).<br>
+        2. Tieni la finestra relatore aperta davanti a te.<br>
+        3. Usa frecce <strong>←/→</strong> sulla tastiera, o i pulsanti, per cambiare slide. <strong>T</strong> countdown, <strong>B</strong> piano B.<br>
+        4. Il pubblico vede solo le slide pulite. Tu vedi tutto il resto.
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   VISTA: PUBBLICO
+============================================================ */
+let ultimoIndiceRender = -1;
+function barraAvanzamento(slide) {
+  const g = gruppoDi(slide);
+  if (!g) return '';
+  const celle = SEGMENTI.map(s => {
+    const idx = FLUSSO.filter(i => !SLIDES[i].cuscinetto && SLIDES[i].segmento && s.chiavi.includes(SLIDES[i].segmento));
+    let cls = 'futuro', style = '';
+    const gi = SEGMENTI.indexOf(g), si = SEGMENTI.indexOf(s);
+    if (si < gi) cls = 'passato';
+    else if (si === gi) {
+      const pos = idx.indexOf(stato.indice) + 1;
+      const r = idx.length ? Math.round(100 * pos / idx.length) : 100;
+      cls = 'corrente'; style = `background:linear-gradient(to right,#34C759 ${r}%,rgba(128,128,128,0.35) ${r}%)`;
+    }
+    return `<div class="seg ${cls}" style="flex:${s.min};${style}"></div>`;
+  }).join('');
+  return `<div class="barra">${celle}</div>`;
+}
+function renderPubblico() {
+  const slide = SLIDES[stato.indice];
+  if (!slide) {
+    return `<div class="pubblico"><div class="pubblico-attesa">
+      <h2>In attesa</h2>
+      <div>La presentazione inizierà tra poco.</div>
+    </div></div>`;
+  }
+  const anim = (ultimoIndiceRender !== stato.indice) ? 'anim' : '';
+  ultimoIndiceRender = stato.indice;
+  return `<div class="pubblico ${anim}">${barraAvanzamento(slide)}${renderSlide(slide, true)}</div>`;
+}
+
+/* ============================================================
+   VISTA: RELATORE
+============================================================ */
+function minutiOra() {
+  if (stato.timerSeconds > 0) return 630 + stato.timerSeconds / 60;
+  const d = new Date();
+  return d.getHours() * 60 + d.getMinutes() + d.getSeconds() / 60;
+}
+function hhmm(m) {
+  m = Math.round(m);
+  return String(Math.floor(m / 60)).padStart(2,'0') + ':' + String(m % 60).padStart(2,'0');
+}
+function registraEntrata() {
+  const g = gruppoDi(SLIDES[stato.indice]);
+  if (g && stato.entrate[g.id] == null) stato.entrate[g.id] = minutiOra();
+}
+function segInfo(slide) {
+  const g = gruppoDi(slide);
+  if (!g) return { html: `Segmento: ${slide ? slide.segmento : '—'}`, ritardo: '' };
+  const now = minutiOra(), fine = g.ora + g.min, rest = Math.round(fine - now);
+  const ent = stato.entrate[g.id];
+  const sc = ent != null ? Math.round(ent - g.ora) : null;
+  const cls = rest < 0 ? 'rosso' : (rest <= 3 ? 'arancio' : 'verde');
+  const html = `${g.nome} · previsto ${hhmm(g.ora)}–${hhmm(fine)}` + (sc != null ? ` · entrato ${sc > 0 ? '+' : ''}${sc} min` : '') +
+    ` · <span class="${cls}">${rest >= 0 ? 'restano ' + rest + ' min' : 'oltre di ' + (-rest) + ' min'}</span>`;
+  return { html, ritardo: g.ritardo };
+}
+function posLabel() {
+  const i = FLUSSO.indexOf(stato.indice);
+  if (i < 0) return 'PIANO B';
+  if (SLIDES[stato.indice].cuscinetto) return 'RISERVA · ' + (i + 1) + ' di ' + FLUSSO.length;
+  return (i + 1) + ' di ' + FLUSSO.length;
+}
+function cdTxt() {
+  if (stato.cdFine && stato.cdIndice === stato.indice) return ' · ⏲ ' + formatTime(Math.max(0, Math.ceil((stato.cdFine - Date.now()) / 1000)));
+  return '';
+}
+function copia(i) {
+  const c = getCopia(SLIDES[stato.indice])[i];
+  if (!c) return;
+  const ok = () => { const b = document.getElementById('cb' + i); if (b) b.textContent = 'Copiato ✓'; };
+  const fallback = () => {
+    const t = document.createElement('textarea'); t.value = c.testo; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); ok(); } catch (e) {} document.body.removeChild(t);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(c.testo).then(ok).catch(fallback);
+  else fallback();
+}
+function formatTime(s) {
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+}
+
+function formattaNote(testo) {
+  if (!testo) return '';
+  const paragrafi = testo.split(/\n\n/);
+  return paragrafi.map(par => {
+    let p = par.replace(/\n/g, '<br>');
+    if (/^\s*\[/.test(par)) {
+      return `<p><span class="promemoria">${p}</span></p>`;
+    }
+    p = p.replace(/["“]([^"”]+)["”]/g, '<span class="dire">"$1"</span>');
+    const haDire = p.includes('class="dire"');
+    if (!haDire) {
+      return `<p class="regia">${p}</p>`;
+    }
+    return `<p>${p}</p>`;
+  }).join('');
+}
+
+function renderRelatore() {
+  const slide = SLIDES[stato.indice];
+  const ni = prossimoIndice(stato.indice); const next = ni === null ? null : SLIDES[ni]; const si = segInfo(slide); const cp = getCopia(slide);
+  const liveClass = (typeof BroadcastChannel !== 'undefined') ? '' : 'off';
+  return `<div class="relatore">
+    <div class="rel-header">
+      <div class="titolo">Incontro 05 — L'ospite che torna<span class="sub">· Confcommercio Arezzo</span></div>
+      <div class="stato">
+        <div class="live ${liveClass}"><span class="dot"></span> Sincronizzato</div>
+        <div class="timer">ora ${hhmm(minutiOra())} · ⏱ ${formatTime(stato.timerSeconds)}</div>
+      </div>
+    </div>
+
+    <div class="rel-note">
+      <div class="head">
+        <div class="lbl">NOTE DI REGIA</div>
+        <div class="segm">${si.html}</div>
+      </div>
+      ${si.ritardo ? `<div class="ritardo"><b>Se sei in ritardo:</b> ${si.ritardo}</div>` : ''}
+      ${cp.length ? `<div class="copia-box">${cp.map((c,i) => `<button id="cb${i}" onclick="copia(${i})">Copia · ${c.label}</button>`).join('')}</div>` : ''}
+      <h3>${slide ? slide.note.titolo : ''}</h3>
+      <div class="legenda">
+        <span><span class="campione c-dire"></span> da dire ad alta voce</span>
+        <span><span class="campione c-regia"></span> regia / come dirlo</span>
+        <span><span class="campione c-prom"></span> promemoria tuo</span>
+        <span style="margin-left:auto; color:#86868B; font-size:11px;">🔵 demo · 🟢 tocca a voi · 🟠 checkpoint</span>
+      </div>
+      ${slide ? formattaNote(slide.note.testo) : ''}
+      ${slide && slide.note.quote ? `<div class="quote">${slide.note.quote}</div>` : ''}
+    </div>
+
+    <div class="rel-current">
+      <div class="lbl">SLIDE ATTUALE · ${posLabel()}</div>
+      <div class="frame">${renderSlide(slide)}</div>
+    </div>
+
+    <div class="rel-next">
+      <div class="lbl"><span>PROSSIMA SLIDE</span><span class="conta">${next ? ((FLUSSO.indexOf(ni) + 1) + ' di ' + FLUSSO.length) : 'fine sequenza'}</span></div>
+      <div class="frame">${next ? renderSlide(next) : '<div class="slide"><div style="color:#86868B;font-size:1.6vmin">— fine —</div></div>'}</div>
+    </div>
+
+    <div class="rel-controls">
+      <div class="conta">Slide ${posLabel().replace(' di ', ' / ')}${cdTxt()}</div>
+      <div class="timer-ctrl">
+        <button onclick="toggleTimer()">${stato.timerRunning ? '⏸ Pausa' : '▶ Timer'}</button>
+        <button onclick="resetTimer()">↺ Reset</button>
+        <button onclick="toggleCd()">⏲ Countdown <span class="shortcut">T</span></button>
+        <button onclick="togglePB()">Piano B <span class="shortcut">B</span></button>
+      </div>
+      <div class="btns">
+        <button onclick="prev()" ${precedenteIndice(stato.indice) === null ? 'disabled' : ''}>← Indietro <span class="shortcut">←</span></button>
+        <button class="primary" onclick="next()" ${prossimoIndice(stato.indice) === null ? 'disabled' : ''}>Avanti → <span class="shortcut">→</span></button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   AZIONI
+============================================================ */
+function vai(n) {
+  if (n === null || n === undefined) return;
+  stato.indice = n;
+  stato.cdFine = null;
+  registraEntrata();
+  broadcasta();
+  render();
+}
+function next() { vai(prossimoIndice(stato.indice)); }
+function prev() { vai(precedenteIndice(stato.indice)); }
+function toggleCd() {
+  const s = SLIDES[stato.indice];
+  if (!s || !s.cd) return;
+  if (stato.cdFine && stato.cdIndice === stato.indice) stato.cdFine = null;
+  else { stato.cdFine = Date.now() + s.cd * 1000; stato.cdIndice = stato.indice; }
+  broadcasta();
+  render();
+}
+function togglePB() {
+  const s = SLIDES[stato.indice];
+  if (!s) return;
+  if (s.pianoB) { if (stato.ritorno != null) { const r = stato.ritorno; stato.ritorno = null; vai(r); } return; }
+  if (!s.pb) return;
+  const idx = SLIDES.findIndex(x => x.id === s.pb);
+  if (idx < 0) return;
+  stato.ritorno = stato.indice;
+  vai(idx);
+}
+function toggleTimer() {
+  stato.timerRunning = !stato.timerRunning;
+  if (stato.timerRunning) { if (stato.timerSeconds === 0) stato.entrate = {}; registraEntrata(); }
+  broadcasta();
+  render();
+}
+function resetTimer() {
+  stato.timerSeconds = 0;
+  stato.timerRunning = false;
+  stato.entrate = {};
+  stato.cdFine = null;
+  broadcasta();
+  render();
+}
+
+setInterval(() => {
+  if (stato.timerRunning) {
+    stato.timerSeconds++;
+    if (VIEW === 'relatore') render();
+    broadcasta();
+  } else if (stato.cdFine && VIEW) {
+    render();
+  }
+}, 1000);
+
+{
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 't' || e.key === 'T') { e.preventDefault(); toggleCd(); }
+  });
+}
+
+function render() {
+  const app = document.getElementById('app');
+  const pos = FLUSSO.indexOf(stato.indice);
+  app.innerHTML = renderPubblico() + `<div class="dnav">
+    <button type="button" onclick="prev()" ${pos <= 0 ? 'disabled' : ''} aria-label="Slide precedente">&larr;</button>
+    <span>${pos + 1} / ${FLUSSO.length}</span>
+    <button type="button" onclick="next()" ${pos >= FLUSSO.length - 1 ? 'disabled' : ''} aria-label="Slide successiva">&rarr;</button>
+  </div>`;
+}
+let tx = null;
+document.addEventListener('touchstart', (e) => { tx = e.changedTouches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', (e) => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 60) { dx < 0 ? next() : prev(); }
+}, { passive: true });
+stato.indice = 0;
+render();
+</script>
+</body>
+</html>
