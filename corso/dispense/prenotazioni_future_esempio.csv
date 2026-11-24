@@ -1,0 +1,302 @@
+codice_prenotazione;data_prenotazione;arrivo;partenza;notti;ospiti;canale;nazionalita;stato;importo_eur
+3103;2026-10-27;2026-11-24;2026-11-27;3;2;Booking;Italia;Confermata;237
+3107;2026-11-03;2026-11-24;2026-11-26;2;3;Sito diretto;Stati Uniti;Confermata;198
+3111;2026-10-28;2026-11-24;2026-11-27;3;2;Telefono/Email;Italia;Confermata;237
+3114;2026-11-09;2026-11-24;2026-11-27;3;2;Sito diretto;Italia;Confermata;237
+3117;2026-11-14;2026-11-24;2026-11-25;1;2;Airbnb;Italia;Confermata;79
+3120;2026-11-23;2026-11-26;2026-11-27;1;3;Telefono/Email;Italia;Confermata;99
+3124;2026-11-01;2026-11-27;2026-11-28;1;2;Booking;Italia;Confermata;79
+3125;2026-11-06;2026-11-27;2026-11-29;2;2;Sito diretto;Italia;Confermata;158
+3127;2026-11-12;2026-11-27;2026-11-29;2;2;Telefono/Email;Francia;Confermata;158
+3129;2026-10-29;2026-11-27;2026-11-28;1;2;Booking;Italia;Confermata;79
+3133;2026-11-23;2026-11-27;2026-11-30;3;2;Booking;Italia;Confermata;237
+3135;2026-11-20;2026-11-27;2026-11-28;1;2;Booking;Italia;Confermata;79
+3139;2026-10-20;2026-11-28;2026-11-29;1;1;Telefono/Email;Regno Unito;Confermata;59
+3143;2026-10-29;2026-11-28;2026-11-30;2;2;Sito diretto;Francia;Confermata;158
+3144;2026-11-06;2026-11-28;2026-11-29;1;2;Booking;Italia;Confermata;79
+3146;2026-11-09;2026-11-28;2026-12-01;3;2;Telefono/Email;Francia;Confermata;237
+3148;2026-10-20;2026-11-28;2026-12-01;3;3;Booking;Italia;Confermata;297
+3150;2026-11-15;2026-11-28;2026-11-29;1;1;Sito diretto;Francia;Confermata;59
+3868;2026-10-25;2026-11-28;2026-11-30;2;2;Expedia;Germania;Cancellata;158
+3152;2026-10-31;2026-11-30;2026-12-03;3;2;Booking;Italia;Confermata;237
+3154;2026-11-23;2026-11-30;2026-12-03;3;2;Booking;Italia;Confermata;237
+3157;2026-11-15;2026-12-01;2026-12-03;2;2;Booking;Italia;Confermata;158
+3159;2026-11-23;2026-12-01;2026-12-04;3;2;Sito diretto;Francia;Confermata;237
+3161;2026-11-07;2026-12-01;2026-12-04;3;2;Telefono/Email;Italia;Confermata;237
+3164;2026-11-03;2026-12-02;2026-12-05;3;2;Sito diretto;Italia;Confermata;237
+3165;2026-11-21;2026-12-02;2026-12-05;3;1;Airbnb;Stati Uniti;Confermata;177
+3168;2026-10-26;2026-12-03;2026-12-05;2;1;Booking;Regno Unito;Confermata;118
+3171;2026-11-19;2026-12-03;2026-12-04;1;2;Booking;Italia;Confermata;79
+3174;2026-11-19;2026-12-03;2026-12-04;1;2;Telefono/Email;Francia;Confermata;79
+3178;2026-11-16;2026-12-04;2026-12-05;1;2;Booking;Italia;Confermata;79
+3179;2026-10-25;2026-12-04;2026-12-07;3;2;Booking;Italia;Confermata;309
+3183;2026-10-02;2026-12-05;2026-12-08;3;2;Booking;Italia;Confermata;345
+3184;2026-10-20;2026-12-05;2026-12-06;1;2;Telefono/Email;Francia;Confermata;115
+3186;2026-11-11;2026-12-05;2026-12-06;1;2;Telefono/Email;Italia;Confermata;115
+3190;2026-11-01;2026-12-05;2026-12-07;2;2;Sito diretto;Germania;Confermata;230
+3194;2026-11-08;2026-12-05;2026-12-08;3;2;Airbnb;Paesi Bassi;Confermata;345
+3195;2026-11-12;2026-12-05;2026-12-06;1;3;Booking;Paesi Bassi;Confermata;139
+3197;2026-09-27;2026-12-05;2026-12-08;3;2;Airbnb;Italia;Confermata;345
+3199;2026-09-21;2026-12-05;2026-12-06;1;2;Booking;Italia;Confermata;115
+3201;2026-11-23;2026-12-05;2026-12-07;2;2;Expedia;Italia;Confermata;230
+3203;2026-11-18;2026-12-05;2026-12-08;3;2;Sito diretto;Francia;Confermata;345
+3207;2026-11-08;2026-12-05;2026-12-07;2;3;Booking;Italia;Confermata;278
+3209;2026-11-14;2026-12-05;2026-12-06;1;2;Expedia;Italia;Confermata;115
+3212;2026-11-17;2026-12-05;2026-12-08;3;1;Expedia;Germania;Confermata;237
+3213;2026-09-27;2026-12-05;2026-12-06;1;2;Sito diretto;Francia;Confermata;115
+3216;2026-11-16;2026-12-05;2026-12-08;3;2;Booking;Italia;Confermata;345
+3218;2026-10-26;2026-12-05;2026-12-06;1;2;Telefono/Email;Italia;Confermata;115
+3220;2026-10-13;2026-12-05;2026-12-06;1;2;Booking;Germania;Confermata;115
+3838;2026-10-15;2026-12-05;2026-12-07;2;2;Booking;Stati Uniti;Cancellata;230
+3840;2026-11-09;2026-12-05;2026-12-07;2;2;Booking;Italia;Cancellata;230
+3844;2026-09-27;2026-12-05;2026-12-06;1;2;Booking;Italia;Cancellata;115
+3221;2026-11-23;2026-12-06;2026-12-07;1;1;Telefono/Email;Italia;Confermata;79
+3225;2026-10-10;2026-12-06;2026-12-07;1;2;Booking;Italia;Confermata;115
+3229;2026-10-10;2026-12-06;2026-12-08;2;2;Sito diretto;Italia;Confermata;230
+3233;2026-11-22;2026-12-06;2026-12-07;1;2;Booking;Svizzera;Confermata;115
+3237;2026-09-22;2026-12-06;2026-12-07;1;1;Telefono/Email;Italia;Confermata;79
+3240;2026-11-11;2026-12-06;2026-12-07;1;1;Sito diretto;Italia;Confermata;79
+3241;2026-11-02;2026-12-06;2026-12-09;3;2;Telefono/Email;Italia;Confermata;309
+3244;2026-11-02;2026-12-06;2026-12-07;1;2;Expedia;Italia;Confermata;115
+3246;2026-09-25;2026-12-07;2026-12-08;1;2;Booking;Italia;Confermata;115
+3250;2026-10-17;2026-12-07;2026-12-08;1;2;Telefono/Email;Italia;Confermata;115
+3254;2026-10-27;2026-12-07;2026-12-10;3;1;Booking;Italia;Confermata;197
+3257;2026-10-07;2026-12-07;2026-12-10;3;2;Booking;Stati Uniti;Confermata;273
+3259;2026-11-08;2026-12-07;2026-12-08;1;1;Telefono/Email;Italia;Confermata;79
+3260;2026-11-14;2026-12-07;2026-12-08;1;3;Telefono/Email;Germania;Confermata;139
+3262;2026-11-06;2026-12-07;2026-12-08;1;2;Booking;Regno Unito;Confermata;115
+3266;2026-11-04;2026-12-07;2026-12-10;3;2;Airbnb;Italia;Confermata;273
+3270;2026-11-10;2026-12-07;2026-12-08;1;2;Booking;Italia;Confermata;115
+3272;2026-11-19;2026-12-08;2026-12-09;1;2;Booking;Italia;Confermata;79
+3273;2026-10-31;2026-12-08;2026-12-09;1;2;Sito diretto;Italia;Confermata;79
+3274;2026-10-27;2026-12-08;2026-12-09;1;2;Booking;Italia;Confermata;79
+3277;2026-10-09;2026-12-08;2026-12-11;3;2;Booking;Germania;Confermata;237
+3281;2026-11-23;2026-12-10;2026-12-11;1;2;Booking;Italia;Confermata;79
+3282;2026-10-15;2026-12-10;2026-12-11;1;2;Booking;Italia;Confermata;79
+3284;2026-11-03;2026-12-10;2026-12-11;1;2;Booking;Paesi Bassi;Confermata;79
+3286;2026-11-23;2026-12-10;2026-12-13;3;2;Booking;Italia;Confermata;237
+3290;2026-11-10;2026-12-11;2026-12-12;1;3;Booking;Francia;Confermata;99
+3291;2026-11-23;2026-12-11;2026-12-14;3;3;Booking;Italia;Confermata;297
+3295;2026-11-19;2026-12-11;2026-12-12;1;2;Sito diretto;Paesi Bassi;Confermata;79
+3296;2026-11-06;2026-12-11;2026-12-13;2;2;Sito diretto;Italia;Confermata;158
+3300;2026-11-18;2026-12-11;2026-12-13;2;2;Sito diretto;Italia;Confermata;158
+3301;2026-11-06;2026-12-11;2026-12-14;3;3;Expedia;Italia;Confermata;297
+3302;2026-11-14;2026-12-11;2026-12-12;1;2;Booking;Germania;Confermata;79
+3303;2026-11-19;2026-12-11;2026-12-12;1;1;Sito diretto;Italia;Confermata;59
+3305;2026-11-23;2026-12-12;2026-12-15;3;2;Booking;Italia;Confermata;237
+3306;2026-11-23;2026-12-12;2026-12-13;1;1;Booking;Italia;Confermata;59
+3307;2026-10-25;2026-12-12;2026-12-13;1;2;Sito diretto;Italia;Confermata;79
+3308;2026-11-23;2026-12-12;2026-12-13;1;2;Telefono/Email;Italia;Confermata;79
+3309;2026-11-23;2026-12-12;2026-12-13;1;2;Booking;Italia;Confermata;79
+3311;2026-10-30;2026-12-12;2026-12-13;1;2;Booking;Italia;Confermata;79
+3313;2026-11-16;2026-12-12;2026-12-13;1;2;Booking;Italia;Confermata;79
+3858;2026-10-03;2026-12-12;2026-12-14;2;2;Expedia;Svizzera;Cancellata;158
+3317;2026-11-12;2026-12-14;2026-12-17;3;2;Telefono/Email;Italia;Confermata;237
+3321;2026-10-10;2026-12-14;2026-12-16;2;2;Booking;Italia;Confermata;158
+3324;2026-11-20;2026-12-14;2026-12-15;1;2;Booking;Italia;Confermata;79
+3327;2026-11-05;2026-12-14;2026-12-17;3;2;Booking;Francia;Confermata;237
+3329;2026-10-31;2026-12-14;2026-12-15;1;2;Sito diretto;Italia;Confermata;79
+3330;2026-10-25;2026-12-15;2026-12-16;1;2;Telefono/Email;Italia;Confermata;79
+3334;2026-10-19;2026-12-15;2026-12-18;3;2;Booking;Italia;Confermata;237
+3337;2026-10-21;2026-12-15;2026-12-16;1;1;Telefono/Email;Italia;Confermata;59
+3340;2026-11-23;2026-12-17;2026-12-18;1;2;Airbnb;Germania;Confermata;79
+3342;2026-10-10;2026-12-17;2026-12-18;1;2;Booking;Germania;Confermata;79
+3343;2026-10-25;2026-12-18;2026-12-19;1;2;Expedia;Italia;Confermata;79
+3345;2026-10-05;2026-12-18;2026-12-21;3;2;Booking;Italia;Confermata;237
+3348;2026-11-06;2026-12-18;2026-12-19;1;1;Expedia;Italia;Confermata;59
+3349;2026-11-03;2026-12-18;2026-12-19;1;1;Expedia;Italia;Confermata;59
+3353;2026-11-23;2026-12-18;2026-12-21;3;2;Expedia;Italia;Confermata;237
+3354;2026-11-12;2026-12-18;2026-12-19;1;3;Telefono/Email;Italia;Confermata;99
+3357;2026-11-16;2026-12-18;2026-12-19;1;2;Sito diretto;Germania;Confermata;79
+3359;2026-10-22;2026-12-18;2026-12-21;3;1;Expedia;Italia;Confermata;177
+3360;2026-11-23;2026-12-18;2026-12-19;1;2;Booking;Italia;Confermata;79
+3362;2026-11-14;2026-12-19;2026-12-21;2;2;Booking;Italia;Confermata;158
+3365;2026-11-19;2026-12-19;2026-12-20;1;1;Airbnb;Italia;Confermata;59
+3367;2026-11-23;2026-12-19;2026-12-20;1;2;Sito diretto;Italia;Confermata;79
+3368;2026-10-24;2026-12-19;2026-12-20;1;2;Sito diretto;Italia;Confermata;79
+3372;2026-10-07;2026-12-19;2026-12-20;1;3;Booking;Stati Uniti;Confermata;99
+3373;2026-11-08;2026-12-19;2026-12-20;1;1;Sito diretto;Paesi Bassi;Confermata;59
+3375;2026-11-13;2026-12-19;2026-12-20;1;1;Booking;Italia;Confermata;59
+3378;2026-11-11;2026-12-19;2026-12-20;1;3;Sito diretto;Germania;Confermata;99
+3382;2026-11-09;2026-12-19;2026-12-20;1;1;Booking;Italia;Confermata;59
+3383;2026-11-23;2026-12-21;2026-12-23;2;3;Expedia;Italia;Confermata;198
+3385;2026-10-24;2026-12-21;2026-12-22;1;2;Booking;Stati Uniti;Confermata;79
+3389;2026-10-17;2026-12-21;2026-12-24;3;2;Sito diretto;Italia;Confermata;237
+3393;2026-11-03;2026-12-21;2026-12-24;3;1;Airbnb;Italia;Confermata;177
+3394;2026-11-23;2026-12-21;2026-12-24;3;2;Booking;Italia;Confermata;237
+3397;2026-11-06;2026-12-21;2026-12-22;1;2;Expedia;Italia;Confermata;79
+3400;2026-11-23;2026-12-22;2026-12-23;1;2;Booking;Italia;Confermata;79
+3401;2026-10-13;2026-12-22;2026-12-24;2;2;Booking;Italia;Confermata;158
+3404;2026-10-24;2026-12-23;2026-12-24;1;2;Telefono/Email;Italia;Confermata;79
+3407;2026-10-10;2026-12-24;2026-12-26;2;3;Booking;Francia;Confermata;278
+3410;2026-10-21;2026-12-24;2026-12-27;3;1;Airbnb;Italia;Confermata;237
+3412;2026-10-21;2026-12-24;2026-12-27;3;1;Telefono/Email;Italia;Confermata;237
+3416;2026-11-18;2026-12-24;2026-12-25;1;2;Sito diretto;Paesi Bassi;Confermata;115
+3418;2026-11-23;2026-12-24;2026-12-26;2;2;Telefono/Email;Italia;Confermata;230
+3422;2026-10-22;2026-12-24;2026-12-27;3;3;Sito diretto;Italia;Confermata;417
+3426;2026-10-28;2026-12-24;2026-12-25;1;2;Booking;Italia;Confermata;115
+3429;2026-11-01;2026-12-24;2026-12-25;1;2;Expedia;Italia;Confermata;115
+3432;2026-11-16;2026-12-24;2026-12-27;3;1;Telefono/Email;Regno Unito;Confermata;237
+3433;2026-11-09;2026-12-24;2026-12-27;3;1;Booking;Italia;Confermata;237
+3437;2026-11-09;2026-12-25;2026-12-26;1;2;Booking;Italia;Confermata;115
+3439;2026-11-23;2026-12-25;2026-12-26;1;2;Booking;Svizzera;Confermata;115
+3440;2026-10-28;2026-12-26;2026-12-27;1;3;Booking;Italia;Confermata;139
+3444;2026-11-19;2026-12-26;2026-12-28;2;2;Sito diretto;Italia;Confermata;230
+3446;2026-11-06;2026-12-26;2026-12-28;2;3;Sito diretto;Italia;Confermata;278
+3447;2026-11-23;2026-12-26;2026-12-28;2;2;Telefono/Email;Regno Unito;Confermata;230
+3449;2026-10-26;2026-12-26;2026-12-28;2;2;Sito diretto;Italia;Confermata;230
+3451;2026-11-03;2026-12-26;2026-12-27;1;2;Expedia;Italia;Confermata;115
+3452;2026-10-27;2026-12-27;2026-12-28;1;2;Booking;Italia;Confermata;115
+3455;2026-10-27;2026-12-27;2026-12-30;3;2;Sito diretto;Italia;Confermata;345
+3458;2026-11-23;2026-12-27;2026-12-28;1;2;Telefono/Email;Stati Uniti;Confermata;115
+3461;2026-11-23;2026-12-27;2026-12-28;1;2;Airbnb;Italia;Confermata;115
+3462;2026-10-31;2026-12-27;2026-12-28;1;2;Booking;Italia;Confermata;115
+3464;2026-11-23;2026-12-27;2026-12-28;1;1;Sito diretto;Italia;Confermata;79
+3467;2026-11-23;2026-12-27;2026-12-29;2;2;Booking;Italia;Confermata;230
+3860;2026-10-27;2026-12-27;2026-12-29;2;2;Booking;Germania;Cancellata;230
+3469;2026-10-23;2026-12-28;2026-12-29;1;2;Sito diretto;Germania;Confermata;115
+3471;2026-11-23;2026-12-28;2026-12-30;2;2;Expedia;Paesi Bassi;Confermata;230
+3474;2026-11-23;2026-12-28;2026-12-29;1;2;Sito diretto;Germania;Confermata;115
+3475;2026-11-23;2026-12-28;2026-12-30;2;1;Booking;Italia;Confermata;158
+3478;2026-11-12;2026-12-28;2026-12-29;1;2;Booking;Regno Unito;Confermata;115
+3481;2026-11-16;2026-12-28;2026-12-29;1;2;Sito diretto;Italia;Confermata;115
+3483;2026-11-23;2026-12-28;2026-12-29;1;1;Telefono/Email;Italia;Confermata;79
+3487;2026-11-23;2026-12-28;2026-12-31;3;2;Booking;Italia;Confermata;345
+3491;2026-11-23;2026-12-28;2026-12-29;1;3;Booking;Italia;Confermata;139
+3492;2026-11-23;2026-12-28;2026-12-30;2;3;Telefono/Email;Italia;Confermata;278
+3496;2026-11-23;2026-12-29;2027-01-01;3;1;Telefono/Email;Italia;Confermata;237
+3498;2026-11-23;2026-12-29;2026-12-30;1;2;Sito diretto;Italia;Confermata;115
+3502;2026-11-16;2026-12-29;2026-12-30;1;2;Booking;Italia;Confermata;115
+3505;2026-11-23;2026-12-29;2026-12-31;2;2;Expedia;Italia;Confermata;230
+3506;2026-10-17;2026-12-29;2026-12-30;1;2;Booking;Italia;Confermata;115
+3509;2026-10-20;2026-12-30;2027-01-02;3;2;Booking;Italia;Confermata;345
+3513;2026-11-23;2026-12-30;2027-01-02;3;2;Booking;Italia;Confermata;345
+3517;2026-11-23;2026-12-30;2027-01-01;2;2;Booking;Italia;Confermata;230
+3520;2026-10-24;2026-12-30;2027-01-01;2;2;Sito diretto;Italia;Confermata;230
+3523;2026-11-23;2026-12-30;2027-01-01;2;2;Telefono/Email;Italia;Confermata;230
+3526;2026-11-23;2026-12-30;2027-01-01;2;2;Telefono/Email;Italia;Confermata;230
+3527;2026-11-23;2026-12-30;2027-01-02;3;2;Booking;Italia;Confermata;345
+3531;2026-11-23;2026-12-30;2027-01-01;2;2;Sito diretto;Italia;Confermata;230
+3533;2026-11-03;2026-12-30;2027-01-02;3;2;Expedia;Germania;Confermata;345
+3537;2026-11-23;2026-12-31;2027-01-02;2;1;Booking;Germania;Confermata;158
+3538;2026-11-23;2026-12-31;2027-01-01;1;2;Sito diretto;Paesi Bassi;Confermata;115
+3541;2026-11-23;2026-12-31;2027-01-01;1;2;Booking;Italia;Confermata;115
+3543;2026-11-23;2026-12-31;2027-01-03;3;1;Booking;Italia;Confermata;237
+3547;2026-11-23;2026-12-31;2027-01-02;2;2;Booking;Svizzera;Confermata;230
+3551;2026-11-23;2026-12-31;2027-01-01;1;3;Booking;Francia;Confermata;139
+3845;2026-11-07;2026-12-31;2027-01-02;2;2;Expedia;Italia;Cancellata;230
+3849;2026-11-20;2026-12-31;2027-01-01;1;2;Booking;Italia;Cancellata;115
+3851;2026-11-04;2026-12-31;2027-01-01;1;2;Booking;Italia;Cancellata;115
+3854;2026-11-20;2026-12-31;2027-01-02;2;2;Booking;Regno Unito;Cancellata;230
+3554;2026-11-23;2027-01-01;2027-01-02;1;2;Booking;Italia;Confermata;115
+3558;2026-11-13;2027-01-01;2027-01-02;1;2;Sito diretto;Italia;Confermata;115
+3561;2026-11-23;2027-01-01;2027-01-02;1;2;Telefono/Email;Italia;Confermata;115
+3562;2026-11-23;2027-01-01;2027-01-04;3;3;Sito diretto;Italia;Confermata;417
+3566;2026-10-26;2027-01-01;2027-01-02;1;2;Booking;Italia;Confermata;115
+3569;2026-11-23;2027-01-01;2027-01-03;2;2;Telefono/Email;Germania;Confermata;230
+3571;2026-11-07;2027-01-01;2027-01-04;3;1;Booking;Svizzera;Confermata;237
+3572;2026-11-23;2027-01-02;2027-01-05;3;1;Booking;Italia;Confermata;237
+3574;2026-10-27;2027-01-02;2027-01-05;3;2;Airbnb;Italia;Confermata;345
+3576;2026-11-23;2027-01-02;2027-01-04;2;2;Sito diretto;Italia;Confermata;230
+3578;2026-11-17;2027-01-02;2027-01-05;3;2;Airbnb;Italia;Confermata;345
+3580;2026-11-23;2027-01-02;2027-01-04;2;3;Sito diretto;Italia;Confermata;278
+3583;2026-10-22;2027-01-02;2027-01-05;3;2;Booking;Regno Unito;Confermata;345
+3587;2026-11-17;2027-01-02;2027-01-04;2;2;Telefono/Email;Stati Uniti;Confermata;230
+3589;2026-11-13;2027-01-02;2027-01-03;1;2;Sito diretto;Germania;Confermata;115
+3592;2026-11-07;2027-01-02;2027-01-03;1;2;Sito diretto;Italia;Confermata;115
+3596;2026-11-23;2027-01-02;2027-01-03;1;1;Booking;Italia;Confermata;79
+3599;2026-10-25;2027-01-02;2027-01-03;1;2;Expedia;Italia;Confermata;115
+3855;2026-11-17;2027-01-02;2027-01-04;2;2;Booking;Italia;Cancellata;230
+3856;2026-11-15;2027-01-02;2027-01-04;2;2;Booking;Francia;Cancellata;230
+3600;2026-11-01;2027-01-04;2027-01-05;1;2;Sito diretto;Italia;Confermata;115
+3603;2026-11-23;2027-01-04;2027-01-07;3;1;Telefono/Email;Italia;Confermata;237
+3605;2026-11-23;2027-01-05;2027-01-08;3;2;Expedia;Italia;Confermata;309
+3606;2026-10-27;2027-01-05;2027-01-08;3;3;Booking;Germania;Confermata;377
+3609;2026-11-23;2027-01-05;2027-01-06;1;1;Telefono/Email;Francia;Confermata;79
+3611;2026-11-06;2027-01-05;2027-01-07;2;1;Expedia;Italia;Confermata;158
+3613;2026-11-21;2027-01-05;2027-01-07;2;2;Booking;Germania;Confermata;230
+3617;2026-11-13;2027-01-06;2027-01-07;1;2;Booking;Italia;Confermata;115
+3619;2026-11-23;2027-01-08;2027-01-11;3;2;Booking;Italia;Confermata;237
+3620;2026-11-23;2027-01-08;2027-01-11;3;2;Sito diretto;Italia;Confermata;237
+3621;2026-11-19;2027-01-08;2027-01-10;2;1;Booking;Italia;Confermata;118
+3622;2026-11-23;2027-01-08;2027-01-10;2;2;Telefono/Email;Regno Unito;Confermata;158
+3625;2026-10-26;2027-01-09;2027-01-10;1;1;Expedia;Italia;Confermata;59
+3629;2026-11-06;2027-01-11;2027-01-14;3;3;Expedia;Italia;Confermata;297
+3633;2026-10-31;2027-01-12;2027-01-15;3;1;Booking;Italia;Confermata;177
+3637;2026-11-23;2027-01-14;2027-01-17;3;1;Booking;Italia;Confermata;177
+3640;2026-11-23;2027-01-15;2027-01-16;1;2;Booking;Italia;Confermata;79
+3644;2026-11-23;2027-01-15;2027-01-16;1;2;Booking;Italia;Confermata;79
+3864;2026-11-20;2027-01-15;2027-01-17;2;2;Booking;Francia;Cancellata;158
+3645;2026-11-07;2027-01-16;2027-01-19;3;2;Telefono/Email;Italia;Confermata;237
+3647;2026-11-23;2027-01-16;2027-01-17;1;2;Sito diretto;Italia;Confermata;79
+3650;2026-11-23;2027-01-16;2027-01-17;1;2;Expedia;Germania;Confermata;79
+3654;2026-11-23;2027-01-16;2027-01-17;1;3;Expedia;Italia;Confermata;99
+3658;2026-11-23;2027-01-16;2027-01-17;1;1;Telefono/Email;Italia;Confermata;59
+3662;2026-11-23;2027-01-18;2027-01-19;1;3;Sito diretto;Italia;Confermata;99
+3664;2026-11-23;2027-01-19;2027-01-20;1;2;Booking;Italia;Confermata;79
+3665;2026-11-23;2027-01-19;2027-01-20;1;2;Sito diretto;Italia;Confermata;79
+3667;2026-11-23;2027-01-20;2027-01-21;1;2;Telefono/Email;Stati Uniti;Confermata;79
+3668;2026-11-23;2027-01-20;2027-01-21;1;3;Booking;Italia;Confermata;99
+3669;2026-11-23;2027-01-20;2027-01-22;2;3;Sito diretto;Paesi Bassi;Confermata;198
+3673;2026-11-23;2027-01-21;2027-01-24;3;2;Airbnb;Francia;Confermata;237
+3676;2026-11-11;2027-01-22;2027-01-25;3;2;Booking;Italia;Confermata;237
+3680;2026-11-23;2027-01-22;2027-01-23;1;2;Sito diretto;Italia;Confermata;79
+3682;2026-11-12;2027-01-22;2027-01-24;2;2;Booking;Italia;Confermata;158
+3686;2026-11-23;2027-01-23;2027-01-26;3;1;Sito diretto;Italia;Confermata;177
+3688;2026-11-14;2027-01-23;2027-01-24;1;2;Sito diretto;Italia;Confermata;79
+3691;2026-11-23;2027-01-23;2027-01-24;1;3;Booking;Italia;Confermata;99
+3695;2026-11-23;2027-01-26;2027-01-29;3;2;Sito diretto;Italia;Confermata;237
+3699;2026-11-23;2027-01-26;2027-01-28;2;1;Booking;Regno Unito;Confermata;118
+3703;2026-11-23;2027-01-26;2027-01-27;1;2;Booking;Italia;Confermata;79
+3704;2026-11-23;2027-01-28;2027-01-31;3;2;Booking;Italia;Confermata;237
+3706;2026-11-23;2027-01-29;2027-02-01;3;2;Airbnb;Italia;Confermata;237
+3709;2026-11-23;2027-01-29;2027-02-01;3;2;Sito diretto;Germania;Confermata;237
+3711;2026-11-23;2027-01-29;2027-01-31;2;2;Sito diretto;Italia;Confermata;158
+3714;2026-11-17;2027-01-30;2027-01-31;1;2;Booking;Italia;Confermata;79
+3718;2026-11-23;2027-01-30;2027-01-31;1;2;Booking;Stati Uniti;Confermata;79
+3721;2026-11-23;2027-02-01;2027-02-02;1;3;Sito diretto;Germania;Confermata;99
+3722;2026-11-23;2027-02-01;2027-02-04;3;2;Sito diretto;Germania;Confermata;237
+3723;2026-11-23;2027-02-02;2027-02-03;1;2;Airbnb;Italia;Confermata;79
+3727;2026-11-23;2027-02-02;2027-02-04;2;1;Telefono/Email;Paesi Bassi;Confermata;118
+3731;2026-11-23;2027-02-04;2027-02-05;1;2;Booking;Francia;Confermata;79
+3733;2026-11-23;2027-02-04;2027-02-05;1;2;Airbnb;Germania;Confermata;79
+3736;2026-11-23;2027-02-05;2027-02-07;2;1;Sito diretto;Svizzera;Confermata;138
+3738;2026-11-23;2027-02-05;2027-02-07;2;1;Sito diretto;Italia;Confermata;138
+3740;2026-11-23;2027-02-05;2027-02-08;3;2;Telefono/Email;Italia;Confermata;273
+3743;2026-11-23;2027-02-05;2027-02-07;2;2;Sito diretto;Paesi Bassi;Confermata;194
+3747;2026-11-23;2027-02-05;2027-02-06;1;2;Booking;Italia;Confermata;79
+3750;2026-11-23;2027-02-05;2027-02-07;2;2;Telefono/Email;Italia;Confermata;194
+3751;2026-11-23;2027-02-05;2027-02-06;1;1;Expedia;Francia;Confermata;59
+3752;2026-11-23;2027-02-05;2027-02-08;3;2;Sito diretto;Italia;Confermata;273
+3755;2026-11-23;2027-02-06;2027-02-07;1;3;Airbnb;Francia;Confermata;139
+3759;2026-11-23;2027-02-06;2027-02-07;1;1;Telefono/Email;Italia;Confermata;79
+3760;2026-11-23;2027-02-06;2027-02-07;1;3;Sito diretto;Italia;Confermata;139
+3764;2026-11-23;2027-02-06;2027-02-07;1;2;Sito diretto;Stati Uniti;Confermata;115
+3766;2026-11-23;2027-02-06;2027-02-07;1;2;Booking;Italia;Confermata;115
+3769;2026-11-23;2027-02-06;2027-02-07;1;2;Booking;Italia;Confermata;115
+3773;2026-11-23;2027-02-06;2027-02-07;1;2;Sito diretto;Italia;Confermata;115
+3777;2026-11-23;2027-02-06;2027-02-07;1;2;Telefono/Email;Italia;Confermata;115
+3866;2026-11-20;2027-02-06;2027-02-08;2;2;Booking;Italia;Cancellata;194
+3778;2026-11-23;2027-02-08;2027-02-09;1;2;Booking;Italia;Confermata;79
+3781;2026-11-23;2027-02-09;2027-02-10;1;2;Sito diretto;Italia;Confermata;79
+3785;2026-11-23;2027-02-09;2027-02-12;3;1;Sito diretto;Italia;Confermata;177
+3788;2026-11-23;2027-02-10;2027-02-13;3;2;Telefono/Email;Paesi Bassi;Confermata;237
+3792;2026-11-23;2027-02-12;2027-02-14;2;2;Expedia;Italia;Confermata;158
+3795;2026-11-23;2027-02-12;2027-02-14;2;2;Telefono/Email;Italia;Confermata;158
+3799;2026-11-23;2027-02-13;2027-02-14;1;2;Sito diretto;Italia;Confermata;79
+3803;2026-11-23;2027-02-13;2027-02-14;1;2;Sito diretto;Italia;Confermata;79
+3805;2026-11-23;2027-02-13;2027-02-14;1;2;Telefono/Email;Italia;Confermata;79
+3808;2026-11-23;2027-02-13;2027-02-16;3;2;Telefono/Email;Italia;Confermata;237
+3810;2026-11-23;2027-02-13;2027-02-16;3;2;Telefono/Email;Regno Unito;Confermata;237
+3812;2026-11-23;2027-02-13;2027-02-14;1;1;Sito diretto;Germania;Confermata;59
+3813;2026-11-23;2027-02-14;2027-02-15;1;3;Booking;Svizzera;Confermata;99
+3816;2026-11-23;2027-02-16;2027-02-17;1;2;Expedia;Italia;Confermata;79
+3817;2026-11-23;2027-02-16;2027-02-19;3;2;Telefono/Email;Italia;Confermata;237
+3818;2026-11-23;2027-02-17;2027-02-18;1;2;Sito diretto;Paesi Bassi;Confermata;79
+3822;2026-11-23;2027-02-17;2027-02-18;1;1;Booking;Francia;Confermata;59
+3823;2026-11-23;2027-02-19;2027-02-22;3;2;Sito diretto;Italia;Confermata;237
+3827;2026-11-23;2027-02-19;2027-02-22;3;2;Booking;Italia;Confermata;237
+3830;2026-11-23;2027-02-19;2027-02-21;2;2;Expedia;Germania;Confermata;158
+3831;2026-11-23;2027-02-19;2027-02-21;2;2;Expedia;Italia;Confermata;158
+3832;2026-11-23;2027-02-20;2027-02-21;1;2;Sito diretto;Francia;Confermata;79
+3834;2026-11-23;2027-02-20;2027-02-21;1;2;Booking;Italia;Confermata;79

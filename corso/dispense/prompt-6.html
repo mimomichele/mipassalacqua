@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="Dispense del corso di intelligenza artificiale di Michele Passalacqua, riservate ai corsisti.">
+<title>Prompt e istruzioni incontro 6 · Numeri, prezzi e assistenti — Michele Passalacqua</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Archivo:wght@400;500;600;700&display=swap">
+<style>
+  :root{--paper:#ffffff;--ink:#111417;--muted:#6b7280;--faint:#9ca3af;--line:#e5e7eb;--card:#f7f7f8;--btn:#111417;--btn-text:#ffffff}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#101214;--ink:#eceef0;--muted:#9aa3ad;--faint:#6b7480;--line:#272c31;--card:#191d21;--btn:#eceef0;--btn-text:#101214}}
+  :root[data-theme="dark"]{--paper:#101214;--ink:#eceef0;--muted:#9aa3ad;--faint:#6b7480;--line:#272c31;--card:#191d21;--btn:#eceef0;--btn-text:#101214}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Archivo',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px}
+  a{color:var(--ink)}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  nav{padding:26px 0}
+  nav .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-weight:700;font-size:15px;letter-spacing:.02em;text-decoration:none}
+  .navmail{font-size:14px;color:var(--muted);text-decoration:none}
+  .navmail:hover{color:var(--ink)}
+  .navlinks{display:flex;gap:20px;align-items:center}
+  .navlink{font-size:14px;color:var(--muted);text-decoration:none;letter-spacing:.01em}
+  .navlink:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+  h1{font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.015em;max-width:22ch;text-wrap:balance}
+  h1 em{font-style:italic;font-weight:500}
+  .lede{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:52ch;margin-top:26px;text-wrap:pretty}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:22px}
+  h2{font-family:'Newsreader',Georgia,serif;font-weight:500;line-height:1.2;letter-spacing:-.01em;max-width:26ch;text-wrap:balance}
+  footer{border-top:1px solid var(--line);padding:26px 0 44px;font-size:13px;color:var(--faint)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .article{max-width:64ch}
+  .article h2{font-size:clamp(22px,3vw,28px);margin:48px 0 14px}
+  .article h2:first-child{margin-top:0}
+  .article p{margin-bottom:1.1em;text-wrap:pretty;color:var(--muted);font-size:17px;line-height:1.7}
+  .article p b{color:var(--ink);font-weight:600}
+  .article ol{margin:0 0 1.2em 1.3em;color:var(--muted);font-size:17px;line-height:1.7}
+  .article ol li{padding-left:6px;margin-bottom:4px}
+  .article li b{color:var(--ink);font-weight:600}
+  .etichetta{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:22px 0 8px}
+  .prompt{position:relative;background:var(--card);border-left:3px solid var(--ink);padding:16px 20px 16px;margin:0 0 14px;font-size:15px;line-height:1.6;color:var(--ink);border-radius:0 2px 2px 0}
+  .prompt .pt{display:block;padding-right:76px;white-space:pre-wrap}
+  .prompt.file .pt{font-size:13.5px;line-height:1.55}
+  .copia{position:absolute;top:12px;right:12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;padding:6px 12px;border-radius:2px;border:1px solid var(--btn);background:var(--btn);color:var(--btn-text)}
+  .copia:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  .nota{margin-top:40px;font-size:14px;color:var(--muted)}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+<!-- Google Ads: misurazione conversioni (Consent Mode, consenso negato di default) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11099505711"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+try{if(localStorage.getItem('mp_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
+gtag('js',new Date());gtag('config','AW-11099505711',{send_page_view:false});gtag('config','G-G75X352FRE',{send_page_view:false});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="mailto:"],a[href*="wa.me/"]');if(a){gtag('event','conversion',{send_to:'AW-11099505711/4AsQCLz2jo4dEK-I1Kwp',transport_type:'beacon'});}},true);
+</script>
+<style>
+#mp-consent{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);color:var(--ink);border-top:1px solid var(--line);padding:14px 20px;display:none;font-family:'Archivo',system-ui,-apple-system,sans-serif;font-size:14px}
+#mp-consent .in{max-width:1080px;margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#mp-consent p{color:var(--muted);max-width:68ch;line-height:1.45}
+#mp-consent .b{display:flex;gap:10px}
+#mp-consent button{font:inherit;cursor:pointer;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink)}
+#mp-consent button.ok{background:var(--btn);color:var(--btn-text);border-color:var(--btn)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../../index.html">mipassalacqua.it</a>
+    <div class="navlinks">
+      <a class="navlink" href="../dispense.html">Dispense</a>
+      <a class="navmail" href="mailto:me@mipassalacqua.it">me@mipassalacqua.it</a>
+    </div>
+  </div>
+</nav>
+
+<header style="padding:56px 0 40px">
+  <div class="wrap">
+    <div class="kicker">Prompt e istruzioni · Incontro 6 · 24 novembre 2026 · Zoom</div>
+    <h1>Numeri, prezzi <em>e assistenti.</em></h1>
+    <p class="lede">Le richieste da copiare durante l'ultimo incontro: il revenue manager del lunedì, il report del mese, l'agente delle recensioni passo per passo, l'assistente su misura. In fondo i file di esempio.</p>
+  </div>
+</header>
+
+<section style="padding:0 0 72px">
+  <div class="wrap">
+    <div class="article">
+
+      <h2>Prima di cominciare</h2>
+      <p>Chi non ha i propri file usa quelli di esempio, tutti inventati. Si scaricano da qui: <a href="prenotazioni_future_esempio.csv" download><b>prenotazioni_future_esempio.csv</b></a> (le prenotazioni dei prossimi novanta giorni), <a href="eventi_esempio.txt" download><b>eventi_esempio.txt</b></a> (il calendario degli eventi), <a href="prenotazioni_esempio.csv" download><b>prenotazioni_esempio.csv</b></a> (lo storico del 3 novembre, per il report), <a href="concorrenti_esempio.txt" download><b>concorrenti_esempio.txt</b></a>, <a href="listino_regole_faq_esempio.txt" download><b>listino_regole_faq_esempio.txt</b></a> e il <a href="registro_formazione_AI.xlsx" download><b>registro di formazione</b></a>. Gli stessi testi sono anche in fondo alla pagina, da copiare. La regola di oggi: <b>l'AI suggerisce, voi decidete.</b> Il prezzo è una decisione.</p>
+
+      <h2>1 · Il revenue manager, in nove passi</h2>
+      <p>Un software di revenue parte da un prezzo base, guarda quanto è già venduto e cosa succede in città, e corregge ogni settimana. Qui lo fate con un Progetto e venti minuti il lunedì. Voi gli date tre cose: <b>le regole</b> (una volta), <b>il calendario degli eventi</b> (una volta al mese), <b>il file delle prenotazioni</b> (ogni lunedì). Lui vi restituisce le date da cambiare.</p>
+      <p><b>Passo 1 · Il Progetto.</b> In Claude: Progetti, Nuovo progetto. Nome: «Revenue manager».</p><p><b>Passo 2 · Le istruzioni.</b> Copiate il testo qui sotto, incollatelo nelle istruzioni del Progetto e riempite le parentesi quadre. Per provare con il file di esempio, riempite le parentesi così: Albergo Esempio, hotel 3 stelle a 2 km dal centro, 20 camere; doppia a 79 euro in bassa stagione, 95 in media, 115 in alta (ponti, weekend della Fiera Antiquaria, dal 24 dicembre al 6 gennaio); minimo 65, massimo 150. Dentro ci sono quattro regole: più dell&#x27;85% delle camere vendute, più 15%; dal 70% all&#x27;85% a più di 30 giorni, più 10%; giorno di evento o di festa con almeno metà delle camere vendute, più 10%; meno del 30% a meno di 7 giorni, meno 10%, mai in un giorno di evento. Le percentuali sono un punto di partenza inventato per l&#x27;esempio: le vostre le decidete voi, e conviene partire prudenti.</p><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Sei il revenue manager di [nome struttura]: [tipo di struttura, dove si trova, cosa offre e cosa non offre]. Abbiamo [N] camere. Prezzi di partenza della camera doppia: [bassa stagione X euro, media Y, alta Z, con i periodi]; le altre camere si muovono della stessa percentuale. Prezzo minimo [..] euro, massimo [..] euro: mai fuori da questi due.
+
+Quando carico il file delle prenotazioni future e scrivo «aggiorna i prezzi»:
+1. Conta solo le prenotazioni confermate, mai le cancellate. Una camera è venduta per una notte se quella notte cade tra il giorno di arrivo e il giorno prima della partenza.
+2. Per ogni notte dei prossimi 90 giorni calcola le camere vendute sul totale.
+3. Applica le regole. Sopra l&#x27;85% di occupazione, a qualunque distanza: più 15%. Dal 70% all&#x27;85% a più di 30 giorni dall&#x27;arrivo: più 10%. Nei giorni di evento o di festa del calendario che trovi nei documenti, se è venduta almeno metà delle camere (50% o più) e non vale già una regola più alta: più 10%. Sotto il 30% a meno di 7 giorni dall&#x27;arrivo: meno 10%, ma mai nei giorni di evento o di festa. Mai più del 15% di variazione in una settimana.
+4. Rispondi con una tabella delle sole date da cambiare: data, giorno, camere vendute, prezzo attuale, prezzo nuovo, regola applicata, evento se c&#x27;è. Poi tre righe su cosa tenere d&#x27;occhio: gli eventi del calendario nei prossimi 90 giorni in cui ho ancora molte camere libere, e quelli segnati «da confermare».
+5. In fondo scrivi su quante righe hai lavorato e quante cancellate hai escluso.
+6. Chiudi con le tre date su cui vale la pena controllare i prezzi dei concorrenti: quelle con l&#x27;aumento più alto.
+
+Quando scrivo «cerca gli eventi», cerca sul web feste, ponti, fiere, congressi, concerti e gare nella mia città e nei dintorni per i prossimi 90 giorni, con la fonte di ognuno, e segna «da confermare» quelli senza una data certa: li controllo io e li aggiungo al calendario. Quando ti carico lo screenshot di un portale con i prezzi di una notte, leggi i prezzi dei miei concorrenti, mettili accanto al mio prezzo nuovo per quella data e dimmi se sono troppo alto, troppo basso o giusto rispetto a chi mi somiglia, e se cambia il tuo consiglio. Se un concorrente nello screenshot non c&#x27;è scrivi «non trovato». Non usare prezzi dei concorrenti trovati con la ricerca web: spesso sono di altre date. Quando chiedo il report del mese, lavora solo sui soggiorni con check-out effettuato e segnala i numeri che poggiano su meno di venti righe. Tu suggerisci, decido io: scrivi cosa faresti e perché. Non inventare dati che non ti ho dato: se manca qualcosa, chiedi.</span></div><p><b>Passo 3 · Il calendario degli eventi.</b> Nei documenti del Progetto caricate un file con gli eventi dei prossimi tre mesi, una riga per evento con le date. Per la prova usate il calendario di esempio in fondo a questa pagina. Per aggiornarlo, una volta al mese: accendete la ricerca web (sotto la casella dove scrivete, a sinistra, il pulsante con il segno più) e usate la richiesta qui sotto. Controllate le date sui siti ufficiali prima di incollare l&#x27;elenco nei documenti. Gli eventi che sapete solo voi, come un matrimonio o un raduno, aggiungeteli a mano.</p><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Cerca gli eventi. Cerca sul web cosa succede a [città] e nei dintorni nei prossimi 90 giorni: feste e ponti, fiere, congressi, concerti, gare sportive, mercatini. Per ognuno: date, nome, dove, quanta gente porta (del posto, dalla regione, da fuori), e il link della fonte. Segna «da confermare» quelli senza una data certa. Alla fine dammi l&#x27;elenco nello stesso formato del mio calendario, pronto da incollare nei documenti del Progetto.</span></div><p><b>Passo 4 · Ogni lunedì: esportate.</b> Dal gestionale, le prenotazioni con arrivo nei prossimi 90 giorni, cancellate comprese, con le dieci colonne senza nomi del 3 novembre. Per la prova: prenotazioni_future_esempio.csv.</p><p><b>Passo 5 · Caricate e chiedete.</b> Chat nuova dentro il Progetto, il file con la graffetta, e questa riga con la data di oggi.</p><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Aggiorna i prezzi. Oggi è [data di oggi]. Nel file ci sono le prenotazioni con arrivo nei prossimi 90 giorni, senza dati personali.</span></div><p><b>Passo 6 · Leggete, e chiedete il perché.</b> La risposta è una tabella con le sole date da cambiare: data, camere vendute, prezzo attuale, prezzo nuovo, regola. Con il file di esempio e la data del 24 novembre le date sono sedici. Di almeno una chiedete il perché.</p><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Spiegami il [data]: quante camere hai contato, quale regola hai applicato, e cosa faresti se entro lunedì prossimo non si vendesse altro.</span></div><p><b>Passo 7 · La cintura di sicurezza.</b> In fondo alla risposta guardate quante cancellate ha escluso: con il file di esempio sono 14. Contate a mano tre date. Se una notte ha più camere vendute di quante ne avete, ha contato le cancellate.</p><p><b>Passo 8 · I concorrenti, su due o tre date.</b> Uno screenshot mostra i prezzi di una notte sola: per questo i concorrenti non fanno il listino dei novanta giorni, sono un controllo sulle date che state per alzare di più. Aprite un portale di prenotazione, cercate la vostra città per quella notte, due adulti, fate lo screenshot della pagina dei risultati e caricatelo nella chat con questa richiesta. Per seguire i prezzi di tutti ogni giorno serve un software di revenue: è il passo dopo.</p><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Questo è lo screenshot del portale per la notte del [data]. I miei concorrenti sono: [nomi]. Leggi i loro prezzi e mettili accanto al mio prezzo nuovo per quella notte. Sono troppo alto, troppo basso o giusto rispetto a chi mi somiglia? Cambia il tuo consiglio? Rispondi in cinque righe.</span></div><p><b>Passo 9 · L&#x27;Excel, e il gestionale.</b> Chiedete la tabella in Excel. I prezzi nel gestionale li cambiate voi, a mano.</p><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Dammi la tabella da scaricare in Excel, con una riga per ogni data cambiata.</span></div>
+      <div class="etichetta">Quando un consiglio non vi convince</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Il consiglio per [data] non mi convince. Dimmi su quali dati lo basi, cosa cambierebbe se [una cosa che so io e tu no], e dammi un&#x27;alternativa più prudente.</span></div>
+      <div class="etichetta">Per chi ha il piano a pagamento: i portali li apre lui (estensione Claude per Chrome)</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Usa il browser. Apri un portale di prenotazione e cerca [località] per la notte del [data], una camera, due adulti. Leggi il prezzo più basso della camera doppia per ciascuno dei miei cinque concorrenti: [elenco]. Ripeti per queste altre date: [date]. Poi fammi la tabella con il mio prezzo e le camere già vendute accanto: dove sono posizionato, se cambia il tuo consiglio, perché. Se un concorrente non compare o è esaurito, scrivilo: non stimare. Non prenotare niente e non accedere a nessun account.</span></div>
+      <p>I portali a volte fermano la navigazione automatica: se succede, si torna allo screenshot.</p>
+      <div class="etichetta">Senza screenshot: i prezzi incollati a mano</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Per queste date ho anche i prezzi di cinque concorrenti e le camere che ho già venduto. Per ogni data dimmi: dove sono posizionato, soprattutto rispetto a chi mi somiglia davvero; se il confronto cambia il consiglio che mi hai dato; di quanto, e perché in due righe. Tieni conto di cosa offro io e non loro. Mai sotto il mio minimo. Dati: [incolla il file dei concorrenti]</span></div>
+      <p>Cosa non fa: i dati glieli date voi (il file del lunedì e gli screenshot), non carica i prezzi nel gestionale, non lavora se saltate il lunedì. Chi ha già un software di revenue lo tiene.</p>
+
+      <h2>2 · Il report del mese</h2>
+      <p>Stesso Progetto «Revenue manager», chat nuova, il file dello storico caricato con la graffetta. La richiesta è sempre la stessa: cambia solo il mese.</p>
+      <div class="etichetta">Il report</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Questo è l&#x27;export delle prenotazioni, senza dati personali. Fammi il report di [mese e anno] in una pagina sola. Cinque numeri: soggiorni conclusi, notti vendute, prezzo medio a notte, da quali canali sono arrivati (in percentuale), cancellazioni e no show sul totale degli arrivi del mese. Poi tre cose da fare il mese prossimo, ognuna legata a un numero. In fondo: su quante righe hai lavorato e come hai calcolato. Se un numero poggia su meno di venti righe, scrivilo accanto.</span></div>
+      <div class="etichetta">Con i vostri dati, aggiungete in coda</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Abbiamo [N] camere: aggiungi l&#x27;occupazione del mese. Se nel file c&#x27;è lo stesso mese dell&#x27;anno scorso, confronta ogni numero con quello.</span></div>
+      <p>Le tre trappole valgono sempre. <b>Il campione piccolo</b>: sotto le venti righe è un aneddoto. <b>La stagione travestita</b>: ottobre si confronta con l'ottobre dell'anno prima. <b>La causa inventata</b>: il dato dice cosa, il perché lo verificate voi.</p>
+
+      <h2>3 · L'agente delle recensioni su Make</h2>
+      <p>Ogni mattina alle 8:30 legge le recensioni Google nuove e senza risposta, chiede a Claude una proposta nel tono della vostra scheda e ve la manda per email. Voi leggete, correggete, incollate su Google. Nessuna risposta esce senza una persona che la firma. Make ha un piano gratuito; Claude dentro Make costa pochi centesimi a recensione, con 5 euro di credito. Vi serve l&#x27;account Google che gestisce la scheda.</p>
+      <p><b>Come si costruisce: Claude vi guida, un passo alla volta.</b> Chat nuova dentro il Progetto «La mia struttura». Mandate il messaggio 1, seguite quello che Claude dice, scrivete «fatto» a ogni passo. Quando Claude ha finito un argomento, mandate il messaggio successivo. Se vi bloccate: uno screenshot e «sono qui, cosa faccio?».</p>
+      <div class="etichetta">Messaggio 1 · il brief</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Voglio costruire con Make un automatismo che ogni mattina legge le nuove recensioni Google della mia struttura, chiede a te (Claude, via API) una proposta di risposta nel tono della scheda della struttura che hai nel Progetto, e mi manda la proposta per email. La risposta la pubblico io a mano su Google: niente deve uscire da solo. Ho un account Make gratuito, un account Google che gestisce la scheda della struttura e una chiave API Anthropic. Guidami passo per passo, un passo alla volta: dimmi cosa cliccare e cosa scrivere, e aspetta che ti dica &quot;fatto&quot; prima di passare al passo dopo. Prima di tutto dimmi quali sono i passi, in una lista corta.</span></div><div class="etichetta">Messaggio 2 · l&#x27;accesso alle API di Google</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Iniziamo dall&#x27;accesso alle API di Google Business Profile. Sono su console.cloud.google.com con l&#x27;account che gestisce la scheda. Dimmi esattamente: come creare il progetto, quali API abilitare, dove trovare il modulo di richiesta di accesso e cosa scrivere nel campo sull&#x27;uso, come impostare la schermata di consenso OAuth e come creare l&#x27;ID client per un&#x27;applicazione web. Un passo alla volta.</span></div><div class="etichetta">Messaggio 2 bis · se Google non ha ancora approvato</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">La richiesta a Google è partita ma non è ancora approvata. Andiamo avanti con il resto e prepariamo un modo per provare lo scenario con una recensione finta, poi collego Google quando arriva l&#x27;ok.</span></div><div class="etichetta">Messaggio 3 · lo scenario e il primo modulo</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Sono su make.com, scenario nuovo e vuoto. Dimmi come aggiungere il modulo Google My Business &quot;Watch Reviews&quot;, come creare la connessione con l&#x27;ID client e il Secret che ho, cosa mettere in Account, Location e Limit, e come impostare &quot;Choose where to start&quot;. Un passo alla volta.</span></div><div class="etichetta">Messaggio 4 · il filtro</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Fatto. Voglio che passino solo le recensioni senza risposta. Dimmi come mettere il filtro tra il modulo 1 e il successivo e quale condizione usare.</span></div><div class="etichetta">Messaggio 5 · il modulo Claude</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Fatto. Ora il modulo Anthropic Claude &quot;Create a Prompt&quot;. Dimmi come collegare la chiave API, quale modello scegliere e quanti max tokens. Poi scrivimi tu il system prompt da incollare: deve far scrivere a Claude bozze di risposta alle recensioni nel tono della scheda della struttura, massimo 80 parole, lingua della recensione, ringraziamento per una cosa precisa, mai il nome dell&#x27;ospite, mai rimborsi, sconti o omaggi, mai servizi, prezzi o orari che non sono nella scheda, per le recensioni da 1 o 2 stelle una sola scusa e un invito a scriverci o chiamarci, firma con il nome della struttura, solo il testo della risposta senza premesse. Metti in fondo al system prompt la scheda della struttura. Poi dimmi cosa mettere nel messaggio User, mappando stelle e testo della recensione dal modulo 1, senza il nome del recensore.</span></div><div class="etichetta">Messaggio 6 · l&#x27;email</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Fatto. Ora il modulo Gmail &quot;Send an Email&quot; con l&#x27;account della struttura. Scrivimi oggetto e testo dell&#x27;email: devono contenere stelle, data e testo della recensione, la risposta proposta da Claude e due righe su dove pubblicarla su Google. Dimmi quali campi mappare da quale modulo.</span></div><div class="etichetta">Messaggio 7 · la prova</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Fatto. Come faccio la prova? Voglio far girare lo scenario una volta su due recensioni vere già esistenti, leggere le email, e poi rimettere lo scenario in modo che da domani prenda solo le nuove.</span></div><div class="etichetta">Messaggio 7 bis · se la risposta non va bene</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Ecco la risposta che ha prodotto: [incolla]. È troppo [formale / lunga / generica]. Correggi il system prompt e ridammelo intero da incollare.</span></div><div class="etichetta">Messaggio 8 · orario e accensione</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Funziona. Dimmi come impostare l&#x27;esecuzione ogni giorno alle 8:30 e accenderlo. Se ho una seconda struttura, dimmi come clonare lo scenario e cosa cambiare nel clone.</span></div><div class="etichetta">Messaggio 9 · il foglio da stampare</div><div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Scrivimi un foglio di una pagina da stampare: cosa fa questo automatismo, cosa fare quando arriva l&#x27;email, cosa fare se un giorno non arriva, dove si spegne, e cosa cambiare se cambia la scheda della struttura.</span></div>
+      <p><b>I testi pronti, campo per campo.</b> Per chi preferisce copiare direttamente, o per controllare quello che Claude ha detto.</p>
+      <p><b>Passo 1 · L&#x27;ID della scheda.</b> business.google.com, la vostra scheda, Impostazioni, Impostazioni avanzate: copiate l&#x27;«ID negozio» su un foglio.</p><p><b>Passo 2 · Il progetto Google.</b> console.cloud.google.com con lo stesso account. Accettate le condizioni, selettore dei progetti in alto, Nuovo progetto, nome «Recensioni [struttura]», Crea, e selezionatelo.</p><p><b>Passo 3 · Le tre API.</b> Menu a sinistra, API e servizi, Libreria. Cercate e abilitate, una alla volta: My Business Account Management API, My Business Business Information API, Google My Business API.</p><p><b>Passo 4 · La richiesta di accesso (il passo lento).</b> Cercate «Google Business Profile API richiedi accesso»: è un modulo ufficiale nella documentazione Google. Compilate con il numero del progetto, l&#x27;email della struttura, il sito e una riga sull&#x27;uso: «rispondere alle recensioni Google della nostra struttura». La risposta arriva in giorni, a volte settimane. Intanto si va avanti.</p><p><b>Passo 5 · Le chiavi.</b> API e servizi, Schermata consenso OAuth: tipo Esterno, nome app «Recensioni [struttura]», la vostra email, e in «Utenti di test» il vostro account Google. Poi Credenziali, Crea credenziali, ID client OAuth 2.0, tipo «Applicazione web», URI di reindirizzamento autorizzato: www.integromat.com/oauth/cb/google-my-business. Copiate ID client e Secret sul foglio.</p><p><b>Passo 6 · Lo scenario.</b> make.com, registrazione con la mail della struttura, piano gratuito. Scenarios, Create a new scenario. Nome: «Recensioni, proposta di risposta».</p><p><b>Passo 7 · Prima casella: Google legge.</b> Cercate «Google My Business», poi «Watch Reviews». Connessione: incollate ID client e Secret, accedete con l&#x27;account della scheda, Consenti (se dice «app non verificata»: Avanzate, procedi). Scegliete la vostra scheda, Limit 10. Orologio in basso a sinistra: ogni giorno alle 8:30. Tasto destro sulla casella, «Choose where to start», «From now on»: altrimenti la prima volta riprende tutte le recensioni vecchie.</p><p><b>Passo 7 bis · Se Google non ha ancora risposto.</b> Al posto della casella Google mettete «Tools», «Set multiple variables» con due variabili: starRating = FIVE; comment = una vostra recensione vera, copiata senza il nome. Il resto si costruisce uguale. Quando arriva l&#x27;ok di Google si sostituisce la casella.</p><p><b>Passo 8 · Il filtro.</b> Cliccate il trattino tra la prima e la seconda casella. Nome «Solo senza risposta». Condizione: campo Review Reply, Comment, operatore «Does not exist». Con la casella finta non serve: si aggiunge quando si mette Google.</p><p><b>Passo 9 · Seconda casella: Claude scrive.</b> Cercate «Anthropic Claude», poi «Create a Prompt». Per la connessione serve una chiave: console.anthropic.com, Billing con 5 euro di credito, API keys, Create key. Model: Claude Sonnet. Max tokens: 300. Nel System prompt incollate le istruzioni qui sotto, con la vostra scheda. Nel messaggio mettete due righe: «Stelle:» con il campo starRating e «Recensione:» con il campo comment. Il nome di chi ha scritto (displayName) non si clicca mai. Senza chiave: la casella «Simple Text Prompt» di Make usa i crediti del piano gratuito, con regole e recensione in un campo unico.</p>
+      <div class="etichetta">Le istruzioni dell'agente, per il passo 9</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Sei l&#x27;assistente di [nome struttura] e scrivi le bozze di risposta alle recensioni Google. Chi le legge e le pubblica è una persona della struttura.
+
+Regole:
+- Rispondi nella lingua della recensione.
+- Massimo 80 parole, frasi corte, niente emoji, niente punti esclamativi a raffica.
+- Ringrazia per una cosa precisa che l&#x27;ospite ha scritto. Se ci sono solo stelle, due righe di ringraziamento e un invito a tornare.
+- Non nominare mai l&#x27;ospite, nemmeno se compare nel testo.
+- Non promettere rimborsi, sconti, omaggi, upgrade.
+- Non inventare servizi, prezzi o orari che non sono nella scheda.
+- Se le stelle sono 1 o 2: riconosci il punto senza discutere, una sola scusa, invita a scrivere a [email] o chiamare [telefono], tono calmo, niente giustificazioni lunghe.
+- Firma: [nome struttura].
+
+Dai solo il testo della risposta, pronto da incollare: nessuna premessa, nessuna spiegazione, nessuna virgoletta. Tono: quello della scheda qui sotto.
+
+SCHEDA DELLA STRUTTURA
+[incollare la scheda]</span></div>
+      <p><b>Passo 10 · Terza casella: l&#x27;email.</b> Cercate «Gmail», «Send an Email», connessione con il vostro account. To: la mail della struttura. Subject: Nuova recensione Google, proposta di risposta. Nel contenuto il testo qui sotto, con i campi presi dal pannello.</p>
+      <div class="etichetta">Il testo della mail, per il passo 10</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">RECENSIONE ({{starRating}})
+{{comment}}
+
+RISPOSTA PROPOSTA (leggere, correggere, poi incollare)
+{{testo di Claude}}
+
+Dove pubblicarla: business.google.com, recensioni, Rispondi.
+Se le stelle sono 1 o 2, prima di rispondere chiamare l&#x27;ospite.</span></div>
+      <p><b>Passo 11 · La prova.</b> «Run once» in basso a sinistra: le caselle si accendono una dopo l&#x27;altra. Aprite la posta: recensione e proposta nella stessa mail. Se il tono non va, correggete una riga delle istruzioni e riprovate.</p><p><b>Passo 12 · Accendere.</b> Interruttore «Scheduling» su ON. Da domani alle 8:30 arriva la mail solo se c&#x27;è una recensione nuova. Voi leggete, correggete, incollate su Google. Con 1 o 2 stelle, prima una telefonata.</p>
+      <p>Da sapere: nel flusso passano solo recensioni già pubbliche, senza il nome di chi scrive. La risposta la pubblica una persona. La pubblicazione automatica è un passo successivo: solo quando le proposte girano da un mese senza correzioni grosse.</p>
+
+      <h2>4 · L'assistente su misura</h2>
+      <p>Si costruisce nel Progetto «La mia struttura», quello con la scheda del 20 ottobre. Nei documenti del Progetto si carica un file con listino, regole della casa e domande frequenti. Alle istruzioni si aggiunge questa riga.</p>
+      <div class="etichetta">Da aggiungere alle istruzioni</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Sei l&#x27;assistente di [nome struttura]. Rispondi alle domande di chi lavora qui e prepara le risposte per gli ospiti usando solo la scheda e i documenti del Progetto: listino, regole della casa, domande frequenti. Se la risposta non è nei documenti scrivi «Questo non lo so: va chiesto a [nome]» e non inventare. Per i prezzi indica da quale riga del listino li prendi e ricorda che la disponibilità va verificata sul gestionale. Tono della scheda. Risposte brevi.</span></div>
+      <p>Se il file non lo avete, lo scrive Claude intervistandovi, come per la scheda. Il listino lo aggiungete voi in cima, oppure caricate il PDF che avete già.</p>
+      <div class="etichetta">L'intervista per scrivere il file</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Devo scrivere il file con le regole della casa e le domande frequenti della mia struttura. Fammi dieci domande, una alla volta: orari di arrivo e di partenza, arrivi tardi, animali, colazione, parcheggio, cancellazione, pagamenti, bambini, cosa non offriamo, la domanda che gli ospiti fanno più spesso. Alla fine scrivi il file in ordine, con i titoli REGOLE DELLA CASA e DOMANDE FREQUENTI. Dove non ho risposto scrivi [DA COMPLETARE].</span></div>
+      <div class="etichetta">Tre domande di prova</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Un ospite chiede: posso arrivare alle 23? · Accettate cani? Ho un labrador di 30 chili. · Quanto costa una tripla a Pasqua per due notti?</span></div>
+      <div class="etichetta">La domanda trabocchetto</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Fate uno sconto a chi resta una settimana?</span></div>
+      <p>Il trabocchetto è una domanda su una cosa che nel file non c'è: l'assistente deve rispondere che non lo sa. Se inventa, manca la riga nelle istruzioni. L'assistente è per voi e per chi lavora con voi: la risposta all'ospite la rileggete e la mandate voi. Se un giorno risponderà da solo agli ospiti, l'ospite dovrà sapere che parla con un'AI.</p>
+
+      <h2>Due richieste in più</h2>
+      <div class="etichetta">Lo sconto, spiegato all'ospite</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Un ospite scrive che ha trovato un prezzo più basso da un&#x27;altra parte e chiede lo sconto. Scrivi una risposta nel tono della scheda, massimo 100 parole: niente sconto, spiega con garbo cosa è compreso nel nostro prezzo e cosa trova prenotando direttamente. Prezzi tra parentesi quadre.</span></div>
+      <div class="etichetta">Il report per il commercialista</div>
+      <div class="prompt"><button type="button" class="copia">Copia</button><span class="pt">Dallo stesso file fammi una versione del report per il commercialista: incassi del mese per canale, numero di soggiorni, prezzo medio, confronto con il mese precedente. Solo tabella, niente consigli.</span></div>
+
+      <h2>File di esempio · il calendario degli eventi</h2>
+      <div class="prompt file"><button type="button" class="copia">Copia</button><span class="pt">CALENDARIO DEGLI EVENTI · FILE DI ESEMPIO (per l&#x27;Albergo Esempio, tutto inventato nelle date dei congressi)
+Una riga per evento: date, nome, quanta gente porta. Dove la data non è certa: «da confermare».
+
+5-8 dicembre 2026 · Ponte dell&#x27;Immacolata · festività, molta gente da fuori regione
+5-6 dicembre 2026 · Fiera Antiquaria · evento della città, molta gente
+12-13 dicembre 2026 · Mercatini di Natale · weekend, gente dalla regione
+19-20 dicembre 2026 · Mercatini di Natale · weekend, gente dalla regione
+24-26 dicembre 2026 · Natale e Santo Stefano · festività
+31 dicembre 2026 - 1 gennaio 2027 · Capodanno · festività, molta gente
+2-3 gennaio 2027 · Fiera Antiquaria · evento della città, molta gente
+6 gennaio 2027 · Epifania · festività
+20-22 gennaio 2027 · Congresso al centro fiere · da confermare, circa 300 partecipanti
+6-7 febbraio 2027 · Fiera Antiquaria · evento della città, molta gente
+13-14 febbraio 2027 · San Valentino · weekend, coppie
+</span></div>
+
+      <h2>File di esempio · i prezzi dei concorrenti</h2>
+      <div class="prompt file"><button type="button" class="copia">Copia</button><span class="pt">PREZZI DEI CONCORRENTI · FILE DI ESEMPIO (tutto inventato)
+Presi a mano dai portali il 23 novembre 2026. Camera doppia, una notte, colazione inclusa dove indicato.
+
+LA MIA STRUTTURA (Albergo Esempio: hotel 3 stelle, 20 camere, 2 km dal centro, parcheggio gratuito, colazione inclusa)
+Sabato 5 dicembre: 115 euro · Martedì 8 dicembre: 79 euro · Domenica 27 dicembre: 115 euro · Venerdì 15 gennaio: 79 euro
+Prezzo minimo sotto cui non scendo: 65 euro. Camere già vendute su 20: 5 dicembre 18 · 8 dicembre 8 · 27 dicembre 10 · 15 gennaio 3
+
+CONCORRENTE A · hotel 3 stelle, centro storico, colazione inclusa, parcheggio a pagamento
+5 dicembre: 139 · 8 dicembre: 125 · 27 dicembre: 119 · 15 gennaio: 85
+
+CONCORRENTE B · hotel 4 stelle, centro storico, colazione inclusa
+5 dicembre: 189 · 8 dicembre: 169 · 27 dicembre: 159 · 15 gennaio: 109
+
+CONCORRENTE C · B&amp;B, centro storico, 3 camere, colazione inclusa
+5 dicembre: 120 · 8 dicembre: 110 · 27 dicembre: esaurito · 15 gennaio: 75
+
+CONCORRENTE D · agriturismo a 8 km, piscina (chiusa in inverno), colazione inclusa
+5 dicembre: 110 · 8 dicembre: 105 · 27 dicembre: 130 (minimo 2 notti) · 15 gennaio: 70
+
+CONCORRENTE E · hotel 3 stelle, zona stazione, colazione a parte (8 euro)
+5 dicembre: 99 · 8 dicembre: 95 · 27 dicembre: 92 · 15 gennaio: 72
+
+EVENTI NELLE QUATTRO DATE
+5 dicembre: Fiera Antiquaria e primo giorno del ponte dell&#x27;Immacolata · 8 dicembre: Immacolata, ultimo giorno del ponte · 27 dicembre: domenica tra Natale e Capodanno · 15 gennaio: nessun evento
+</span></div>
+
+      <h2>File di esempio · listino, regole e domande frequenti</h2>
+      <div class="prompt file"><button type="button" class="copia">Copia</button><span class="pt">ALBERGO ESEMPIO · LISTINO, REGOLE DELLA CASA E DOMANDE FREQUENTI
+File di esempio, tutto inventato. Serve a chi non ha ancora il proprio: si carica nei documenti del Progetto «La mia struttura».
+
+CHI SIAMO
+Albergo Esempio, hotel 3 stelle a conduzione familiare, 20 camere, a 2 km dal centro storico. Parcheggio gratuito, colazione inclusa, giardino. Ospiti: coppie e famiglie in visita alla città, chi viaggia per lavoro. Non abbiamo ristorante, spa, piscina, navetta. Tono: cordiale e diretto.
+
+LISTINO 2026-2027 (a notte, colazione inclusa, tassa di soggiorno esclusa)
+Bassa stagione (7 gennaio - 31 marzo, novembre, 1 - 23 dicembre): singola 59 · doppia 79 · tripla 99 · quadrupla 115
+Media stagione (aprile - giugno, settembre - ottobre): singola 69 · doppia 95 · tripla 119 · quadrupla 139
+Alta stagione (luglio - agosto, ponti, weekend della Fiera Antiquaria, 24 dicembre - 6 gennaio): singola 79 · doppia 115 · tripla 139 · quadrupla 159
+Pasqua 2027 (26 - 29 marzo): tariffe di alta stagione, minimo 2 notti.
+Culla: gratuita. Letto aggiunto in doppia: 25 euro. Cane: 10 euro a soggiorno.
+Tassa di soggiorno: [importo da verificare ogni anno] a persona a notte.
+
+REGOLE DELLA CASA
+Check-in dalle 14:00 alle 21:00. Dopo le 21:00 solo avvisando entro le 18:00: lasciamo la chiave nella cassetta con codice. Dopo mezzanotte non è possibile.
+Check-out entro le 10:30. Deposito bagagli gratuito fino alle 18:00.
+Colazione dalle 7:30 alle 10:00. Senza glutine su richiesta il giorno prima.
+Cani ammessi fino a 15 kg, uno per camera, non in sala colazione. Altri animali: no.
+Vietato fumare in camera. Silenzio dalle 23:00 alle 7:00.
+Cancellazione gratuita fino a 3 giorni prima dell&#x27;arrivo; dopo, si paga la prima notte. Tariffa non rimborsabile: meno 10%.
+Pagamento: carta, bancomat, contanti nei limiti di legge. Non accettiamo assegni.
+
+DOMANDE FREQUENTI
+Il parcheggio è custodito? No, è un parcheggio privato scoperto, gratuito, non custodito.
+C&#x27;è la ricarica per auto elettriche? No. La colonnina più vicina è a 600 metri.
+Come si arriva in centro? A piedi 25 minuti, autobus ogni 20 minuti con fermata a 100 metri.
+Avete camere per persone con disabilità? Due camere al piano terra con bagno attrezzato.
+Si può cenare? Non abbiamo ristorante. Consigliamo tre locali a pochi minuti: chiedete alla reception.
+C&#x27;è l&#x27;aria condizionata? Sì, in tutte le camere. Wi-Fi gratuito.
+Si possono lasciare le biciclette? Sì, in un deposito chiuso.
+Fate fattura? Sì, chiedendola all&#x27;arrivo.
+</span></div>
+
+    </div>
+    <p class="nota"><a href="../dispense.html">Torna alle dispense</a></p>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span>Michele Passalacqua — mipassalacqua.it</span>
+    <span>Hospitality · Temporary management · AI</span>
+    <span><a href="../../privacy.html">Informativa privacy</a> · <a href="#" data-mp-prefs>Preferenze cookie</a></span>
+  </div>
+</footer>
+
+<div id="mp-consent" role="dialog" aria-label="Preferenze cookie"><div class="in"><p>Uso cookie di misurazione per capire quali campagne pubblicitarie portano contatti. Puoi accettarli o rifiutarli: il sito funziona allo stesso modo. <a href="../../privacy.html">Informativa</a></p><div class="b"><button type="button" id="mp-no">Rifiuta</button><button type="button" id="mp-yes" class="ok">Accetta</button></div></div></div>
+<script>
+(function(){var el=document.getElementById('mp-consent');if(!el)return;var s=null;try{s=localStorage.getItem('mp_consent');}catch(e){}
+if(!s){el.style.display='block';}
+function set(v){try{localStorage.setItem('mp_consent',v);}catch(e){}
+gtag('consent','update',v==='granted'?{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'}:{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+el.style.display='none';}
+document.getElementById('mp-yes').addEventListener('click',function(){set('granted');});
+document.getElementById('mp-no').addEventListener('click',function(){set('denied');});
+document.querySelectorAll('[data-mp-prefs]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();el.style.display='block';});});})();
+document.querySelectorAll('.copia').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('.pt').textContent;
+function ok(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia';},1800);}
+function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(a);}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok).catch(fb);}else{fb();}});});
+</script>
+</body>
+</html>

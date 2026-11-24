@@ -1,0 +1,24 @@
+PREZZI DEI CONCORRENTI · FILE DI ESEMPIO (tutto inventato)
+Presi a mano dai portali il 23 novembre 2026. Camera doppia, una notte, colazione inclusa dove indicato.
+
+LA MIA STRUTTURA (Albergo Esempio: hotel 3 stelle, 20 camere, 2 km dal centro, parcheggio gratuito, colazione inclusa)
+Sabato 5 dicembre: 115 euro · Martedì 8 dicembre: 79 euro · Domenica 27 dicembre: 115 euro · Venerdì 15 gennaio: 79 euro
+Prezzo minimo sotto cui non scendo: 65 euro. Camere già vendute su 20: 5 dicembre 18 · 8 dicembre 8 · 27 dicembre 10 · 15 gennaio 3
+
+CONCORRENTE A · hotel 3 stelle, centro storico, colazione inclusa, parcheggio a pagamento
+5 dicembre: 139 · 8 dicembre: 125 · 27 dicembre: 119 · 15 gennaio: 85
+
+CONCORRENTE B · hotel 4 stelle, centro storico, colazione inclusa
+5 dicembre: 189 · 8 dicembre: 169 · 27 dicembre: 159 · 15 gennaio: 109
+
+CONCORRENTE C · B&B, centro storico, 3 camere, colazione inclusa
+5 dicembre: 120 · 8 dicembre: 110 · 27 dicembre: esaurito · 15 gennaio: 75
+
+CONCORRENTE D · agriturismo a 8 km, piscina (chiusa in inverno), colazione inclusa
+5 dicembre: 110 · 8 dicembre: 105 · 27 dicembre: 130 (minimo 2 notti) · 15 gennaio: 70
+
+CONCORRENTE E · hotel 3 stelle, zona stazione, colazione a parte (8 euro)
+5 dicembre: 99 · 8 dicembre: 95 · 27 dicembre: 92 · 15 gennaio: 72
+
+EVENTI NELLE QUATTRO DATE
+5 dicembre: Fiera Antiquaria e primo giorno del ponte dell'Immacolata · 8 dicembre: Immacolata, ultimo giorno del ponte · 27 dicembre: domenica tra Natale e Capodanno · 15 gennaio: nessun evento

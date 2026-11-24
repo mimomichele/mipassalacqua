@@ -1,0 +1,14 @@
+CALENDARIO DEGLI EVENTI · FILE DI ESEMPIO (per l'Albergo Esempio, tutto inventato nelle date dei congressi)
+Una riga per evento: date, nome, quanta gente porta. Dove la data non è certa: «da confermare».
+
+5-8 dicembre 2026 · Ponte dell'Immacolata · festività, molta gente da fuori regione
+5-6 dicembre 2026 · Fiera Antiquaria · evento della città, molta gente
+12-13 dicembre 2026 · Mercatini di Natale · weekend, gente dalla regione
+19-20 dicembre 2026 · Mercatini di Natale · weekend, gente dalla regione
+24-26 dicembre 2026 · Natale e Santo Stefano · festività
+31 dicembre 2026 - 1 gennaio 2027 · Capodanno · festività, molta gente
+2-3 gennaio 2027 · Fiera Antiquaria · evento della città, molta gente
+6 gennaio 2027 · Epifania · festività
+20-22 gennaio 2027 · Congresso al centro fiere · da confermare, circa 300 partecipanti
+6-7 febbraio 2027 · Fiera Antiquaria · evento della città, molta gente
+13-14 febbraio 2027 · San Valentino · weekend, coppie
